@@ -51,9 +51,6 @@ export class Navbar extends Component {
                             <Link to = '/reviews' class="menu-button">Reviews</Link>
                         </li>
                     </ul>
-                    
-                    
-                    
                 </div>
                 
                 <ul class="navbar-nav nav-right-btn">

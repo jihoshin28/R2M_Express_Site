@@ -23,43 +23,39 @@ export class Home extends Component {
                     </div>
         
                 </div> */}
+
+                        <HomeSection>
+                            <div className = "col-8">
+                                <img className = "homeSectionPic" src= "https://img1.mashed.com/img/gallery/grocery-delivery-services-ranked-from-worst-to-first/intro-1585162312.jpg"/> 
+                            </div>  
+                            <div className = "col-4">
+                                <h4> Header 1</h4>
+                                <p> Text 1</p> 
+                            </div> 
+                        </HomeSection>
                 
-                
-                
-                       
-                        
-                            <HomeSection>
-                                <div className = "col-8">
-                                    <img className = "homeSectionPic" src= "https://img1.mashed.com/img/gallery/grocery-delivery-services-ranked-from-worst-to-first/intro-1585162312.jpg"/> 
-                                </div>  
-                                <div className = "col-4">
-                                    <h4> Header 1</h4>
-                                    <p> Text 1</p> 
-                                </div> 
-                            </HomeSection>
-                    
-                            <HomeSection>
-                                <div className = "col-4">
-                                    <h4> Header 2</h4>
-                                    <p> Text 2</p> 
-                                </div> 
-                                <div className = "col-8">
-                                    <img className="homeSectionPic" src="https://www.gannett-cdn.com/media/2017/06/14/TennGroup/Knoxville/636330432728891184-instacart-0056.jpg?width=640" />
-                                </div>
-                            </HomeSection>
-                            <HomeSection>
-                                <div className = "col-8"> 
-                                    <img className="homeSectionPic" src= "https://images.squarespace-cdn.com/content/v1/5bbd07174d546e20297c2ac0/1585075655832-JX0T0UXFFHOM1RWZUCZ8/ke17ZwdGBToddI8pDm48kDHPSfPanjkWqhH6pl6g5ph7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0mwONMR1ELp49Lyc52iWr5dNb1QJw9casjKdtTg1_-y4jz4ptJBmI9gQmbjSQnNGng/photo-1542838132-92c53300491e.jpg?format=1500w"/>
-                                </div>
-                                <div className = "col-4">
-                                    <h5>Organized shopping experience</h5>
-                                    <p>
-                                        Items are searchable by section or by name so you can quickly find the items you want to add to your order.
-                                    </p>
-                                </div> 
-                            </HomeSection>
-                            <HomeSection>
-                                <div class = "quote-form">
+                        <HomeSection>
+                            <div className = "col-4">
+                                <h4> Header 2</h4>
+                                <p> Text 2</p> 
+                            </div> 
+                            <div className = "col-8">
+                                <img className="homeSectionPic" src="https://www.gannett-cdn.com/media/2017/06/14/TennGroup/Knoxville/636330432728891184-instacart-0056.jpg?width=640" />
+                            </div>
+                        </HomeSection>
+                        <HomeSection>
+                            <div className = "col-8"> 
+                                <img className="homeSectionPic" src= "https://images.squarespace-cdn.com/content/v1/5bbd07174d546e20297c2ac0/1585075655832-JX0T0UXFFHOM1RWZUCZ8/ke17ZwdGBToddI8pDm48kDHPSfPanjkWqhH6pl6g5ph7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0mwONMR1ELp49Lyc52iWr5dNb1QJw9casjKdtTg1_-y4jz4ptJBmI9gQmbjSQnNGng/photo-1542838132-92c53300491e.jpg?format=1500w"/>
+                            </div>
+                            <div className = "col-4">
+                                <h5>Organized shopping experience</h5>
+                                <p>
+                                    Items are searchable by section or by name so you can quickly find the items you want to add to your order.
+                                </p>
+                            </div> 
+                        </HomeSection>
+                        <HomeSection>
+                            <div class = "quote-form">
                                 <div class="banner">
                                     <h1>Get a quote</h1>
                                 </div>
@@ -96,8 +92,8 @@ export class Home extends Component {
                                 </form>
                             </div>
                         </HomeSection>
-            </div>
-        )
+                </div>
+            )
     }
 }
 
