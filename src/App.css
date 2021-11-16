@@ -800,16 +800,23 @@
 }
 
 .nav-list:hover{
+  
   background-position:left bottom;
 }
 
 .nav-right {
+  color:black; 
+  margin-left: 2em; 
+  font-size: 1em;
+  padding-left: 12px;
+  padding-right: 12px;
   transition: all .2s ease-in-out;
-
+  border-radius: 3px;
+  background-color: rgb(130, 212, 37)
 }
 
 .nav-right:hover { 
-  transform: scale(1.5); 
+  transform: scale(1.1); 
 }
 
 .nav-logo{
