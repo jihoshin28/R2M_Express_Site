@@ -67,7 +67,8 @@ class App extends Component  {
               <div className = "col-6">
                
                   <div className = "footer-logo">
-                    <img class = "footer-icon" src= {'https://www.upackhaulers.com/wp-content/uploads/2021/02/LOGO.png'}></img> 
+                    <img class = "footer-icon" src=  {process.env.PUBLIC_URL + '/upack_logo.png'}></img> 
+                    <h3>Upack Haulers</h3>
                   </div>
                 
               </div>

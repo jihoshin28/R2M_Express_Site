@@ -34,8 +34,8 @@ export class Navbar extends Component {
             <nav class="navbar navbar-expand-lg navbar-expand-med navbar-expand-sm nav-bg">
             
                 <div class="collapse navbar-collapse " id="navbarNav">
-                    <Link class='header-logo' to={'/'}>
-                        <img class="header-icon" src={'https://www.upackhaulers.com/wp-content/uploads/2021/02/LOGO.png'}></img>
+                    <Link class='nav-logo' to={'/'}>
+                        <img class="nav-icon" src={process.env.PUBLIC_URL + '/upack_logo.png'}></img>
                     </Link>
                
                     <ul class="navbar-nav">
