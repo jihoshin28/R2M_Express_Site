@@ -67,14 +67,13 @@ class App extends Component  {
               <div className = "col-6">
                
                   <div className = "footer-logo">
-                    <img class = "footer-icon" src= {process.env.PUBLIC_URL + '/bread_basket_icon.jpg'}></img> 
-                    <h3>BreadBasket</h3>
+                    <img class = "footer-icon" src= {'https://www.upackhaulers.com/wp-content/uploads/2021/02/LOGO.png'}></img> 
                   </div>
                 
               </div>
               <div className = "col-6">
-                <h5>© 2020 BreadBasket</h5>
-                <h5>Allen Shin</h5>
+                <h5>Copyright © 2021</h5>
+                <h5>All rights reserved</h5>
               </div>
             </div> 
           </div> 

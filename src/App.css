@@ -690,24 +690,22 @@
 }
 
 .footer{
-  height: 10rem;
+  height: 5rem;
   position: absolute;
   width: 100%;
   bottom: 0;
-  border-radius: 100% / 50% 50% 0 0;
-  background-color: rgb(130, 212, 37);
-  padding-bottom: 30px;
+  border-radius: 100% / 100% 100% 0 0;
+  background-color: rgb(37, 63, 212);
+  padding-bottom: 0px;
 }
-
 
 .footer-curve{
   height: 100px;
-  border-radius: 100% / 70% 70% 0 0 ;
-  background: rgb(130, 212, 37);
+  border-radius: 100% / 70% 70% 0 0;
+  background: rgb(37, 63, 212);
   -webkit-box-shadow: 0px -3px 2px rgba(167, 167, 167, 0.842);
   -moz-box-shadow: 0px -3px 2px rgba(167, 167, 167, 0.842);
   box-shadow: 0px -3px 2px rgba(167, 167, 167, 0.842);
-  
 }
 
 .footer-logo{
@@ -717,7 +715,7 @@
 
 .footer-row{
   align-items: center;
-  background-color: rgb(130, 212, 37);
+  background-color: rgb(37, 63, 212);
   padding-bottom: 70px;
 }
 
@@ -731,17 +729,16 @@
 }
 
 .header-icon{
-  width: 80%;
-  height: 80%;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   -webkit-box-shadow: 0px 0 5px rgba(99, 99, 99, 0.842)
 }
 
 .footer-icon{
-  width: 15%;
-  height: 15%;
-  border-radius: 50%;
-  -webkit-box-shadow: 0px 0 5px rgba(99, 99, 99, 0.842)
+  width: 20%;
+  height: 20%;
+
 }
 
 .mapSearchComponent{
@@ -765,13 +762,17 @@
   transition-timing-function: ease;
   cursor: pointer;
   display: block;
-  color: black;
+  color: white;
   font-weight: 300;
   line-height: 30px;
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
   width: 100%; 
+}
+
+.menu-button:hover{
+  color: white;
 }
 
 .mapBackButton{
@@ -782,17 +783,17 @@
 }
 
 .nav-bg{
-  background-color: rgb(130, 212, 37);
+  background-color: rgb(37, 63, 212);
   -webkit-box-shadow: 0px 0 5px rgba(99, 99, 99, 0.842)
 }
 
 .nav-list{
   color:black; 
-  margin-left: .5em; 
+  margin-left: 1.5em; 
   font-size: 1em;
-  padding-left: 10px;
+  padding-left: 12px;
   padding-right: 12px;
-  background: linear-gradient(to left, rgb(130, 212, 37) 50%, white 50%);
+  background: linear-gradient(to left, rgb(37, 63, 212) 50%, rgb(130, 212, 37) 50%);
   background-size: 201% 100%;
   background-position:right bottom;
   transition: all 500ms ease-in-out;
@@ -803,8 +804,8 @@
   background-position:left bottom;
 }
 
-.nav-list a :hover{
-  color:black;
+.nav-right {
+
 }
 
 .category-btn {

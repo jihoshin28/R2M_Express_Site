@@ -28,24 +28,16 @@ export class Navbar extends Component {
     // }
 
     render() {
-        let cart_length
-        if(isEmpty(this.props.cartItems) || !this.props.cartItems){
-            cart_length = 0
-        } else {
-            cart_length = Object.keys(this.props.cartItems).length
-        }
+        
         return ( 
             
             <nav class="navbar navbar-expand-lg navbar-expand-med navbar-expand-sm nav-bg">
             
-                   
-               
                 <div class="collapse navbar-collapse " id="navbarNav">
                     <Link class='header-logo' to={'/'}>
-                        <img class="header-icon" src={'/bread_basket_icon.jpg'}></img>
+                        <img class="header-icon" src={'https://www.upackhaulers.com/wp-content/uploads/2021/02/LOGO.png'}></img>
                     </Link>
                
-                    
                     <ul class="navbar-nav">
                         <li class="nav-item nav-list active">
                             <Link to = "/" class="menu-button">Home</Link>
@@ -69,8 +61,8 @@ export class Navbar extends Component {
                 
                 <ul class="navbar-nav nav-right-btn">
                     <li class="nav-item nav-list">    
-                        <Link class="menu-button" to='/cart'>
-                            BOOK AN APPOINTMENT
+                        <Link class= "menu-button" to='/book'>
+                            Book an appointment
                         </Link>
                     </li>
                 </ul>
