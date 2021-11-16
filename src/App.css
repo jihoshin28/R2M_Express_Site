@@ -628,7 +628,7 @@
   display: block;
 }
 
-.the_list_text{
+.the_list_text { 
   position:absolute; 
   max-width: 134rem !important;
   margin: 0 auto !important;
@@ -637,13 +637,13 @@
 }
 
 
-.homeMain{
+.homeMain {
   position: relative;
   display: flex;
   justify-content: flex-end;
 }
 
-.homeMain h1{
+.homeMain h1 {
   top: 45%;
   left: 37%;
   color: white; 
@@ -651,14 +651,14 @@
   z-index: 1;
 }
 
-.homeMainPic{
+.homeMainPic {
   height: 70%;
   width: 70%;
   background-color: rgb(255, 255, 255);
   -webkit-box-shadow: 0px 0 5px rgba(99, 99, 99, 0.842)
 }
 
-.homeSectionPic{
+.homeSectionPic {
   height: 100%;
   width: 100%;
   background-color: rgb(255, 255, 255);
@@ -666,10 +666,14 @@
   -webkit-box-shadow: 0px 0 5px rgba(99, 99, 99, 0.842)
 }
 
-.homeRow{
+.homeRow {
   justify-content: center;
   align-items: center;
   margin: 10%; 
+}
+
+.homeSection{
+  margin: 10%;
 }
 
 .transition{
@@ -679,11 +683,6 @@
 
 .transition.appear{
   opacity:1;
-}
-
-.homeSection{
-  margin: 10%;
-  
 }
 
 .storeLogoBubble{

@@ -26,24 +26,22 @@ export class Home extends Component {
                 
                 
                 
-                <div class = "container">            
+                <div>            
                         
                             <HomeSection>
                                 <div className = "col-8">
                                     <img className = "homeSectionPic" src= "https://img1.mashed.com/img/gallery/grocery-delivery-services-ranked-from-worst-to-first/intro-1585162312.jpg"/> 
                                 </div>  
                                 <div className = "col-4">
-                                    <h4> Convenient service</h4>
-                                    <p> Orders made on BreadBasket are made available for drivers in real time for quick and painless delivery. </p> 
+                                    <h4> Header 1</h4>
+                                    <p> Text 1</p> 
                                 </div> 
                             </HomeSection>
                     
                             <HomeSection>
                                 <div className = "col-4">
-                                    <h4>Update your orders live</h4>
-                                    <p>
-                                        Any last minute changes you want to make to your order? You can notify your driver on any changes you want to make on any current orders. 
-                                    </p> 
+                                    <h4> Header 2</h4>
+                                    <p> Text 2</p> 
                                 </div> 
                                 <div className = "col-8">
                                     <img className="homeSectionPic" src="https://www.gannett-cdn.com/media/2017/06/14/TennGroup/Knoxville/636330432728891184-instacart-0056.jpg?width=640" />
@@ -60,7 +58,7 @@ export class Home extends Component {
                                     </p>
                                 </div> 
                             </HomeSection>
-                        <h1>Make your first order today!</h1>
+                        <h1>Get a quote</h1>
                         <div >
                             {
                                 !!this.props.signedIn ? 
