@@ -65,12 +65,10 @@ class App extends Component  {
           <div class = 'footer-div'>
             <div className = "row footer-row">
               <div className = "col-6">
-               
-                  <div className = "footer-logo">
-                    <img class = "footer-icon" src=  {process.env.PUBLIC_URL + '/upack_logo.png'}></img> 
-                    <h3>Upack Haulers</h3>
-                  </div>
-                
+                <div className = "footer-logo">
+                  <img class = "footer-icon" src=  {process.env.PUBLIC_URL + '/upack_logo.png'}></img> 
+                  <h3>Upack Haulers</h3>
+                </div>
               </div>
               <div className = "col-6">
                 <h5>Copyright © 2021</h5>

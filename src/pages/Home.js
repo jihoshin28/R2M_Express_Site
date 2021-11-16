@@ -26,7 +26,7 @@ export class Home extends Component {
                 
                 
                 
-                <div>            
+                       
                         
                             <HomeSection>
                                 <div className = "col-8">
@@ -58,19 +58,44 @@ export class Home extends Component {
                                     </p>
                                 </div> 
                             </HomeSection>
-                        <h1>Get a quote</h1>
-                        <div >
-                            {
-                                !!this.props.signedIn ? 
-                                <Link to = '/orderpage'>
-                                    Get Started
-                                </Link>
-                                :
-                                <h3>But first, please sign in!</h3>
-                            }
-                        </div>
-                            
-                </div>
+                            <HomeSection>
+                                <div class = "quote-form">
+                                <div class="banner">
+                                    <h1>Get a quote</h1>
+                                </div>
+                                <form>
+                                    <div class="form-group">
+                                        <label for="quote-form-name"><h3>Full Name</h3></label>
+                                        <input type="text" class="form-control" id="quote-form-name" placeholder="Your Full Name"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="quote-form-number"><h3>Email Address</h3></label>
+                                        <input type="text" class="form-control" id="quote-form-number" placeholder="Your Email Address"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="quote-form-phoneNumber"><h3>Phone Number</h3></label>
+                                        <input type="phone" class="form-control" id="quote-form-phoneNumber" placeholder="Your Phone Number"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="quote-form-moveOption"><h3>Select Move Option</h3></label>
+                                        <select class="form-control" id="quote-form-moveOption">
+                                            <option>Select move size</option>
+                                            <option>studio</option>
+                                            <option>1 bedroom</option>
+                                            <option>2 bedrooms</option>
+                                            <option>3 bedrooms</option>
+                                            <option>4 bedrooms</option>
+                                            <option>5 bedrooms</option>
+                                            <option>6 bedrooms</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="quote-form-comments"><h3>Comments</h3></label>
+                                        <textarea class="form-control" id="quote-form-comments" rows="3"></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                        </HomeSection>
             </div>
         )
     }
