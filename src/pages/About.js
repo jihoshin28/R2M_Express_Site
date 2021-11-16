@@ -7,8 +7,36 @@ export class About extends Component {
     }
     render() {
         return (
-            <div class = "App-margin container">
-                <h1>About</h1>
+            <div >
+            
+            <div class="header">
+                <div class = "header-margin">
+                    <h1 class= "header-banner">About Us</h1>
+                </div>
+                {/* <a href="#" class="header-link">Link</a> */}
+            </div>
+
+            <div class = "about">
+                <div class = "about-text">
+                    <h1>
+                        Everything Packed with care.
+                    </h1> 
+                    <p>
+                        When your Upack Haulers Relocation Specialist is planning a move for you, 
+                        we take everything into account. We have been relocating individuals and 
+                        families for over a decade. We understand the stress a move can put on you, 
+                        your significant other/roommate, your kids, and even the family pet. U-pack 
+                        haulers is a moving company out of Fremont in the Bay Area that serves Fremont 
+                        and every city around Fremont that offers each and every customer individualized 
+                        attention and offer our expertise and advice to make sure your move goes smoothly.
+                    </p>
+                </div>
+
+                <div class = "about-pic">
+                    <img style = {{width: '100%'}} src = {"https://i0.wp.com/movingtips.wpengine.com/wp-content/uploads/2017/07/moving-labor.jpg"}></img>
+                </div>
+            </div>
+                {/* <h1>About</h1>
                 <div className = "aboutDiv">
                     <div class = "row aboutBox">
                         <div class = "col-4">
@@ -47,7 +75,7 @@ export class About extends Component {
                             </div> 
                         </div>     
 
-                </div>
+                </div> */}
             </div>
                 
 

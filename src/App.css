@@ -13,6 +13,9 @@
   
 }
 
+/* primary color rgb(37, 63, 212); */
+/* secondary color rgb(130, 212, 37) */
+
 @media screen and (max-width: 992px) {
   
 }
@@ -755,7 +758,7 @@
   padding-left: 2%; 
 }
 
-.menu-button {
+.nav-button {
   transition-property: all;
   transition-duration: .6s;
   transition-timing-function: ease;
@@ -770,15 +773,8 @@
   width: 100%; 
 }
 
-.menu-button:hover{
+.nav-button:hover{
   color: white;
-}
-
-.mapBackButton{
-  position: absolute;
-  z-index: 10;
-  margin-top: 1%;
-  left: 10%;
 }
 
 .nav-bg{
@@ -829,50 +825,6 @@
   height: 80%;
 }
 
-.category-btn {
-  font-size: 15px;
-  letter-spacing: 0;
-  max-width: 160px; 
-}
-
-.category-btn:hover,
-.category-btn:active {
-  color: black; 
-  letter-spacing: 1px;
-}
-
-.category-btn:after {
-  backface-visibility: hidden;
-  border: none;
-  content: "";
-  display: block;
-  margin: 0 auto;
-  transition: all 280ms ease-in-out;
-  width: 0;
-}
-
-.category-btn:hover:after {
-  color: black;
-  border: 1px solid black;
-  backface-visibility: visible;
-  border-color: black;
-  transition: width 350ms ease-in-out;
-  width: 100%;
-}
-
-.foodCategoryNav{
-  margin-top: 2%;
-  background: linear-gradient(right, rgba(255,255,255,0), rgba(255,255,255,1));
-  padding: 1%;
-  padding-left: 10%; 
-  padding-right: 10%;
-}
-
-.mapSearchComponent > :nth-child(2){
-  margin-left: 2%;
-  margin-bottom: 5%;  
-}
-
 .quote-form {
   width: 70%;
   padding: 3%;
@@ -893,11 +845,55 @@
   text-align: center;
 }
 
-/* .banner::after {
-  content: "";
-  background-color: rgba(0, 0, 0, 0.4); 
-  position: absolute;
-  width: 100%;
-  height: 100%;
-} */
+.header {
+  background: rgb(130, 212, 37); ;
+  height: auto;
+  padding: 50px 50px;
+}
 
+.header-margin {
+  padding: 5%;
+  padding-left: 10%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.header-banner {
+  color: white;
+  font-family: Arial;
+  text-align: center;
+}
+
+.header-link {
+  display: block;
+  text-align: center;
+  width: 150px;
+  margin: 0px auto;
+  padding: 20px;
+  color: white;
+  text-transform: uppercase;
+  font-family: Arial;
+  border: 1px solid #fff;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+.about {
+  display: flex;
+  justify-content: flex-start; 
+}
+
+.about-text {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 3%;
+  width: 40%;
+}
+
+.about-pic {
+  width: 60%;
+  height: 70%;
+  padding: 3%;
+}

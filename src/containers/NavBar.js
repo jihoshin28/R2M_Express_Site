@@ -37,28 +37,28 @@ export class Navbar extends Component {
                
                     <ul class="navbar-nav">
                         <li class="nav-item nav-list active">
-                            <Link to = "/" class="menu-button">Home</Link>
+                            <Link to = "/" class="nav-button">Home</Link>
                         </li>
                             
                         <li class="nav-item nav-list">
-                            <Link to = "/about" class="menu-button">About Us</Link>
+                            <Link to = "/about" class="nav-button">About Us</Link>
                         </li>
                                 
                         <li class="nav-item nav-list">
-                            <Link to = "/photos" class="menu-button">Photos</Link>
+                            <Link to = "/photos" class="nav-button">Photos</Link>
                         </li>
                         <li class="nav-item nav-list">
-                            <Link to = '/reviews' class="menu-button">Reviews</Link>
+                            <Link to = '/reviews' class="nav-button">Reviews</Link>
                         </li>
                         <li class="nav-item nav-list">
-                            <Link to = '/contact' class="menu-button">Contact Us</Link>
+                            <Link to = '/contact' class="nav-button">Contact Us</Link>
                         </li>
                     </ul>
                 </div>
                 
                 <ul class="navbar-nav nav-right-btn">
                     <li class="nav-item nav-right">    
-                        <Link class= "menu-button" to='/book'>
+                        <Link class= "nav-button" to='/book'>
                             Book Appointment
                         </Link>
                     </li>
