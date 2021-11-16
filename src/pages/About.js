@@ -9,20 +9,18 @@ export class About extends Component {
         return (
             <div class = "App-margin container">
                 <h1>About</h1>
-                <div className = "about-banner-div">
-                    {/* <img width = '400px' src= {aboutPic} alt='Profile pic here!'></img> */}
-
-                        <div class = "row aboutBox">
-                            <div class = "col-4">
-                                <h3>Get your grocery shopping done with BreadBasket!</h3>
-                                <p>
-                                    Browse from popular locations to shop for all your essential groceries and household items delievered straight to your door.
-                                </p>
-                            </div>
-                            <div class = "col-8">
-                                    <img src= "https://itk-assets.nyc3.digitaloceanspaces.com/2020/03/grocery-delivery-services-1024x690.jpg" style = {{width: "100%"}}></img>                            
-                            </div>
+                <div className = "aboutDiv">
+                    <div class = "row aboutBox">
+                        <div class = "col-4">
+                            <h3>Get your grocery shopping done with BreadBasket!</h3>
+                            <p>
+                                Browse from popular locations to shop for all your essential groceries and household items delievered straight to your door.
+                            </p>
                         </div>
+                        <div class = "col-8">
+                                <img src= "https://itk-assets.nyc3.digitaloceanspaces.com/2020/03/grocery-delivery-services-1024x690.jpg" style = {{width: "100%"}}></img>                            
+                        </div>
+                    </div>
 
 
                         <div class = "row aboutRow"> 

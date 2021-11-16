@@ -9,7 +9,7 @@ class About extends Component {
         return (
             <div class = "App-margin container">
                 <h1>Photos</h1>
-                <div className = "about-banner-div">
+                <div className = "aboutDiv">
                     {/* <img width = '400px' src= {aboutPic} alt='Profile pic here!'></img> */}
 
                         <div class = "row aboutBox">

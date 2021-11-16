@@ -50,13 +50,16 @@ export class Navbar extends Component {
                         <li class="nav-item nav-list">
                             <Link to = '/reviews' class="menu-button">Reviews</Link>
                         </li>
+                        <li class="nav-item nav-list">
+                            <Link to = '/contact' class="menu-button">Contact Us</Link>
+                        </li>
                     </ul>
                 </div>
                 
                 <ul class="navbar-nav nav-right-btn">
                     <li class="nav-item nav-right">    
                         <Link class= "menu-button" to='/book'>
-                            Book an appointment
+                            Book Appointment
                         </Link>
                     </li>
                 </ul>

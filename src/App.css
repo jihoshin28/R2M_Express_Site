@@ -52,17 +52,6 @@
   margin-bottom: 2px;
 }
 
-.about-banner-div{
-  background-color:rgb(130, 212, 37);
-  border-radius: 10px; 
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-bottom: 5%;
-  padding-top: .5%;
-  margin-top: 5%;
-  -webkit-box-shadow: 0px 0 3px rgba(99, 99, 99, 0.842);
-}
-
 .banner-div {
   background-color: rgb(130, 212, 37);
   border-radius: 10px; 
@@ -592,6 +581,17 @@
   100% { transform: rotate(360deg); }
 }
 
+.aboutDiv{
+  background-color:rgb(37, 63, 212);
+  border-radius: 10px; 
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 5%;
+  padding-top: .5%;
+  margin-top: 5%;
+  -webkit-box-shadow: 0px 0 3px rgba(99, 99, 99, 0.842);
+}
+
 .aboutRow {
   justify-content: space-between;
 }
@@ -600,7 +600,7 @@
   margin-top: 5%;
   padding: 5%;
   border-radius: 10px;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(130, 212, 37);
   border-radius: 10px;
   -webkit-box-shadow: 0px 0 5px rgba(99, 99, 99, 0.842)
 }
@@ -788,19 +788,18 @@
 
 .nav-list{
   color:black; 
-  margin-left: 2.3em; 
+  margin-left: 1em; 
   font-size: 1em;
   padding-left: 12px;
   padding-right: 12px;
   background: linear-gradient(to left, rgb(37, 63, 212) 50%, rgb(130, 212, 37) 50%);
-  background-size: 201% 100%;
+  background-size: 220% 100%;
   background-position:right bottom;
   transition: all 500ms ease-in-out;
   border-radius: 3px;
 }
 
 .nav-list:hover{
-  
   background-position:left bottom;
 }
 
