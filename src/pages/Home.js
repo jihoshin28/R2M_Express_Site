@@ -12,55 +12,21 @@ export class Home extends Component {
     render() {
         return (
             <div class = "App-margin">
-                <div class = "homeMain">
-                    <h1>
-                        Welcome to BreadBasket!
-                    </h1>
-                        <img class="homeMainPic" src='https://secureservercdn.net/45.40.150.81/0m4.91e.myftpupload.com/wp-content/uploads/2020/03/groceries-and-meat-image-1038x576.jpg' />
+                {/* <h1 class = "home_header">Upack Haulers gets the Job Done</h1> */}
+                <div class="the_list_item_image">
+                    <img alt="C &amp; D Moving Service Gets the Job Done" src="https://canddmovingservice.com/files/2014/04/boxes-2.jpg?w=1440&amp;h=598&amp;a=t" border="0" class="item_image"/>
                 </div>
-                
-                
-                <div class = "container">
-                    <div class = "homeSection">
-                        <div className = "row homeRow">
-                            <h1> 
-                                Shop from popular locations
-                            </h1>
-                            <p> 
-                                Get groceries delivered from all your favorite locations. We have a large variety of stores to pick from, for all your specific grocery needs.
-                            </p>
-                        </div> 
+                {/* <div class="the_list_text">
+                    <div class="the_list_item_heads">
+                        <h1 class="the_list_item_headline">Upack Haulers gets the job done</h1>
+                        <h3 class="the_list_item_subheadline">Moving services for the Bay Area</h3>
                     </div>
-                            <HomeSection>
-                                <div className = 'col-2'>
-                                    <div className = "storeLogoBubble">
-                                <img class="storeLogo" src= "https://images.barrons.com/im-78993?width=1280&size=1"/> 
-                                    </div>
-                                </div> 
-                                <div className='col-2'>
-                                <div className="storeLogoBubble">
-                                    <img class="storeLogo" src="https://sunrisemarketplace.com/wp-content/uploads/2020/03/3979_SMP-cvs-logo.jpg" />
-                                </div>
-                                </div> 
-                                <div className='col-2'>
-                                <div className="storeLogoBubble">
-                                    <img class="storeLogo" src="https://d2lnr5mha7bycj.cloudfront.net/store_configuration/logo/212/white_label_landing_page_6217c6f4-ca57-4174-b463-b5508f095889.png" />
-
-                                </div>
-                                </div> 
-                                <div className='col-2'>
-                                <div className="storeLogoBubble">
-                                    <img class="storeLogo" src="https://pbs.twimg.com/profile_images/1111764791503151104/2kXoX9z-.png" />
-
-                                </div>
-                                </div> 
-                                <div className='col-2'>
-                                <div className="storeLogoBubble">
-                                <img class="storeLogo" src="https://photos.prnewswire.com/prnfull/20140919/147279" />
-
-                                </div>
-                                </div> 
-                            </HomeSection>
+        
+                </div> */}
+                
+                
+                
+                <div class = "container">            
                         
                             <HomeSection>
                                 <div className = "col-8">

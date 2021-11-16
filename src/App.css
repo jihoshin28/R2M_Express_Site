@@ -10,7 +10,7 @@
 }
 
 .App-margin{
-  margin-top: 3%;
+  
 }
 
 @media screen and (max-width: 992px) {
@@ -620,8 +620,27 @@
   margin-bottom: 20%;
 }
 
+.the_list_item {
+  vertical-align: top;
+  width: 100%;
+  font-size: 0;
+  float: left;
+  display: block;
+}
+
+.the_list_text{
+  position:absolute; 
+  max-width: 134rem !important;
+  margin: 0 auto !important;
+
+  z-index: 1;
+}
+
+
 .homeMain{
   position: relative;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .homeMain h1{
@@ -633,11 +652,9 @@
 }
 
 .homeMainPic{
-  vertical-align: middle;  
-  height: 90%;
-  width: 90%;
+  height: 70%;
+  width: 70%;
   background-color: rgb(255, 255, 255);
-  border-radius: 10px;
   -webkit-box-shadow: 0px 0 5px rgba(99, 99, 99, 0.842)
 }
 

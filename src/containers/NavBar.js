@@ -2,15 +2,12 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import GoogleAuth from '../components/GoogleAuth'
 import { connect } from 'react-redux'
-import { getActiveOrders} from '../actions'
-import { isEmpty } from 'lodash'
-import NotificationBadge, { Effect } from 'react-notification-badge'
 
 export class Navbar extends Component {
     componentDidUpdate(prevState){
-        if(prevState.activeOrders.length != this.props.activeOrders.length){
-            this.props.getActiveOrders(this.props.shopperId)
-        }
+        // if(prevState.activeOrders.length != this.props.activeOrders.length){
+        //     this.props.getActiveOrders(this.props.shopperId)
+        // }
     }
 
     // renderUser = () => {
@@ -90,4 +87,4 @@ let mapStateToProps = (state) => {
     })
 }
 
-export default connect(mapStateToProps, { getActiveOrders})(Navbar)
+export default Navbar
