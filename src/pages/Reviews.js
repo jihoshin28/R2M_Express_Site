@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import aboutPic from '../public/logo192.png'
-class About extends Component {
+
+class Reviews extends Component {
     componentDidMount() {
         // this.props.testRoute(this.props.history)
     }
     render() {
         return (
             <div class = "App-margin container">
-                <h1>Photos</h1>
+                <h1>Reviews</h1>
                 <div className = "about-banner-div">
                     {/* <img width = '400px' src= {aboutPic} alt='Profile pic here!'></img> */}
 
@@ -63,4 +63,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(About)
+export default connect(mapStateToProps)(Reviews)

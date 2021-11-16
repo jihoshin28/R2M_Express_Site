@@ -6,10 +6,10 @@ import {
 import {connect} from 'react-redux'
 import './App.css';
 import NavBar from './containers/NavBar'
-import Home from './pages/Home'
 import About from './pages/About'
-
+import Home from './pages/Home'
 import Photos from './pages/Photos'
+import Reviews from './pages/Reviews'
 import Modal from './components/Modal'
 
 import {getStores, getCategories, signOut, startCart, getActiveOrders, getItems, selectStore, clearModal} from './actions'
@@ -33,6 +33,7 @@ class App extends Component  {
               <Route exact path={'/'} render={(props) => <Home {...props} />}></Route> 
               <Route exact path={'/about'} render={(props) => <About {...props} />} />
               <Route exact path={'/photos'} render={(props) => <Photos {...props} />} />
+              <Route exact path={'/reviews'} render={(props) => <Reviews {...props} />} />
         </div>
         <div class = "content-wrap"></div>
         <footer className="footer">
