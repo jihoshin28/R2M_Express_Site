@@ -47,9 +47,9 @@ const Modal = (props) => {
         if(!props.modal.item_pic && !props.modal.confirm && !props.modal.submit){
             return 
         } else if(props.modal.item_pic){
-            let item = props.modal.item_pic.data.attributes
+            
             return (
-                <ItemModal name = {item.name} image = {item.image} />
+                <ItemModal name = {"Picture"} image = {props.modal.item_pic} />
             )
         } else if(props.modal.confirm){
             return (

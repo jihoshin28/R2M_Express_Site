@@ -373,10 +373,8 @@ export const stripePayment = (event, stripePromise, checkoutItems) => async disp
 
 //MODAL ACTIONS
 
-export const itemPicModal = (item_id) => async dispatch => {
-    const response = await rails.get(`/items/${item_id}`)
-    console.log(response.data, "items")
-    dispatch({ type: 'ITEM_PIC_MODAL', payload: response.data })
+export const itemPicModal = (item_url) => async dispatch => {
+    dispatch({ type: 'ITEM_PIC_MODAL', payload: item_url })
 }
 
 export const addressModal = () => {
