@@ -9,9 +9,6 @@
   pointer-events: none;
 }
 
-.App-margin{
-  
-}
 
 /* primary color rgb(37, 63, 212); */
 /* secondary color rgb(130, 212, 37) */
@@ -75,26 +72,15 @@
   padding-left: 10px;
 }
 
-.roboFont{
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-}
 
-.titleFont{
-  font-family: 'sans-serif'
-}
+/* h1, h2, h3, h4 {
+  font-family: 'Roboto', 'sans-serif';
+   font-weight: 400; 
+} */
+
 
 .nav-bar{
   background-color: rgb(130, 212, 37);
-}
-
-.bottomContent{
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.2em;
-  border-radius: 1em;
-  margin-bottom: 3%;
-  margin-top: -2%;
-  padding: 2%;
 }
 
 .container{
@@ -508,7 +494,12 @@
 
 .contact {
   display: flex;
-  margin-top: 2%;
+  margin-top: 40px;
+}
+
+.contact-icon-text {
+  margin-top: 10px;
+  font-size: 1.2em;
 }
 
 .contact-info {
@@ -576,7 +567,7 @@
 }
 
 .gallery {
-  margin: 5%;
+  margin: 100px;
 }
 
 .gallery-header {
@@ -593,7 +584,7 @@
 }
 
 .reviews {
-  margin: 5%;
+  margin: 100px;
 }
 
 .review {

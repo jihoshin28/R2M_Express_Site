@@ -17,18 +17,18 @@ export class Contact extends Component {
 
                 <div class = "contact">
                     <div class = "contact-info">
-                        <h3 style = {{marginBottom: '7%'}}>Get in Touch</h3>
+                        <h2 style = {{marginBottom: '7%'}}>Get in Touch</h2>
                         <ul class="list-unstyled mb-0">
                             <li><i class="fas fa-map-marker-alt fa-2x"></i>
-                                <p>Fremont, California, United States</p>
+                                <p class= "contact-icon-text">Fremont, California, United States</p>
                             </li>
 
                             <li><i class="fas fa-phone mt-4 fa-2x"></i>
-                                <p>(510) 731-6322</p>
+                                <p class= "contact-icon-text">(510) 731-6322</p>
                             </li>
 
                             <li><i class="fas fa-envelope mt-4 fa-2x"></i>
-                                <p>upackhaulers@gmail.com</p>
+                                <p class= "contact-icon-text">upackhaulers@gmail.com</p>
                             </li>
                         </ul>
 

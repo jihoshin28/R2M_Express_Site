@@ -10,13 +10,13 @@ export class Home extends Component {
     
     render() {
         return (
-            <div class = "App-margin">
+            <div>
                 {/* <h1 class = "home_header">Upack Haulers gets the Job Done</h1> */}
 
                 {/* */}
                 <div class="home-header">
                     <div class = "header-margin">
-                        <h1 class= "header-banner">Welcome to Upack Haulers</h1>
+                        <h1 style= {{fontFamily: 'Roboto, sans-serif'}} class= "header-banner">Welcome to Upack Haulers</h1>
                         <h3 class= "header-banner">Your Premium East Bay Moving Service</h3>
                     </div>
                     {/* <a href="#" class="header-link">Link</a> */}
