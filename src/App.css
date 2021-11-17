@@ -879,8 +879,9 @@
 }
 
 .about {
+  margin-top: 5%;
   display: flex;
-  justify-content: flex-start; 
+
 }
 
 .about-text {
@@ -896,4 +897,73 @@
   width: 60%;
   height: 70%;
   padding: 3%;
+}
+
+.contact {
+  display: flex;
+
+}
+
+.contact-info {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 3%;
+  width: 40%;
+}
+
+.contact-form {
+  width: 60%;
+  height: 70%;
+  padding: 4%;
+  margin: 3%;
+  border-radius: 1em;
+  background-color: rgba(214, 214, 214, 0.842);
+  -webkit-box-shadow: 0px 0px 5px rgba(99, 99, 99, 0.842);
+}
+
+.contact-social {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 10%;
+  width: 50%;
+}
+
+.facebook {
+  width: 50px;
+  height: 50px;
+  background-color: #3b5998;
+  -webkit-box-shadow: 1px 1px 3px rgba(99, 99, 99, 0.842);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.twitter {
+  width: 50px;
+  height: 50px;
+  -webkit-box-shadow: 1px 1px 3px rgba(99, 99, 99, 0.842);
+  background-color: #55ace5;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.instagram {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  background: #f09433; 
+  -webkit-box-shadow: 1px 1px 3px rgba(99, 99, 99, 0.842);
+  background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+  background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+  background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1); 
 }

@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {
-  Route,
-  Router
+  Route
 } from "react-router-dom"
 import {connect} from 'react-redux'
 import './App.css';
 import NavBar from './containers/NavBar'
 import About from './pages/About'
+import Contact from './pages/Contact'
 import Home from './pages/Home'
 import Photos from './pages/Photos'
 import Reviews from './pages/Reviews'
@@ -32,6 +32,7 @@ class App extends Component  {
               <Modal history = {this.props.history} modal = {this.props.modal}/>
               <Route exact path={'/'} render={(props) => <Home {...props} />}></Route> 
               <Route exact path={'/about'} render={(props) => <About {...props} />} />
+              <Route exact path={'/contact'} render={(props) => <Contact {...props} />} />
               <Route exact path={'/photos'} render={(props) => <Photos {...props} />} />
               <Route exact path={'/reviews'} render={(props) => <Reviews {...props} />} />
         </div>
