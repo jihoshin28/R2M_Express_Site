@@ -1,58 +1,27 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import Review from '../components/Review'
 
-class Reviews extends Component {
+export class About extends Component {
     componentDidMount() {
         // this.props.testRoute(this.props.history)
     }
     render() {
         return (
-            <div class = "App-margin container">
-                <h1>Reviews</h1>
-                <div className = "aboutDiv">
-                    {/* <img width = '400px' src= {aboutPic} alt='Profile pic here!'></img> */}
+            <div>
+                <div class="header">
+                    <div class = "header-margin">
+                        <h1 class= "header-banner">Reviews</h1>
+                    </div>
+                    {/* <a href="#" class="header-link">Link</a> */}
+                </div>
 
-                        <div class = "row aboutBox">
-                            <div class = "col-4">
-                                <h3>Get your grocery shopping done with BreadBasket!</h3>
-                                <p>
-                                    Browse from popular locations to shop for all your essential groceries and household items delievered straight to your door.
-                                </p>
-                            </div>
-                            <div class = "col-8">
-                                    <img src= "https://itk-assets.nyc3.digitaloceanspaces.com/2020/03/grocery-delivery-services-1024x690.jpg" style = {{width: "100%"}}></img>                            
-                            </div>
-                        </div>
-
-
-                        <div class = "row aboutRow"> 
-                            <div class="col-4" >
-                                <div class = "aboutPicBox">
-                                <img class="aboutPic" src="https://voxytalksy.com/wp-content/uploads/2018/08/google-voxytalksy.png"/>
-                                </div>
-                                <h4>Google Authentication </h4>
-                                <p>Easily create an account with personal information by signing in with your personal Google account.</p>
-                            </div> 
-                            <div class="col-4">
-                                <div class="aboutPicBox">
-                                        <img class="aboutPic" src="https://localyse.eu/wp-content/uploads/2020/06/google_maps_featured_image-1024x597.jpg" />
-                                    </div>
-                                    <h4>Look for nearby stores</h4>
-                                    <p>Google Maps is available on BreadBasket to search for nearby available store locations. </p>
-                                </div> 
-                            <div class="col-4">
-                            <div class="aboutPicBox">
-                                <img class="aboutPic" src="https://ecommercebooth.com/wp-content/uploads/2020/08/paypal-vs-strirpe-for-ecommere-business-.png" />
-                                </div>
-                                <h4>Easy Payment</h4>
-                                <p>Pay for your order with either Stripe or Paypal for a convenient checkout experience</p>
-                            </div> 
-                        </div>     
-
+                <div class = "reviews">
+                    <h1 style = {{marginBottom: '5%'}}>Check out what our customers are saying about us!</h1>
+                    <Review name = {"Allen Shin"} city = {'Union City'} state = {'CA'} date = {"11/17/2021"} subject = {"Was great working with Luis."} text = {"The move was really fast and working with Luis, the operator of Upack Haulers was a painless process. Highly recommend!"} rating = {3} />
+                    <Review name = {"Wycliffe"} city = {'Fremont'} state = {'CA'} date = {"11/18/2021"} subject = {"Highly recommend Upack Haulers!"} text = {"Upack Haulers is quick and easy. Moving was a snap with them. Great Service!"} rating = {4} />
                 </div>
             </div>
-                
-
         )
     }
 }
@@ -63,4 +32,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(Reviews)
+export default connect(mapStateToProps)(About)

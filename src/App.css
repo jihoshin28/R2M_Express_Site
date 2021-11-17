@@ -310,7 +310,7 @@
 }
 
 .footer{
-  height: 5rem;
+  height: 5em;
   position: absolute;
   width: 100%;
   bottom: 0;
@@ -432,6 +432,14 @@
   border-radius: 2%;
   background-color: rgb(37, 63, 212);
   box-shadow: 0 0 20px 0 #095484; 
+}
+
+.quote-form-banner{
+  background-color: rgb(130, 212, 37);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px 0 #095484; 
+  margin-bottom: 30px;
 }
 
 .home-header {
@@ -582,4 +590,49 @@
   padding: 2%;
   border-radius: 1em;
   background-color: rgba(235, 235, 235, 0.842)
+}
+
+.reviews {
+  margin: 5%;
+}
+
+.review {
+  -webkit-box-shadow: 1px 1px 3px rgba(99, 99, 99, 0.842);
+  margin: 3em;
+  padding: 2.5em;
+  border-radius: 10px;
+  background-color:rgba(224, 224, 224, 0.842);
+  display: flex;
+  align-items: flex-start;
+  flex-flow: column;
+}
+
+.review-header {
+  display:flex;
+  flex-flow: column;
+  align-items: flex-start;
+}
+
+.review-rating{
+  display: flex;
+  margin-top: 25px;
+}
+
+.review-rating h4{
+  padding-left: 10px;
+}
+
+.review-content {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  margin-top: 25px;
+}
+
+.review-content h2 {
+  margin-bottom: 10px;
+}
+
+.review-content p {
+  font-size: 1.3em;
 }

@@ -55,7 +55,7 @@ export class Home extends Component {
                         </HomeSection>
                         <HomeSection>
                             <div class = "quote-form">
-                                <div class="banner">
+                                <div class="quote-form-banner">
                                     <h1>Get a quote</h1>
                                 </div>
                                 <form>
@@ -75,7 +75,7 @@ export class Home extends Component {
                                         <label for="quote-form-moveOption"><h3>Select Move Option</h3></label>
                                         <select class="form-control" id="quote-form-moveOption">
                                             <option>Select move size</option>
-                                            <option>studio</option>
+                                            <option>Studio</option>
                                             <option>1 bedroom</option>
                                             <option>2 bedrooms</option>
                                             <option>3 bedrooms</option>
@@ -86,7 +86,7 @@ export class Home extends Component {
                                     </div>
                                     <div class="form-group">
                                         <label for="quote-form-comments"><h3>Comments</h3></label>
-                                        <textarea class="form-control" id="quote-form-comments" rows="3"></textarea>
+                                        <textarea class="form-control" id="quote-form-comments" rows="5"></textarea>
                                     </div>
                                 </form>
                             </div>

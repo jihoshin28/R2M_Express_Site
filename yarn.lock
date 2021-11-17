@@ -9181,6 +9181,11 @@
     "prop-types" "~15.7.2"
     "resize-observer-polyfill" "^1.5.0"
 
+"react-rating-stars-component@^2.2.0":
+  "integrity" "sha512-A3lgLxumfFQQicKQmxacZ91fq/zRaVWlCPnVodJmJV6obvod4/yCotetN9WuyBiUfnKsEFDBo/8B85ocwmL7ng=="
+  "resolved" "https://registry.npmjs.org/react-rating-stars-component/-/react-rating-stars-component-2.2.0.tgz"
+  "version" "2.2.0"
+
 "react-redux@^7.2.0":
   "integrity" "sha512-T+VfD/bvgGTUA74iW9d2i5THrDQWbweXP0AVNI8tNd1Rk5ch1rnMiJkDD67ejw7YBKM4+REvcvqRuWJb7BLuEg=="
   "resolved" "https://registry.npmjs.org/react-redux/-/react-redux-7.2.1.tgz"
