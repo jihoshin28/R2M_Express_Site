@@ -8,7 +8,7 @@ import NavBar from './containers/NavBar'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Home from './pages/Home'
-import Photos from './pages/Photos'
+import Gallery from './pages/Gallery'
 import Reviews from './pages/Reviews'
 import Modal from './components/Modal'
 
@@ -33,7 +33,7 @@ class App extends Component  {
               <Route exact path={'/'} render={(props) => <Home {...props} />}></Route> 
               <Route exact path={'/about'} render={(props) => <About {...props} />} />
               <Route exact path={'/contact'} render={(props) => <Contact {...props} />} />
-              <Route exact path={'/photos'} render={(props) => <Photos {...props} />} />
+              <Route exact path={'/gallery'} render={(props) => <Gallery {...props} />} />
               <Route exact path={'/reviews'} render={(props) => <Reviews {...props} />} />
         </div>
         <div class = "content-wrap"></div>

@@ -45,7 +45,7 @@ export class Navbar extends Component {
                         </li>
                                 
                         <li class="nav-item nav-list">
-                            <Link to = "/photos" class="nav-button">Photos</Link>
+                            <Link to = "/gallery" class="nav-button">Gallery</Link>
                         </li>
                         <li class="nav-item nav-list">
                             <Link to = '/reviews' class="nav-button">Reviews</Link>

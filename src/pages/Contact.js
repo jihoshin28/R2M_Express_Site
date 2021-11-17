@@ -7,8 +7,7 @@ export class Contact extends Component {
     }
     render() {
         return (
-            <div >
-            
+            <div>
                 <div class="header">
                     <div class = "header-margin">
                         <h1 class= "header-banner">Contact Us</h1>
