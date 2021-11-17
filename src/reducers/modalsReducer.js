@@ -1,13 +1,13 @@
 let INITIAL_STATE = {
     submit: null,
     confirm: null,
-    item_pic: null
+    image: null
 }
 
 export default (state = INITIAL_STATE, action) => {
 
     if (action.type === 'ITEM_PIC_MODAL') {
-        return { ...state, item_pic: action.payload }
+        return { ...state, image: action.payload }
     }
 
     if(action.type === 'CLEAR_ITEM_PIC'){

@@ -1,14 +1,14 @@
 import React, {useState, useEffect} from 'react' 
 import {connect} from 'react-redux'
 import { clearModal } from '../actions'
-import ItemModal from './modals/ItemModal'
+import ItemModal from './modals/ImageModal'
 import ConfirmModal from './modals/ConfirmModal'
 import SubmitModal from './modals/SubmitModal'
 
 const Modal = (props) => {
     
     const[ref] = useState(React.createRef())
-    const[show] = useState("")
+ 
     
     useEffect(() => {
         console.log(props)
@@ -44,12 +44,12 @@ const Modal = (props) => {
     // }
 
     let renderContent = () => {
-        if(!props.modal.item_pic && !props.modal.confirm && !props.modal.submit){
+        if(!props.modal.image && !props.modal.confirm && !props.modal.submit){
             return 
-        } else if(props.modal.item_pic){
+        } else if(props.modal.image){
             
             return (
-                <ItemModal name = {"Picture"} image = {props.modal.item_pic} />
+                <ItemModal name = {"Picture"} image = {props.modal.image} />
             )
         } else if(props.modal.confirm){
             return (
@@ -63,7 +63,7 @@ const Modal = (props) => {
     }
         return (
             <div ref = {ref} class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true" >
-                <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role = "document">
                     {renderContent()}
                 </div>
             </div>
