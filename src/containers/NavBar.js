@@ -1,14 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import GoogleAuth from '../components/GoogleAuth'
-import { connect } from 'react-redux'
 
 export class Navbar extends Component {
-    // componentDidUpdate(prevState){
-    //     if(prevState.activeOrders.length != this.props.activeOrders.length){
-    //         this.props.getActiveOrders(this.props.shopperId)
-    //     }
-    // }
 
     render() {
         
@@ -49,28 +42,10 @@ export class Navbar extends Component {
                         </Link>
                     </li>
                 </ul>
-                
-                
-                {/* <GoogleAuth history = {this.props.history} /> */}
-                {/* <ul class="navbar-nav nav-right-btn">
-                    <li class="nav-item">
-                        {this.renderUser()}
-                    </li>
-                </ul> */}
 
             </nav>
         )
     }
-}
-
-let mapStateToProps = (state) => {
-    return ({
-        activeOrders: state.order.active_orders,
-        shopperId: state.auth.currentShopper.id,
-        signedIn: state.auth.signedIn,
-        userAuthPic: state.auth.currentShopper.image,
-        cartItems: state.cart.cart_items
-    })
 }
 
 export default Navbar
