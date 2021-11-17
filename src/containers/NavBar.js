@@ -4,23 +4,9 @@ import GoogleAuth from '../components/GoogleAuth'
 import { connect } from 'react-redux'
 
 export class Navbar extends Component {
-    componentDidUpdate(prevState){
-        // if(prevState.activeOrders.length != this.props.activeOrders.length){
-        //     this.props.getActiveOrders(this.props.shopperId)
-        // }
-    }
-
-    // renderUser = () => {
-    //     if(!!this.props.signedIn){   
-    //         return (
-    //             <div>
-    //                 <a class="nav-link">
-    //                     <Link to='/profile'>
-    //                         <img class="google-pic" alt="alt img" src={this.props.userAuthPic} />
-    //                     </Link>
-    //                 </a>
-    //             </div>
-    //         )
+    // componentDidUpdate(prevState){
+    //     if(prevState.activeOrders.length != this.props.activeOrders.length){
+    //         this.props.getActiveOrders(this.props.shopperId)
     //     }
     // }
 
