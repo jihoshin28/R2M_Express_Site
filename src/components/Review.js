@@ -46,10 +46,9 @@ const Review = ({name, date, city, state, subject, text, rating}) => {
                         </p>
                     </div>
                 </div> 
-                {/* <a href="#" class="header-link">Link</a> */}
-            </div>
 
-            
+                {/* <a href="#" class=dfdfdfdfdfdfd"header-link">Link</a> */}
+            </div>
         </div>
     )
 }
