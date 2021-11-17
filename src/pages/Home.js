@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import { Link } from 'react-router-dom'
 import HomeSection from '../components/HomeSection'
-// import aboutPic from '../public/logo192.png'
+
 export class Home extends Component {
     componentDidMount(){
         console.log(this.props.signedIn)
@@ -13,16 +12,16 @@ export class Home extends Component {
         return (
             <div class = "App-margin">
                 {/* <h1 class = "home_header">Upack Haulers gets the Job Done</h1> */}
-                <div class="the_list_item_image">
-                    <img alt="C &amp; D Moving Service Gets the Job Done" src="https://canddmovingservice.com/files/2014/04/boxes-2.jpg?w=1440&amp;h=598&amp;a=t" border="0" class="item_image"/>
-                </div>
-                {/* <div class="the_list_text">
-                    <div class="the_list_item_heads">
-                        <h1 class="the_list_item_headline">Upack Haulers gets the job done</h1>
-                        <h3 class="the_list_item_subheadline">Moving services for the Bay Area</h3>
+
+                {/* */}
+                <div class="home-header">
+                    <div class = "header-margin">
+                        <h1 class= "header-banner">Welcome to Upack Haulers</h1>
+                        <h3 class= "header-banner">Your Premium East Bay Moving Service</h3>
                     </div>
-        
-                </div> */}
+                    {/* <a href="#" class="header-link">Link</a> */}
+                </div>
+                
 
                         <HomeSection>
                             <div className = "col-8">
