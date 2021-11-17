@@ -373,7 +373,7 @@ export const stripePayment = (event, stripePromise, checkoutItems) => async disp
 
 //MODAL ACTIONS
 
-export const itemPicModal = (image) => async dispatch => {
+export const imageModal = (image) => async dispatch => {
     dispatch({ type: 'ITEM_PIC_MODAL', payload: image })
 }
 

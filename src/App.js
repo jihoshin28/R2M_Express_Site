@@ -64,7 +64,6 @@ class App extends Component  {
 let mapStateToProps = state => {
   return({
     shopperId: state.auth.currentShopper.id,
-    selectedStore: state.stores.selectedStore,
     modal: state.modals
   })
 }

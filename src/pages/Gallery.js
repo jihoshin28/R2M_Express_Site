@@ -2,126 +2,126 @@ import React, { Component} from 'react'
 import { connect } from 'react-redux'
 import ReactGallery from 'react-photo-gallery'
 import Image from '../components/Image'
-import ItemPic from '../components/ItemPic'
+import ItemPic from '../components/ImageLink'
 // import aboutPic from '../public/logo192.png'
 
 const photos = [
     {
-      src: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+      src: 'https://www.bedoyamoving.com/files/cms/slider-moving-services.jpg',
       width: 4,
       height: 3,
       title: "Title 1"
     },
     {
-      src: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+      src: 'https://www.bedoyamoving.com/files/cms/slider-moving-services.jpg',
       width: 4,
       height: 3,
       title: "Title 2"
     },
     {
-      src: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+      src: 'https://frick-transfer.com/wp-content/uploads/2016/08/moving.jpg',
       width: 1,
       height: 1,
       title: "Title 3"
     },
     {
-        src: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+        src: 'https://frick-transfer.com/wp-content/uploads/2016/08/moving.jpg',
         width: 1,
         height: 1,
         title: "Title 4"
     },
     {
-        src: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+        src: 'https://frick-transfer.com/wp-content/uploads/2016/08/moving.jpg',
         width: 1,
         height: 1,
         title: "Title 5"
     },
     {
-        src: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+        src: 'https://frick-transfer.com/wp-content/uploads/2016/08/moving.jpg',
         width: 1,
         height: 1,
         title: "Title 6"
     },
     {
-        src: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+        src: 'https://frick-transfer.com/wp-content/uploads/2016/08/moving.jpg',
         width: 1,
         height: 1,
         title: "Title 7"
     },
     {
-        src: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+        src: 'https://www.bedoyamoving.com/files/cms/slider-moving-services.jpg',
         width: 3,
         height: 2,
         title: "Title 8"
     },
     {
-        src: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+        src: 'https://www.bedoyamoving.com/files/cms/slider-moving-services.jpg',
         width: 1,
         height: 1,
         title: "Title 9"
     },
     {
-        src: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+        src: 'https://www.bedoyamoving.com/files/cms/slider-moving-services.jpg',
         width: 1,
         height: 1,
         title: "Title 10"
     },
     {
-        src: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+        src: 'https://www.bedoyamoving.com/files/cms/slider-moving-services.jpg',
         width: 1,
         height: 1,
         title: "Title 11"
     },
     {
-        src: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+        src: 'https://www.bedoyamoving.com/files/cms/slider-moving-services.jpg',
         width: 4,
         height: 3,
         title: "Title 12"
     },
     {
-        src: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+        src: 'https://frick-transfer.com/wp-content/uploads/2016/08/moving.jpg',
         width: 1,
         height: 1,
         title: "Title 13"
     },
     {
-        src: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+        src: 'https://frick-transfer.com/wp-content/uploads/2016/08/moving.jpg',
         width: 1,
         height: 1,
         title: "Title 14"
     },
     {
-        src: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+        src: 'https://www.bedoyamoving.com/files/cms/slider-moving-services.jpg',
         width: 3,
         height: 2,
         title: "Title 15"
     },
     {
-        src: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+        src: 'https://frick-transfer.com/wp-content/uploads/2016/08/moving.jpg',
         width: 1,
         height: 1,
         title: "Title 16"
     },
     {
-        src: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+        src: 'https://www.bedoyamoving.com/files/cms/slider-moving-services.jpg',
         width: 1,
         height: 1,
         title: "Title 17"
     },
     {
-        src: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+        src: 'https://www.bedoyamoving.com/files/cms/slider-moving-services.jpg',
         width: 1,
         height: 1,
         title: "Title 18"
     },
     {
-        src: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+        src: 'https://www.bedoyamoving.com/files/cms/slider-moving-services.jpg',
         width: 4,
         height: 3,
         title: "Title 19"
     },
     {
-        src: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+        src: 'https://frick-transfer.com/wp-content/uploads/2016/08/moving.jpg',
         width: 1,
         height: 1,
         title: "Title 20"

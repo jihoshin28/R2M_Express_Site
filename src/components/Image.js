@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ItemPic from '../components/ItemPic'
+import ImageLink from './ImageLink'
 
 // const Checkmark = ({ selected }) => (
 //     <div
@@ -76,7 +76,7 @@ const SelectedImage = ({
         className= "gallery-img-border"
       >
         {/* <Checkmark selected={isSelected ? true : false} /> */}
-        <ItemPic index = {index} image = {photo}/>
+        <ImageLink index = {index} image = {photo}/>
         <style>{`.gallery-img-border:hover{outline:2px solid #06befa}`}</style>
       </div>
     );
