@@ -16,9 +16,6 @@ export class Home extends Component {
     render() {
         return (
             <div>
-                {/* <h1 class = "home_header">Upack Haulers gets the Job Done</h1> */}
-
-                {/* */}
                 <div class="home-header">
                     <div class = "header-margin">
                         <h1 style= {{fontFamily: 'Roboto, sans-serif'}} class= "header-banner">Welcome to Upack Haulers</h1>
