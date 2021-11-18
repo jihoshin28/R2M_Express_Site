@@ -7,6 +7,11 @@ export class Home extends Component {
         console.log(this.props.signedIn)
         console.log("test")
     }
+
+    goToGetQuote = () => {
+        this.props.history.push('/get_quote')
+        this.props.history.go()
+    }
     
     render() {
         return (
@@ -146,7 +151,7 @@ export class Home extends Component {
                                     <textarea class="form-control" id="quote-form-comments" rows="5"></textarea>
                                 </div>
                             </form>
-                            <button style = {{backgroundColor: 'rgb(130, 212, 37)', padding: '15px', marginTop: '25px'}} className = "btn"><h3>Get a quote</h3></button> 
+                            <button onClick = {() => this.goToGetQuote()} style = {{backgroundColor: 'rgb(130, 212, 37)', padding: '15px', marginTop: '25px'}} className = "btn"><h3>Get a quote</h3></button> 
                         </div>
                     </HomeSection>
                 </div>

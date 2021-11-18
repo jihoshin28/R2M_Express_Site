@@ -5,13 +5,16 @@ import {
 import {connect} from 'react-redux'
 import './App.css';
 import NavBar from './containers/NavBar'
+import Modal from './components/Modal'
+
 import About from './pages/About'
+import AddReview from './pages/AddReview'
 import Contact from './pages/Contact'
 import Home from './pages/Home'
 import Gallery from './pages/Gallery'
+import GetQuote from './pages/GetQuote'
 import Reviews from './pages/Reviews'
-import AddReview from './pages/AddReview'
-import Modal from './components/Modal'
+
 
 import {getStores, getCategories, signOut, startCart, getActiveOrders, getItems, selectStore, clearModal} from './actions'
 
@@ -33,10 +36,11 @@ class App extends Component  {
               <Modal history = {this.props.history} modal = {this.props.modal}/>
               <Route exact path={'/'} render={(props) => <Home {...props} />}></Route> 
               <Route exact path={'/about'} render={(props) => <About {...props} />} />
+              <Route exact path={'/add_review'} render={(props) => <AddReview {...props} />} />
               <Route exact path={'/contact'} render={(props) => <Contact {...props} />} />
               <Route exact path={'/gallery'} render={(props) => <Gallery {...props} />} />
+              <Route exact path={'/get_quote'} render={(props) => <GetQuote {...props} />} />
               <Route exact path={'/reviews'} render={(props) => <Reviews {...props} />} />
-              <Route exact path={'/add_review'} render={(props) => <AddReview {...props} />} />
 
         </div>
         <div class = "body-wrap"></div>
