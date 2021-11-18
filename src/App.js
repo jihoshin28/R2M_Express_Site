@@ -36,7 +36,7 @@ class App extends Component  {
               <Route exact path={'/gallery'} render={(props) => <Gallery {...props} />} />
               <Route exact path={'/reviews'} render={(props) => <Reviews {...props} />} />
         </div>
-        <div class = "content-wrap"></div>
+        <div class = "body-wrap"></div>
         <footer className="footer">
           <div class = 'footer-curve'>
           </div> 
