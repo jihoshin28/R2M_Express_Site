@@ -1,20 +1,80 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import {items} from '../items'
 
 export class GetQuote extends Component {
+
+    constructor(props){
+        super(props)
+        this.state = {
+            items: []
+        }
+    }
     componentDidMount() {
         // this.props.testRoute(this.props.history)
+    }
+
+    changeCount = (e, key, type) => {
+        e.preventDefault()
+        if(this.state.items[key] === undefined){
+            if(type === '+'){
+                this.setState({
+                    items: [...this.state.items, {key: 1}]
+                })
+            } else {
+                return
+            }
+        } else {
+            let currentCount = this.state.items[key]
+            if(type === '+'){
+                this.setState({
+                    items: [...this.state.items, {key: currentCount + 1}]
+                })
+            } else {
+                this.setState({
+                    items: [...this.state.items, {key: currentCount - 1}]
+                })
+            }
+        }
+        
+    }
+
+    editCount = (key, count) => {
+        if(this.state.items === undefined){
+            this.setState({
+                items: [...this.state.items, {key: count}]
+            })
+        }
     }
 
     requestQuote = () => {
 
     }
 
-    changeCount = (key, count) => {
+    renderItems = () => {
+        let itemKeys = Object.keys(items)
+        return itemKeys.map((itemKey) => {
+            let item = items[itemKey]
+            return(
+                <div class="getQuote-item">
+                    <div>
+                        <h4>
+                            {item.name}
+                        </h4>
+                    </div>
 
+                    <div class = "row">
+                        <button class = "btn btn-danger" onClick = {(e) => this.changeCount(e, itemKey, '-')}>-</button> 
+                        <input onChange = {(e) => this.editCount(itemKey, e.target.value)}></input>
+                        <button class = "btn btn-primary" onClick = {(e) => this.changeCount(e, itemKey, '+')}>+</button> 
+                    </div>
+                </div>
+            ) 
+        })
     }
 
     render() {
+        console.log(this.state.items)
         return (
             <div class = "container">
                 <div class = "getQuote-header">
@@ -32,46 +92,7 @@ export class GetQuote extends Component {
                                         <div class = "getQuote-title">
                                             <h3>What items will you be moving?</h3>
                                         </div>
-                                        <div class="getQuote-item">
-                                            <div>
-                                                <h4>
-                                                    A Household Good - 1000 lbs 
-                                                </h4>
-                                            </div>
-
-                                            <div class = "row">
-                                                <button class = "btn btn-danger" onClick = {() => this.changeCount()}>-</button> 
-                                                <input onChange = {() => this.changeCount()}></input>
-                                                <button class = "btn btn-primary" onClick = {() => this.changeCount()}>+</button> 
-                                            </div>
-                                        </div>
-                                        <div class="getQuote-item">
-                                            <div>
-                                                <h4>
-                                                    A Household Good - 1000 lbs 
-                                                </h4>
-                                            </div>
-
-                                            <div class = "row">
-                                                <button class = "btn btn-danger" onClick = {() => this.changeCount()}>-</button> 
-                                                <input onChange = {() => this.changeCount()}></input>
-                                                <button class = "btn btn-primary" onClick = {() => this.changeCount()}>+</button> 
-                                            </div>
-                                        </div>
-                                        <div class="getQuote-item">
-                                            <div>
-                                                <h4>
-                                                    A Household Good - 1000 lbs 
-                                                </h4>
-                                            </div>
-
-                                            <div class = "row">
-                                                <button class = "btn btn-danger" onClick = {() => this.changeCount()}>-</button> 
-                                                <input onChange = {() => this.changeCount()}></input>
-                                                <button class = "btn btn-primary" onClick = {() => this.changeCount()}>+</button> 
-                                            </div>
-                                        </div>
-                                    
+                                        {this.renderItems()}
                                     
                                         <div class="row">
                                             <div class = "col-md-12">

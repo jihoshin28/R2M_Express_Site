@@ -358,6 +358,7 @@
   height: 580px;
   padding: 50px;
   width: 100%;
+  -webkit-box-shadow: 0px 0px 1px rgba(99, 99, 99, 0.842);
 }
 
 .home-services {
@@ -365,6 +366,7 @@
   display: flex;
   flex-flow: row;
   justify-content: space-around;
+
 }
 
 .home-services-col {
@@ -662,9 +664,11 @@
 
 .getQuote-item {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   padding: 5px;
+  padding-right: 30px;
+  padding-left: 10px; 
   background-color: white;
   margin-bottom: 10px;
   -webkit-box-shadow: 0px 0px 1px rgba(99, 99, 99, 0.842);
