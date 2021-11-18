@@ -5,16 +5,6 @@ import { connect } from 'react-redux'
 
 const Review = ({name, date, city, state, subject, text, rating}) => {
 
-    // const ratingChanged = (newRating) => {
-    //     console.log(newRating);
-    // };
-    // <ReactStars
-    //     count={5}
-    //     onChange={ratingChanged}
-    //     size={24}
-    //     activeColor= "#ffd700"
-    // />
-
     return (
         <div>
             <div class="review">

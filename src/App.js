@@ -10,6 +10,7 @@ import Contact from './pages/Contact'
 import Home from './pages/Home'
 import Gallery from './pages/Gallery'
 import Reviews from './pages/Reviews'
+import AddReview from './pages/AddReview'
 import Modal from './components/Modal'
 
 import {getStores, getCategories, signOut, startCart, getActiveOrders, getItems, selectStore, clearModal} from './actions'
@@ -35,6 +36,8 @@ class App extends Component  {
               <Route exact path={'/contact'} render={(props) => <Contact {...props} />} />
               <Route exact path={'/gallery'} render={(props) => <Gallery {...props} />} />
               <Route exact path={'/reviews'} render={(props) => <Reviews {...props} />} />
+              <Route exact path={'/add_review'} render={(props) => <AddReview {...props} />} />
+
         </div>
         <div class = "body-wrap"></div>
         <footer className="footer">

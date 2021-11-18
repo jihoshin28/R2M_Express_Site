@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 // import aboutPic from '../public/logo192.png'
 export class Contact extends Component {
     componentDidMount() {
-        // this.props.testRoute(this.props.history)
+        console.log(this.props.history)
     }
     render() {
         return (

@@ -600,3 +600,37 @@
 .review-content p {
   font-size: 1.3em;
 }
+
+.addReview{
+  -webkit-box-shadow: 0px 0px 3px rgba(99, 99, 99, 0.842);
+  padding: 50px;
+  border-radius: 5px;
+  margin-top: 50px;
+  background-color:rgba(240, 240, 240, 0.842);
+}
+
+.addReview-header{
+  display: flex;
+  margin-top: 50px;
+}
+
+.addReview-header h1 {
+  font-size: 2.5em;
+  color: rgb(109, 189, 17);
+}
+
+.rating-stars{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+  -webkit-box-shadow: 0px 0px 1.7px rgba(99, 99, 99, 0.842);
+  background-color:rgba(255, 255, 255, 0.842);
+  border-radius: 5px;
+  width: 185px;
+  height: 55px;
+}
+
+.rating-stars p {
+  margin-left: 12px;
+}

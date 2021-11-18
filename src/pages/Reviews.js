@@ -1,11 +1,20 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { useHistory } from "react-router-dom";
 import Review from '../components/Review'
+
+
 
 export class About extends Component {
     componentDidMount() {
-        // this.props.testRoute(this.props.history)
+        console.log(this.props.history)
     }
+
+    goToAddReview = () => {
+        this.props.history.push('/add_review')
+        this.props.history.go()
+    }
+
     render() {
         return (
             <div>
@@ -23,7 +32,7 @@ export class About extends Component {
                 </div>
                 <div>
                     <h2>Let us know what you think!</h2>
-                    <button style = {{backgroundColor: 'rgb(130, 212, 37)', padding: '15px', marginTop: '25px'}} className = "btn">Submit a Review</button> 
+                    <button onClick = {() => this.goToAddReview()} style = {{backgroundColor: 'rgb(130, 212, 37)', padding: '15px', marginTop: '25px'}} className = "btn"><h3>Submit a Review</h3></button> 
                 </div>
             </div>
         )
