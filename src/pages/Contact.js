@@ -24,7 +24,7 @@ export class Contact extends Component {
                             </li>
 
                             <li><i class="fas fa-phone mt-4 fa-2x"></i>
-                                <p class= "contact-icon-text">(510) 731-6322</p>
+                                <p class= "contact-icon-text">(510) 358-6351</p>
                             </li>
 
                             <li><i class="fas fa-envelope mt-4 fa-2x"></i>

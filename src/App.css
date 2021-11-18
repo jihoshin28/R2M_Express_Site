@@ -117,7 +117,7 @@
   font-size: 1em;
   padding-left: 12px;
   padding-right: 12px;
-  background: linear-gradient(to left, rgb(37, 63, 212) 50%, rgb(109, 189, 17); 50%);
+  background: linear-gradient(to left, rgb(37, 63, 212) 50%, rgb(109, 189, 17) 50%);
   background-size: 220% 100%;
   background-position:right bottom;
   transition: all 500ms ease-in-out;
@@ -446,13 +446,17 @@
   border-radius: 10px;
 }
 
+.about-bg {
+  background-color: rgb(50, 94, 238);
+}
+
 .about {
   margin-top: 5%;
   display: flex;
-
 }
 
 .about-text {
+  color: white; 
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -460,6 +464,11 @@
   padding-left: 3%;
   width: 40%;
 }
+
+.about-text p {
+  font-size: 1.3em;
+}
+
 
 .about-pic {
   width: 60%;
@@ -552,6 +561,7 @@
 }
 
 .gallery-pics {
+  background-color: rgb(50, 94, 238);
   -webkit-box-shadow: 1px 1px 3px rgba(99, 99, 99, 0.842);
   padding: 2%;
   border-radius: 1em;
