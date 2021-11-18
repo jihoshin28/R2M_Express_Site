@@ -7,7 +7,7 @@ export class GetQuote extends Component {
     constructor(props){
         super(props)
         this.state = {
-            items: []
+            items: {}
         }
     }
     componentDidMount() {
@@ -16,27 +16,33 @@ export class GetQuote extends Component {
 
     changeCount = (e, key, type) => {
         e.preventDefault()
-        if(this.state.items[key] === undefined){
-            if(type === '+'){
-                this.setState({
-                    items: [...this.state.items, {key: 1}]
-                })
-            } else {
-                return
-            }
+        let element = document.getElementById(key)
+        let newCount
+    
+        if(element.value == ""){
+            element.value = 1 
+            newCount = 1
         } else {
-            let currentCount = this.state.items[key]
+            let currentCount = parseInt(element.value)
             if(type === '+'){
-                this.setState({
-                    items: [...this.state.items, {key: currentCount + 1}]
-                })
-            } else {
-                this.setState({
-                    items: [...this.state.items, {key: currentCount - 1}]
-                })
+                element.value = currentCount + 1
+                newCount = currentCount + 1
+
+            } else if(type === "-"){
+                element.value = currentCount - 1
+                newCount = currentCount - 1
             }
         }
+
+        let current = this.state.items
+        let target = {}
+        target[key] = newCount
+        let newObject = Object.assign(current, target)
         
+        this.setState(prevState => ({
+            ...prevState, 
+            items: newObject
+        }))
     }
 
     editCount = (key, count) => {
@@ -65,7 +71,7 @@ export class GetQuote extends Component {
 
                     <div class = "row">
                         <button class = "btn btn-danger" onClick = {(e) => this.changeCount(e, itemKey, '-')}>-</button> 
-                        <input onChange = {(e) => this.editCount(itemKey, e.target.value)}></input>
+                        <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" id = {`${itemKey}`} onChange = {(e) => this.changeCount(e, itemKey, 'a')}></input>
                         <button class = "btn btn-primary" onClick = {(e) => this.changeCount(e, itemKey, '+')}>+</button> 
                     </div>
                 </div>
