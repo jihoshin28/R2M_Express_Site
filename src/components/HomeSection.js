@@ -29,7 +29,7 @@ let HomeSection = (props) => {
 
     return (
         <div>
-            <div ref = {ref} class = 'row home-section transition'>
+            <div ref = {ref} class = 'transition'>
                 {props.children}
             </div>
         </div>
