@@ -80,7 +80,7 @@ export class Contact extends Component {
                                     </div>
                                     <div class="row">
                                         <div class = "col-md-12">
-                                            <a class="btn" style = {{backgroundColor: "rgb(130, 212, 37)"}}onclick="document.getElementById('contact-form').submit();">Send</a>
+                                            <a class="btn" style = {{marginTop: '25px', padding: '15px', backgroundColor: "rgb(130, 212, 37)"}}><h3>Send Message</h3></a>
                                         </div>
                                         <div class="status"></div>
                                     </div>

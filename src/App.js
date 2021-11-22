@@ -16,16 +16,12 @@ import GetQuote from './pages/GetQuote'
 import Reviews from './pages/Reviews'
 
 
-import {getStores, getCategories, signOut, startCart, getActiveOrders, getItems, selectStore, clearModal} from './actions'
+import {getStores, getCategories, signOut, getActiveOrders, getItems, selectStore, clearModal} from './actions'
 
 class App extends Component  {
   
   componentDidMount(){
-    this.props.getStores()
-    this.props.getItems(1)
-    this.props.clearModal()
-    // this.props.getActiveOrders(this.props.shopperId)
-    console.log(this.props.items)
+
   }
   
   render (){
@@ -75,4 +71,4 @@ let mapStateToProps = state => {
   })
 }
 
-export default connect(mapStateToProps, {getStores, getCategories, signOut, startCart, getActiveOrders, getItems, selectStore, clearModal})(App)
+export default connect(mapStateToProps, {getStores, getCategories, signOut, getActiveOrders, getItems, selectStore, clearModal})(App)

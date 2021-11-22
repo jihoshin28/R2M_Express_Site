@@ -202,19 +202,19 @@ export class Home extends Component {
                             <div class = "quote-form col-5">
                                 <form>
                                     <div class="form-group">
-                                        <label for="quote-form-name"><h3>Full Name</h3></label>
+                                        <label class = "quote-form-label" for="quote-form-name"><h3>Full Name</h3></label>
                                         <input type="text" class="form-control" id="quote-form-name" placeholder="Your Full Name"/>
                                     </div>
                                     <div class="form-group">
-                                        <label for="quote-form-number"><h3>Email Address</h3></label>
+                                        <label class = "quote-form-label" for="quote-form-number"><h3>Email Address</h3></label>
                                         <input type="text" class="form-control" id="quote-form-number" placeholder="Your Email Address"/>
                                     </div>
                                     <div class="form-group">
-                                        <label for="quote-form-phoneNumber"><h3>Phone Number</h3></label>
+                                        <label class = "quote-form-label" for="quote-form-phoneNumber"><h3>Phone Number</h3></label>
                                         <input type="phone" class="form-control" id="quote-form-phoneNumber" placeholder="Your Phone Number"/>
                                     </div>
                                     <div class="form-group">
-                                        <label for="quote-form-moveOption"><h3>Select Move Option</h3></label>
+                                        <label class = "quote-form-label" for="quote-form-moveOption"><h3>Select Move Option</h3></label>
                                         <select class="form-control" id="quote-form-moveOption">
                                             <option>Select move size</option>
                                             <option>Studio</option>
@@ -227,7 +227,7 @@ export class Home extends Component {
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="quote-form-comments"><h3>Comments</h3></label>
+                                        <label class = "quote-form-label" for="quote-form-comments"><h3>Comments</h3></label>
                                         <textarea class="form-control" id="quote-form-comments" rows="5"></textarea>
                                     </div>
                                 </form>

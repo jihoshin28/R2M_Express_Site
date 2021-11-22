@@ -1,4 +1,4 @@
-import rails from '../services/Rails'
+import rails from '../services/Express'
 import categories from '../categories'
 
 //STORE ACTIONS
@@ -57,19 +57,20 @@ export const getItems = (store_id) => async dispatch => {
 
 //CART ACTIONS
 
-export const getCart = (cart_id) => async dispatch => {
-    const response = await rails.get(`/cart_items?cart_id=${cart_id}`)
-    let data = response.data
-    console.log(data.data)
-    dispatch({type: "GET_CART", payload: data.data})
-}
+// export const getQuotes = (cart_id) => async dispatch => {
+//     const response = await rails.get(`/cart_items?cart_id=${cart_id}`)
+//     let data = response.data
+//     console.log(data.data)
+//     dispatch({type: "GET_CART", payload: data.data})
+// }
 
-export const startCart = cartInfo => async dispatch => {
-    const response = await rails.post('/carts', {cart: cartInfo})
+export const createQuote = quoteInfo => async dispatch => {
+    console.log(quoteInfo)
+    const response = await rails.post('/quotes', {quoteInfo})
     let data = response.data
-    console.log(data.cart.data.attributes, 'cart')
-    localStorage.setItem('cart_token', data.jwt)
-    dispatch({ type: 'START_CART', payload: data.cart})
+    console.log(data, 'response')
+
+    dispatch({ type: 'CREATE_QUOTE', payload: data})
 }
 
 export const dropCart = cartId => async dispatch => {
@@ -81,9 +82,9 @@ export const dropCart = cartId => async dispatch => {
 
 //CART ITEM ACTIONS
 
-export const addCartItem = cartItemInfo => async dispatch => {
-    console.log(cartItemInfo)
-    const response = await rails.post('/cart_items', {cart_item: cartItemInfo})
+export const addQuoteItem = quoteItemInfo => async dispatch => {
+    console.log(quoteItemInfo)
+    const response = await rails.post('/cart_items', {quoteItemInfo})
     let data = response.data
     console.log(data.data, 'cart_item added')
     dispatch({ type: "ADD_CART_ITEM", 

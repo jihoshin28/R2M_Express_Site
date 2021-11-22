@@ -481,6 +481,10 @@
   margin-bottom: 30px;
 }
 
+.quote-form-label {
+  color: white;
+}
+
 .home-header {
   background-image: url("https://canddmovingservice.com/files/2014/04/boxes-2.jpg?w=1440&amp;h=598&amp;a=t");
   height: 550px;

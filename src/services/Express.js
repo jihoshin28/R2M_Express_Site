@@ -11,7 +11,7 @@ const headers = {
 }
 
 export default axios.create({
-    baseURL: 'https://bread-basket-backend.herokuapp.com',
+    baseURL: 'https://localhost:3000',
     headers: headers 
 })
 
