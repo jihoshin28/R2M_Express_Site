@@ -1,5 +1,4 @@
 import rails from '../services/Express'
-import categories from '../categories'
 
 //STORE ACTIONS
 export const getStores = () => async dispatch => {
@@ -17,15 +16,6 @@ export const selectStore = (store) => {
         type: 'SELECT_STORE',
         payload: store
     })
-}
-
-//CATEGORY ACTIONS
-
-export const getCategories = (store_id) => {
-    return {
-        type: 'GET_CATEGORIES',
-        payload: categories[store_id]
-    }
 }
 
 //ITEM ACTIONS

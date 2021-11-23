@@ -11,7 +11,7 @@ const headers = {
 }
 
 export default axios.create({
-    baseURL: 'https://localhost:3000',
+    baseURL: 'http://localhost:3000',
     headers: headers 
 })
 

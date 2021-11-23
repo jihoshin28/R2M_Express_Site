@@ -1,16 +1,34 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import HomeSection from '../components/HomeSection'
+import {createQuote} from '../actions'
 
 export class Home extends Component {
+
+    constructor(props){
+        super(props)
+        this.state = {
+
+        }
+    }
+
     componentDidMount(){
         console.log(this.props.signedIn)
         console.log("test")
     }
 
     goToGetQuote = () => {
-        this.props.history.push('/get_quote')
-        this.props.history.go()
+        // this.props.history.push('/get_quote')
+        // this.props.history.go()
+        this.props.createQuote(this.state)
+    }
+
+    inputChange = (e) => {
+        console.log(e.target.name, e.target.value)
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+        console.log(this.state)
     }
     
     render() {
@@ -203,19 +221,19 @@ export class Home extends Component {
                                 <form>
                                     <div class="form-group">
                                         <label class = "quote-form-label" for="quote-form-name"><h3>Full Name</h3></label>
-                                        <input type="text" class="form-control" id="quote-form-name" placeholder="Your Full Name"/>
+                                        <input onChange = {(e) => this.inputChange(e)} name = "name" type="text" class="form-control" id="quote-form-name" placeholder="Your Full Name"/>
                                     </div>
                                     <div class="form-group">
                                         <label class = "quote-form-label" for="quote-form-number"><h3>Email Address</h3></label>
-                                        <input type="text" class="form-control" id="quote-form-number" placeholder="Your Email Address"/>
+                                        <input onChange = {(e) => this.inputChange(e)} type="text" class="form-control" name = "email" id="quote-form-number" placeholder="Your Email Address"/>
                                     </div>
                                     <div class="form-group">
                                         <label class = "quote-form-label" for="quote-form-phoneNumber"><h3>Phone Number</h3></label>
-                                        <input type="phone" class="form-control" id="quote-form-phoneNumber" placeholder="Your Phone Number"/>
+                                        <input onChange = {(e) => this.inputChange(e)} type="phone" class="form-control" name = "phone" id="quote-form-phoneNumber" placeholder="Your Phone Number"/>
                                     </div>
                                     <div class="form-group">
                                         <label class = "quote-form-label" for="quote-form-moveOption"><h3>Select Move Option</h3></label>
-                                        <select class="form-control" id="quote-form-moveOption">
+                                        <select onChange = {(e) => this.inputChange(e)} name = "move_size" class="form-control" id="quote-form-moveOption">
                                             <option>Select move size</option>
                                             <option>Studio</option>
                                             <option>1 bedroom</option>
@@ -228,7 +246,7 @@ export class Home extends Component {
                                     </div>
                                     <div class="form-group">
                                         <label class = "quote-form-label" for="quote-form-comments"><h3>Comments</h3></label>
-                                        <textarea class="form-control" id="quote-form-comments" rows="5"></textarea>
+                                        <textarea onChange = {(e) => this.inputChange(e)} name = "comments" class="form-control" id="quote-form-comments" rows="5"></textarea>
                                     </div>
                                 </form>
                                 <button onClick = {() => this.goToGetQuote()} style = {{backgroundColor: 'rgb(130, 212, 37)', padding: '15px', marginTop: '25px'}} className = "btn"><h3>Get a quote</h3></button> 
@@ -246,4 +264,4 @@ let mapStateToProps= state => {
     })
 }
 
-export default connect(mapStateToProps)(Home)
+export default connect(mapStateToProps, {createQuote})(Home)
