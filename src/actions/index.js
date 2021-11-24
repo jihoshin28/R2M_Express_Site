@@ -62,6 +62,18 @@ export const postReview = reviewInfo => async dispatch => {
 }
 
 
+export const editReview = (reviewId, reviewInfo)=> async dispatch => {
+    const response = await rails.put(`/reviews/${reviewId}`, {reviewInfo})
+    let data = response.data
+    console.log(data)
+}
+
+export const deleteReview = (reviewId) => async dispatch => {
+    const response = await rails.delete(`/reviews/${reviewId}`)
+    let data = response.data
+    console.log(data)
+}
+
 //QUOTE ACTIONS
 
 export const createQuote = quoteInfo => async()  => {

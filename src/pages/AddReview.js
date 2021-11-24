@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import ReactStars from 'react-rating-stars-component'
-import { postReview } from '../actions'
+import { deleteReview } from '../actions'
 
 export class AddReview extends Component {
 
@@ -16,7 +16,7 @@ export class AddReview extends Component {
     }
     
     submitReview = () => {
-        this.props.postReview(this.state)
+        this.props.deleteReview(1)
     }
 
     ratingChanged = (newRating) => {
@@ -181,4 +181,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {postReview})(AddReview)
+export default connect(mapStateToProps, {deleteReview})(AddReview)
