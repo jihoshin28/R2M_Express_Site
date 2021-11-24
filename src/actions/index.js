@@ -45,7 +45,7 @@ export const getItems = (store_id) => async dispatch => {
 }
 
 
-//CART ACTIONS
+//QUOTE ACTIONS
 
 // export const getQuotes = (cart_id) => async dispatch => {
 //     const response = await rails.get(`/cart_items?cart_id=${cart_id}`)
@@ -54,20 +54,23 @@ export const getItems = (store_id) => async dispatch => {
 //     dispatch({type: "GET_CART", payload: data.data})
 // }
 
-export const createQuote = quoteInfo => async dispatch => {
+export const createQuote = quoteInfo => async()  => {
     console.log(quoteInfo)
     const response = await rails.post('/quotes', {quoteInfo})
     let data = response.data
-    console.log(data, 'response')
-
-    dispatch({ type: 'CREATE_QUOTE', payload: data})
+    console.log(data)
 }
 
-export const dropCart = cartId => async dispatch => {
-    const response = await rails.delete(`/carts/${cartId}`)
-    dispatch ({
-        type: 'DROP_CART'
-    })
+export const editQuote = (quoteId, quoteInfo) => async() => {
+    const response = await rails.put(`/quotes/${quoteId}`, {quoteInfo})
+    let data = response.data
+    console.log(data)
+}
+
+export const deleteQuote = quoteId => async() => {
+    const response = await rails.delete(`/quotes/${quoteId}`)
+    let data = response.data
+    console.log(data)
 }
 
 //CART ITEM ACTIONS

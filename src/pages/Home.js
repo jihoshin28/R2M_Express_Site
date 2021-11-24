@@ -24,11 +24,9 @@ export class Home extends Component {
     }
 
     inputChange = (e) => {
-        console.log(e.target.name, e.target.value)
         this.setState({
             [e.target.name]: e.target.value
         })
-        console.log(this.state)
     }
     
     render() {
