@@ -12,7 +12,7 @@ import AddReview from './pages/AddReview'
 import Contact from './pages/Contact'
 import Home from './pages/Home'
 import Gallery from './pages/Gallery'
-import GetQuote from './pages/GetQuote'
+import Items from './pages/Items'
 import Reviews from './pages/Reviews'
 
 
@@ -35,7 +35,7 @@ class App extends Component  {
               <Route exact path={'/add_review'} render={(props) => <AddReview {...props} />} />
               <Route exact path={'/contact'} render={(props) => <Contact {...props} />} />
               <Route exact path={'/gallery'} render={(props) => <Gallery {...props} />} />
-              <Route exact path={'/get_quote'} render={(props) => <GetQuote {...props} />} />
+              <Route exact path={'/items/:type'} render={(props) => <Items {...props} />} />
               <Route exact path={'/reviews'} render={(props) => <Reviews {...props} />} />
 
         </div>

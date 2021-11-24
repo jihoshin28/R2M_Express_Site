@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {items} from '../items'
 
-export class GetQuote extends Component {
+export class Items extends Component {
 
     constructor(props){
         super(props)
@@ -123,4 +123,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(GetQuote)
+export default connect(mapStateToProps)(Items)
