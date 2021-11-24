@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { useHistory } from "react-router-dom";
 import Review from '../components/Review'
 
 
 
-export class About extends Component {
+export class Reviews extends Component {
+
     componentDidMount() {
         console.log(this.props.history)
     }
@@ -45,4 +45,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(About)
+export default connect(mapStateToProps)(Reviews)

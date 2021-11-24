@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { cancelOrder } from '../../actions'
 
 class ConfirmModal extends React.Component {
 
@@ -10,7 +9,6 @@ class ConfirmModal extends React.Component {
 
     confirm = async (title, id) => {
         if(title === "Delete Order"){
-            await this.props.cancelOrder(id)
             window.location.reload()
         }
     }
@@ -36,4 +34,4 @@ class ConfirmModal extends React.Component {
     }
 }
 
-export default connect(null, {cancelOrder})(ConfirmModal)
+export default connect(null, {})(ConfirmModal)

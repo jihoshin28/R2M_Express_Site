@@ -16,7 +16,7 @@ import GetQuote from './pages/GetQuote'
 import Reviews from './pages/Reviews'
 
 
-import {getStores, signOut, getActiveOrders, getItems, selectStore, clearModal} from './actions'
+import {getStores, signOut, getItems, selectStore, clearModal} from './actions'
 
 class App extends Component  {
   
@@ -71,4 +71,4 @@ let mapStateToProps = state => {
   })
 }
 
-export default connect(mapStateToProps, {getStores, signOut, getActiveOrders, getItems, selectStore, clearModal})(App)
+export default connect(mapStateToProps, {getStores, signOut,  getItems, selectStore, clearModal})(App)
