@@ -9,6 +9,7 @@ import Modal from './components/Modal'
 
 import About from './pages/About'
 import AddReview from './pages/AddReview'
+import Book from './pages/Book'
 import Contact from './pages/Contact'
 import Home from './pages/Home'
 import Gallery from './pages/Gallery'
@@ -37,6 +38,7 @@ class App extends Component  {
               <Route exact path={'/'} render={(props) => <Home {...props} />}></Route> 
               <Route exact path={'/about'} render={(props) => <About {...props} />} />
               <Route exact path={'/add_review'} render={(props) => <AddReview {...props} />} />
+              <Route exact path={'/book'} render={(props) => <Book {...props} />} />
               <Route exact path={'/contact'} render={(props) => <Contact {...props} />} />
               <Route exact path={'/gallery'} render={(props) => <Gallery {...props} />} />
               <Route exact path={'/items/:type'} render={(props) => <Items {...props} />} />
