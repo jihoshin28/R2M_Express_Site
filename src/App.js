@@ -13,6 +13,10 @@ import Contact from './pages/Contact'
 import Home from './pages/Home'
 import Gallery from './pages/Gallery'
 import Items from './pages/Items'
+import Junk from './pages/Junk'
+import Labor from './pages/Labor'
+import Local from './pages/Local'
+import Long from './pages/Long'
 import Reviews from './pages/Reviews'
 
 
@@ -36,6 +40,10 @@ class App extends Component  {
               <Route exact path={'/contact'} render={(props) => <Contact {...props} />} />
               <Route exact path={'/gallery'} render={(props) => <Gallery {...props} />} />
               <Route exact path={'/items/:type'} render={(props) => <Items {...props} />} />
+              <Route exact path={'/junk'} render={(props) => <Junk {...props} />} />
+              <Route exact path={'/labor'} render={(props) => <Labor {...props} />} />
+              <Route exact path={'/local'} render={(props) => <Local {...props} />} />
+              <Route exact path={'/long'} render={(props) => <Long {...props} />} />
               <Route exact path={'/reviews'} render={(props) => <Reviews {...props} />} />
 
         </div>
