@@ -143,7 +143,6 @@ class Gallery extends Component {
 
     imageRenderer = ({ index, left, top, key, photo }) => (
         <Image
-          
           key={key}
           margin={"2px"}
           index={index}
