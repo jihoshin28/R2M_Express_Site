@@ -228,9 +228,9 @@ export class Home extends Component {
                                         <input onChange = {(e) => this.inputChange(e)} type="phone" class="form-control" name = "phone" id="quote-form-phoneNumber" placeholder="Your Phone Number"/>
                                     </div>
                                     <div class="form-group">
-                                        <label class = "quote-form-label" for="quote-form-moveOption"><h3>Select Move Option</h3></label>
+                                        <label class = "quote-form-label" for="quote-form-moveOption"><h3>Select Move Size</h3></label>
                                         <select onChange = {(e) => this.inputChange(e)} name = "move_size" class="form-control" id="quote-form-moveOption">
-                                            <option>Select move size</option>
+                                            <option>Select size</option>
                                             <option>Studio</option>
                                             <option>1 bedroom</option>
                                             <option>2 bedrooms</option>
