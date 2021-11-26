@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom'
 
 export class Navbar extends Component {
 
+    navigate = (route) => {
+
+    }
+
     render() {
         
         return ( 
@@ -25,21 +29,27 @@ export class Navbar extends Component {
                             <Link to = "/about" class="nav-button">
                                 About Us
                                 <ul class = "dropdown_menu dropdown_menu--animated dropdown_menu-6">
-                                    <li class="dropdown_item">
-                                        <a onClick = {() => console.log(1)}>Item 1</a>
-                                    </li>
-                                    <li class="dropdown_item">
-                                        <a onClick = {() => console.log(2)}>Item 2</a>
-                                    </li>
-                                    <li class="dropdown_item">
-                                        <a onClick = {() => console.log(3)}>Item 3</a>
-                                    </li>
-                                    <li class="dropdown_item">
-                                        <a onClick = {() => console.log(4)}>Item 4</a>
-                                    </li>
-                                    <li class="dropdown_item">
-                                        <a onClick = {() => console.log(5)}>Item 5</a>
-                                    </li>
+                                   
+                                        <Link to = "/labor" class="dropdown-button">
+                                            <li class= "dropdown_item"> 
+                                                Labor Only
+                                            </li>    
+                                        </Link>
+                                        <Link to = "/local" class="dropdown-button">
+                                            <li class="dropdown_item">
+                                                Local Move
+                                            </li>
+                                        </Link>
+                                        <Link to = "/long" class="dropdown-button">
+                                            <li class="dropdown_item">
+                                                Long Distance
+                                            </li>
+                                        </Link>
+                                        <Link to = "/junk" class="dropdown-button">
+                                            <li class="dropdown_item">
+                                                Junk Removal
+                                            </li>   
+                                        </Link>
                                 </ul>
                             </Link>
                         </li>
