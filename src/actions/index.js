@@ -1,8 +1,8 @@
-import rails from '../services/Express'
+import express from '../services/Express'
 
 //STORE ACTIONS
 export const getStores = () => async dispatch => {
-    const response = await rails.get(`/stores`)
+    const response = await express.get(`/stores`)
     let store = response.data.data.find(store => store.id == 1)
     console.log(store)
     dispatch({ type: 'GET_STORES', payload: {
@@ -27,7 +27,7 @@ export const clearItem = () => {
 }
 
 export const getItem = (item_id) => async dispatch => {
-    const response = await rails.get(`/items/${item_id}`)
+    const response = await express.get(`/items/${item_id}`)
     console.log(response.data, "items")
     dispatch({ type: 'GET_ITEM', payload: response.data })
 }
@@ -39,7 +39,7 @@ export const clearItemPic = () => {
 }
 
 export const getItems = (store_id) => async dispatch => {
-    const response = await rails.get(`/items?store_id=${store_id}`)
+    const response = await express.get(`/items?store_id=${store_id}`)
     console.log(response.data, "items")
     dispatch({type: 'GET_ITEMS', payload: response.data})
 }
@@ -48,28 +48,27 @@ export const getItems = (store_id) => async dispatch => {
 
 // need pagination for reviews
 export const getReviews = async dispatch => {
-    const response = await rails.get('/reviews')
+    const response = await express.get('/reviews')
     console.log(response.data, 'reviews')
 
 }
 
-
 export const postReview = reviewInfo => async dispatch => {
     console.log(reviewInfo)
-    const response = await rails.post('/reviews', {reviewInfo})
+    const response = await express.post('/reviews', {reviewInfo})
     let data = response.data
     console.log(data)
 }
 
 
 export const editReview = (reviewId, reviewInfo)=> async dispatch => {
-    const response = await rails.put(`/reviews/${reviewId}`, {reviewInfo})
+    const response = await express.put(`/reviews/${reviewId}`, {reviewInfo})
     let data = response.data
     console.log(data)
 }
 
 export const deleteReview = (reviewId) => async dispatch => {
-    const response = await rails.delete(`/reviews/${reviewId}`)
+    const response = await express.delete(`/reviews/${reviewId}`)
     let data = response.data
     console.log(data)
 }
@@ -78,19 +77,19 @@ export const deleteReview = (reviewId) => async dispatch => {
 
 export const createQuote = quoteInfo => async()  => {
     console.log(quoteInfo)
-    const response = await rails.post('/quotes', {quoteInfo})
+    const response = await express.post('/quotes', {quoteInfo})
     let data = response.data
     console.log(data)
 }
 
 export const editQuote = (quoteId, quoteInfo) => async() => {
-    const response = await rails.put(`/quotes/${quoteId}`, {quoteInfo})
+    const response = await express.put(`/quotes/${quoteId}`, {quoteInfo})
     let data = response.data
     console.log(data)
 }
 
 export const deleteQuote = quoteId => async() => {
-    const response = await rails.delete(`/quotes/${quoteId}`)
+    const response = await express.delete(`/quotes/${quoteId}`)
     let data = response.data
     console.log(data)
 }
@@ -99,7 +98,7 @@ export const deleteQuote = quoteId => async() => {
 
 export const addQuoteItem = quoteItemInfo => async dispatch => {
     console.log(quoteItemInfo)
-    const response = await rails.post('/cart_items', {quoteItemInfo})
+    const response = await express.post('/cart_items', {quoteItemInfo})
     let data = response.data
     console.log(data.data, 'cart_item added')
     dispatch({ type: "ADD_CART_ITEM", 
@@ -112,7 +111,7 @@ export const addQuoteItem = quoteItemInfo => async dispatch => {
 }
 
 export const removeCartItem = (cartItemId, itemId) => async dispatch => {
-    const response = await rails.delete(`/cart_items/${cartItemId}`)
+    const response = await express.delete(`/cart_items/${cartItemId}`)
     let data = response.data 
     console.log(data)
     dispatch({type: "DROP_CART_ITEM", 
@@ -134,13 +133,13 @@ export const cartItemCount = (newCount, cartItemId) => {
 //AUTH ACTIONS
 
 export const getCurrentUser = (shopperId) => async dispatch => {
-    const response = await rails.get(`/shoppers/${shopperId}`)
+    const response = await express.get(`/shoppers/${shopperId}`)
     let data = response.data
 
 }
 
 export const signIn = (userInfo) => async dispatch => {
-    const response = await rails.post('/login', {shopper: userInfo})
+    const response = await express.post('/login', {shopper: userInfo})
     let data = response.data
     localStorage.setItem('shopper_token', data.jwt)
     dispatch({
@@ -172,7 +171,7 @@ export const signOut = () => {
 //USER PROFILE ACTIONS
 
 export const createShopperProfile = (shopperInfo) => async dispatch => {
-    const response = await rails.post('/shopper_infos/', shopperInfo)
+    const response = await express.post('/shopper_infos/', shopperInfo)
     let data = response.data
     console.log(data)
     dispatch({
@@ -183,14 +182,14 @@ export const createShopperProfile = (shopperInfo) => async dispatch => {
 
 export const editShopper = (form, id) => async dispatch => {
     console.log(form)
-    const response = await rails.patch(`/shoppers/${id}`, form)
+    const response = await express.patch(`/shoppers/${id}`, form)
     let data = response.data
     console.log(data.data)
     dispatch({ type: "EDIT_SHOPPER", payload: data.data.attributes })
 }
 
 export const editShopperProfile = (form, id) => async dispatch => {
-    const response = await rails.patch(`/shopper_infos/${id}`, form)
+    const response = await express.patch(`/shopper_infos/${id}`, form)
     let data = response.data.data
     console.log(data)
     dispatch({ type: "EDIT_PROFILE", payload: data.attributes })
@@ -210,19 +209,13 @@ export const userCoords = (coords) => {
     })
 }
 
-//PAYMENT ACTIONS
+//CONTACT ACTIONS
 
-export const stripePayment = (event, stripePromise, checkoutItems) => async dispatch => {
-    const stripe = await stripePromise
-    
-    const response = await rails.post('/stripe_payments/checkout', {'checkout_items': checkoutItems})
-    
-    const session = await response.data
-    
-    const result = await stripe.redirectToCheckout({
-        sessionId: session.id
-    })
-    console.log(result, "payment result!")
+export const submitContact = contactInfo => async dispatch => {
+    console.log(contactInfo)
+    const response = await express.post('/contacts', {contactInfo}) 
+    let data = response.data
+    console.log(data)
 }
 
 //MODAL ACTIONS
@@ -260,7 +253,7 @@ export const clearModal = () => {
 
 export const addShopperAddress = (form) => async dispatch => {
     console.log(form)
-    const response = await rails.post('/addresses', {'address': form})
+    const response = await express.post('/addresses', {'address': form})
     const data = response.data
     console.log(data.data.attributes)
     dispatch({
@@ -272,7 +265,7 @@ export const addShopperAddress = (form) => async dispatch => {
 //EMAIL ACTIONS
 
 export const addShopperEmail = (form) => async dispatch => {
-    const response = await rails.post('/emails', {form})
+    const response = await express.post('/emails', {form})
     const data = response.data
     console.log(data)
 }
@@ -281,7 +274,7 @@ export const addShopperEmail = (form) => async dispatch => {
 
 export const addShopperNumber = (form) =>  async dispatch => {
     console.log(form)
-    const response = await rails.post('/phones', {'phone': form})
+    const response = await express.post('/phones', {'phone': form})
     const data = response.data
     console.log(data)
     dispatch({

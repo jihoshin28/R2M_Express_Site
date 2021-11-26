@@ -14,13 +14,34 @@ export class Navbar extends Component {
                         <img class="nav-icon" src={process.env.PUBLIC_URL + '/upack_logo.png'}></img>
                     </Link>
                
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav menu">
                         <li class="nav-item nav-list active">
-                            <Link to = "/" class="nav-button">Home</Link>
+                            <Link to = "/" class="nav-button">
+                                Home
+                            </Link>
                         </li>
                             
-                        <li class="nav-item nav-list">
-                            <Link to = "/about" class="nav-button">About Us</Link>
+                        <li class="nav-item nav-list dropdown dropdown-6">
+                            <Link to = "/about" class="nav-button">
+                                About Us
+                                <ul class = "dropdown_menu dropdown_menu--animated dropdown_menu-6">
+                                    <li class="dropdown_item">
+                                        <a onClick = {() => console.log(1)}>Item 1</a>
+                                    </li>
+                                    <li class="dropdown_item">
+                                        <a onClick = {() => console.log(2)}>Item 2</a>
+                                    </li>
+                                    <li class="dropdown_item">
+                                        <a onClick = {() => console.log(3)}>Item 3</a>
+                                    </li>
+                                    <li class="dropdown_item">
+                                        <a onClick = {() => console.log(4)}>Item 4</a>
+                                    </li>
+                                    <li class="dropdown_item">
+                                        <a onClick = {() => console.log(5)}>Item 5</a>
+                                    </li>
+                                </ul>
+                            </Link>
                         </li>
                                 
                         <li class="nav-item nav-list">

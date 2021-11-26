@@ -1,10 +1,23 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import {submitContact} from '../actions'
 // import aboutPic from '../public/logo192.png'
 export class Contact extends Component {
     componentDidMount() {
         console.log(this.props.history)
     }
+
+    inputChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+        console.log(this.state)
+    }
+
+    submitContact = () => {
+        this.props.submitContact(this.state)
+    }
+
     render() {
         return (
             <div>
@@ -48,14 +61,14 @@ export class Contact extends Component {
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="md-form mb-0">
-                                                <input type="text" id="name" name="name" class="form-control"/>
+                                                <input onChange = {(e) => this.inputChange(e)} type="text" id="name" name="name" class="form-control"/>
                                                 <label for="name" class="">Full Name</label>
                                             </div>
                                         </div>
                                     
                                         <div class="col-md-6">
                                             <div class="md-form mb-0">
-                                                <input type="text" id="email" name="email" class="form-control"/>
+                                                <input onChange = {(e) => this.inputChange(e)} type="text" id="email" name="email" class="form-control"/>
                                                 <label for="email" class="">Email</label>
                                             </div>
                                         </div>
@@ -64,7 +77,7 @@ export class Contact extends Component {
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="md-form mb-0">
-                                                <input type="text" id="subject" name="subject" class="form-control"/>
+                                                <input onChange = {(e) => this.inputChange(e)} type="text" id="subject" name="subject" class="form-control"/>
                                                 <label for="subject" class="">Subject</label>
                                             </div>
                                         </div>
@@ -73,14 +86,14 @@ export class Contact extends Component {
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="md-form">
-                                                <textarea type="text" id="message" name="message" rows="4" class="form-control md-textarea"></textarea>
+                                                <textarea onChange = {(e) => this.inputChange(e)} type="text" id="message" name="message" rows="4" class="form-control md-textarea"></textarea>
                                                 <label for="message">Your message</label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class = "col-md-12">
-                                            <a class="btn" style = {{marginTop: '25px', padding: '15px', backgroundColor: "rgb(130, 212, 37)"}}><h3>Send Message</h3></a>
+                                            <a onClick = {() => this.submitContact()}class="btn" style = {{marginTop: '25px', padding: '15px', backgroundColor: "rgb(130, 212, 37)"}}><h3>Send Message</h3></a>
                                         </div>
                                         <div class="status"></div>
                                     </div>
@@ -105,4 +118,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(Contact)
+export default connect(mapStateToProps, {submitContact})(Contact)
