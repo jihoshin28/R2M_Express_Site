@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import HomeSection from '../components/HomeSection'
+import HomeQuote from '../components/HomeQuote'
 import {createQuote} from '../actions'
 
 export class Home extends Component {
@@ -144,66 +145,21 @@ export class Home extends Component {
                         <div class = "home-quotes-section">
                             <HomeSection>
                                 <div class = "home-quotes">
-                                    <div class = "home-quote">
-                                        <div class = "home-quote-icon">
-                                        <i class="fa fa-quote-right" aria-hidden="true" style={{zIndex: 0, position: 'absolute', backgroundColor: 'rgb(109, 189, 17)', color: 'rgb(92, 92, 92)', fontSize: '2.5em'}}></i>
-                                        </div>
-                                        <div class = "home-quote-text">
-                                            <h4>
-                                                I’ve used these guys for three moves in the Bay Area. Great experience each time.
-                                            </h4>
-                                        </div>
-                                        <div style = {{marginTop: '20px'}}>
-                                            <h2>
-                                                R. M.
-                                            </h2>
-                                        </div>
-                                        <div>
-                                            <h4>
-                                                San Francisco, CA
-                                            </h4>
-                                        </div>
-                                    </div>
-                                    <div class = "home-quote">
-                                        <div class = "home-quote-icon">
-                                            <i class="fa fa-quote-right" aria-hidden="true" style={{zIndex: 0, position: 'absolute', backgroundColor: 'rgb(109, 189, 17)', color: 'rgb(92, 92, 92)', fontSize: '2.5em'}}></i>
-                                        </div>
-                                        <div class = "home-quote-text">
-                                            <h4>
-                                                I have worked with Pedro’s twice now and will not hesitate to again. Ask for Jimmy and Enrique they rock.
-                                            </h4>
-                                        </div>
-                                        <div style = {{marginTop: '20px'}}>
-                                            <h2>
-                                                Gina M.
-                                            </h2>
-                                        </div>
-                                        <div>
-                                            <h4>
-                                                Charlotte, NC
-                                            </h4>
-                                        </div>
-                                    </div>
-                                    <div class = "home-quote">
-                                        <div class = "home-quote-icon">
-                                        <i class="fa fa-quote-right" aria-hidden="true" style={{zIndex: 0, position: 'absolute', backgroundColor: 'rgb(109, 189, 17)', color: 'rgb(92, 92, 92)', fontSize: '2.5em'}}></i>
-                                        </div>
-                                        <div class = "home-quote-text">
-                                            <h4>
-                                                Pedro’s is the best! My fiance and I have used Pedro’s four times over the years – they are professional, organized, and generally very good. We will continue to use them.
-                                            </h4>
-                                        </div>
-                                        <div style = {{marginTop: '20px'}}>
-                                            <h2>
-                                                Sean B.
-                                            </h2>
-                                        </div>
-                                        <div>
-                                            <h4>
-                                                San Francisco, CA
-                                            </h4>
-                                        </div>
-                                    </div>
+                                    <HomeQuote 
+                                        text = "I’ve used these guys for three moves in the Bay Area. Great experience each time."
+                                        author = "R. M."
+                                        city = "San Francisco, CA"
+                                    />
+                                    <HomeQuote
+                                        text = "I have worked with Pedro’s twice now and will not hesitate to again. Ask for Jimmy and Enrique they rock."
+                                        author = "Gina M."
+                                        city = "Charlotte, NC"
+                                    />
+                                    <HomeQuote
+                                        text = "Pedro’s is the best! My fiance and I have used Pedro’s four times over the years – they are professional, organized, and generally very good. We will continue to use them."
+                                        author = "Sean B."
+                                        city = "San Francisco, CA"
+                                    />
                                 </div>
                             </HomeSection>
                         </div>

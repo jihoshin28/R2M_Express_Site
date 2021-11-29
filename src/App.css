@@ -512,14 +512,23 @@
 
 .home-quote-icon {
   margin-bottom: 20px;
+  z-index: 0; 
+  position: absolute; 
+  background-color: rgb(109, 189, 17);
+  color: rgb(255, 255, 255);
+  font-size: 2.5em;
 }
 
 .home-quote-text {
   z-index: 3;
   display: flex;
+  margin-top: 20px;
+  
 }
 
-
+.home-quote-text h4 {
+  font-weight: bold;
+}
 
 .home-quote {
   display:flex;
@@ -532,8 +541,9 @@
   width: 25%;
   -webkit-box-shadow: 0px 0px 5px rgba(99, 99, 99, 0.842);
 }
+
 .home-quote h2 {
-  color: rgb(92, 92, 92);
+  color: rgb(255, 255, 255);
 }
 
 .home-quotes {
