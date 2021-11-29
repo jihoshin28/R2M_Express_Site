@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { deleteReview } from '../actions'
+import { makeBooking } from '../actions'
+import { DatePicker, TimePicker } from 'antd'
+import 'antd/dist/antd.css'
 
 export class AddReview extends Component {
 
@@ -21,6 +23,21 @@ export class AddReview extends Component {
     inputChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
+        })
+        console.log(this.state)
+    }
+    
+    timeChange = (key, time) => {
+        let value 
+        console.log(time)
+        if(key === "start_time" || key === "delivery_time"){
+            value = time._d.toTimeString()
+        } else {
+            value = time._d.toDateString()
+        }
+
+        this.setState({
+            [key]: value
         })
         console.log(this.state)
     }
@@ -54,7 +71,7 @@ export class AddReview extends Component {
                                             <div class="col-md-3">
                                                 <div class="md-form mb-0">
                                                     <input onChange = {(e) => this.inputChange(e)} type="text" id="email" name="email" class="form-control"/>
-                                                    <label for="email" class="">Full Name</label>
+                                                    <label for="email" class="">Email</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -79,6 +96,103 @@ export class AddReview extends Component {
                                                 </div>
                                             </div>
                                         </div>
+                                       
+                                        <div class = "row" style = {{marginTop: '30px', marginBottom: '30px'}}>
+                                            <div class = "col-md-3">
+                                                <h2>Start Location</h2>
+                                            </div>
+                                        </div>
+                                   
+                                        <div class = "row">
+                                            <div class="col-md-3">
+                                                <div class="md-form mb-0">
+                                                    <input onChange = {(e) => this.inputChange(e)} type="text" id="delivery_street" name="delivery_street" class="form-control"/>
+                                                    <label for="delivery_street" class="">Street </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="md-form mb-0">
+                                                    <input onChange = {(e) => this.inputChange(e)} type="text" id="delivery_city" name="delivery_city" class="form-control"/>
+                                                    <label for="delivery_city" class="">City</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="md-form mb-0">
+                                                    <select onChange = {(e) => this.inputChange(e)} class="form-control" id="delivery_state" name="delivery_state">
+                                                        <option value= " ">Select State</option>
+                                                        <option value="AL">Alabama</option>
+                                                        <option value="AK">Alaska</option>
+                                                        <option value="AZ">Arizona</option>
+                                                        <option value="AR">Arkansas</option>
+                                                        <option value="CA">California</option>
+                                                        <option value="CO">Colorado</option>
+                                                        <option value="CT">Connecticut</option>
+                                                        <option value="DE">Delaware</option>
+                                                        <option value="FL">Florida</option>
+                                                        <option value="GA">Georgia</option>
+                                                        <option value="HI">Hawaii</option>
+                                                        <option value="ID">Idaho</option>
+                                                        <option value="IL">Illinois</option>
+                                                        <option value="IN">Indiana</option>
+                                                        <option value="IA">Iowa</option>
+                                                        <option value="KS">Kansas</option>
+                                                        <option value="KY">Kentucky</option>
+                                                        <option value="LA">Louisiana</option>
+                                                        <option value="ME">Maine</option>
+                                                        <option value="MD">Maryland</option>
+                                                        <option value="MA">Massachusetts</option>
+                                                        <option value="MI">Michigan</option>
+                                                        <option value="MN">Minnesota</option>
+                                                        <option value="MS">Mississippi</option>
+                                                        <option value="MO">Missouri</option>
+                                                        <option value="MT">Montana</option>
+                                                        <option value="NE">Nebraska</option>
+                                                        <option value="NV">Nevada</option>
+                                                        <option value="NH">New Hampshire</option>
+                                                        <option value="NJ">New Jersey</option>
+                                                        <option value="NM">New Mexico</option>
+                                                        <option value="NY">New York</option>
+                                                        <option value="NC">North Carolina</option>
+                                                        <option value="ND">North Dakota</option>
+                                                        <option value="OH">Ohio</option>
+                                                        <option value="OK">Oklahoma</option>
+                                                        <option value="OR">Oregon</option>
+                                                        <option value="PA">Pennsylvania</option>
+                                                        <option value="RI">Rhode Island</option>
+                                                        <option value="SC">South Carolina</option>
+                                                        <option value="SD">South Dakota</option>
+                                                        <option value="TN">Tennessee</option>
+                                                        <option value="TX">Texas</option>
+                                                        <option value="UT">Utah</option>
+                                                        <option value="VT">Vermont</option>
+                                                        <option value="VI">Virginia</option>
+                                                        <option value="WA">Washington</option>
+                                                        <option value="WV">West Virginia</option>
+                                                        <option value="WI">Wisconsin</option>
+                                                        <option value="WY">Wyoming</option>
+                                                    </select>
+                                                    <label for="delivery_state" class="">State</label>
+                                                </div>
+                                            </div>
+                                            
+
+                                            <div class="col-md-3">
+                                                <div class="md-form mb-0">
+                                                    <input onChange = {(e) => this.inputChange(e)} type="text" id="delivery_zip" name="delivery_zip" class="form-control"/>
+                                                    <label for="delivery_zip" class="">City</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    
+                                        <div class = "row" style = {{marginTop: '30px', marginBottom: '30px'}}>
+                                            <div class = "col-md-3">
+                                                <h2>Delivery Location</h2>
+                                            </div>
+                                        </div>
+                                      
                                         <div class = "row">
                                             <div class="col-md-3">
                                                 <div class="md-form mb-0">
@@ -93,7 +207,7 @@ export class AddReview extends Component {
                                                     <label for="start_city" class="">City</label>
                                                 </div>
                                             </div>
-                                        
+
                                             <div class="col-md-3">
                                                 <div class="md-form mb-0">
                                                     <select onChange = {(e) => this.inputChange(e)} class="form-control" id="start_state" name="start_state">
@@ -152,6 +266,7 @@ export class AddReview extends Component {
                                                     <label for="start_state" class="">State</label>
                                                 </div>
                                             </div>
+                                            
 
                                             <div class="col-md-3">
                                                 <div class="md-form mb-0">
@@ -161,10 +276,43 @@ export class AddReview extends Component {
                                             </div>
                                         </div>
 
+                                        <div class = "row" style = {{marginTop: '30px', marginBottom: '30px'}}>
+                                            <div class = "col-md-3">
+                                                <h2>Pickup Time</h2>
+                                            </div>
+                                        </div>
+
+                                        <div class = "row" style = {{marginTop: '30px', marginBottom: '30px'}}>
+                                            <div class = "col-md-3">
+                                                <TimePicker onChange = {(e) => this.timeChange('start_time', e)} format = "HH:mm" use12Hours = {true}/>
+                                            </div>
+                                            <div class = "col-md-3">
+                                                <DatePicker onChange = {(e) => this.timeChange('start_date', e)}/>
+                                            </div>
+                                        </div>
+
+                                        <div class = "row" style = {{marginTop: '30px', marginBottom: '30px'}}>
+                                            <div class = "col-md-3">
+                                                <h2>Delivery Time</h2>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class = "row" style = {{marginTop: '30px', marginBottom: '30px'}}>
+                                            <div class = "col-md-3">
+                                                <TimePicker onChange = {(e) => this.timeChange('delivery_time',e)} format = "HH:mm" use12Hours = {true}/>
+                                            </div>
+                                            <div class = "col-md-3">
+                                                <DatePicker onChange = {(e) => this.timeChange('delivery_date',e)}/>
+                                            </div>
+                                        </div>
+                        
+
+                                        <br></br>
+                        
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="md-form">
-                                                    <textarea onChange = {(e) => this.inputChange(e)} type="text" id="comment" name="comment" rows="3" class="form-control md-textarea"></textarea>
+                                                    <textarea onChange = {(time, timeString) => this.inputChange(time, timeString)} type="text" id="comment" name="comment" rows="3" class="form-control md-textarea"></textarea>
                                                     <label for="message">Comments</label>
                                                 </div>
                                             </div>
@@ -192,4 +340,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {deleteReview})(AddReview)
+export default connect(mapStateToProps, {makeBooking})(AddReview)

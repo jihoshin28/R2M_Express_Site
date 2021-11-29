@@ -21,7 +21,7 @@ import Long from './pages/Long'
 import Reviews from './pages/Reviews'
 
 
-import {getStores, signOut, getItems, selectStore, clearModal} from './actions'
+import { signOut, getItems, clearModal} from './actions'
 
 class App extends Component  {
   
@@ -81,4 +81,4 @@ let mapStateToProps = state => {
   })
 }
 
-export default connect(mapStateToProps, {getStores, signOut,  getItems, selectStore, clearModal})(App)
+export default connect(mapStateToProps, { signOut,  getItems, clearModal})(App)

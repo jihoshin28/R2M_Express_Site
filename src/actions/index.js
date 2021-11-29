@@ -1,21 +1,9 @@
 import express from '../services/Express'
 
-//STORE ACTIONS
-export const getStores = () => async dispatch => {
-    const response = await express.get(`/stores`)
-    let store = response.data.data.find(store => store.id == 1)
-    console.log(store)
-    dispatch({ type: 'GET_STORES', payload: {
-        stores: response.data.data,
-        store: store
-    }})
-}
+//BOOKING ACTIONS
 
-export const selectStore = (store) => {
-    return ({
-        type: 'SELECT_STORE',
-        payload: store
-    })
+export const makeBooking = () => {
+    
 }
 
 //ITEM ACTIONS
