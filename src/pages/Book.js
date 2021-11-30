@@ -4,7 +4,7 @@ import { makeBooking } from '../actions'
 import { DatePicker, TimePicker } from 'antd'
 import 'antd/dist/antd.css'
 
-export class AddReview extends Component {
+export class Book extends Component {
 
     constructor(props){
         super(props)
@@ -14,10 +14,14 @@ export class AddReview extends Component {
     
     componentDidMount() {
         // this.props.testRoute(this.props.history)
+        console.log(this.props.navigation)
     }
     
-    bookAppointment = () => {
-
+    bookAppointment = async () => {
+        let result = await this.props.makeBooking(this.state)
+        console.log(result)
+        this.props.history.push({pathname: `/items/booking/${result.id}`})
+        this.props.history.go()
     }
 
     inputChange = (e) => {
@@ -340,4 +344,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {makeBooking})(AddReview)
+export default connect(mapStateToProps, {makeBooking})(Book)

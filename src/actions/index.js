@@ -2,8 +2,16 @@ import express from '../services/Express'
 
 //BOOKING ACTIONS
 
-export const makeBooking = () => {
-    
+export const getBooking = bookingId => async() => {
+    const response = await express.get(`/bookings/${bookingId}`)
+    let data = response.data
+    return data
+}
+
+export const makeBooking = bookingInfo => async dispatch => {
+    const response = await express.post('/bookings', {bookingInfo})
+    let data = response.data
+    return data
 }
 
 //ITEM ACTIONS
@@ -63,11 +71,16 @@ export const deleteReview = (reviewId) => async dispatch => {
 
 //QUOTE ACTIONS
 
-export const createQuote = quoteInfo => async()  => {
-    console.log(quoteInfo)
+export const getQuote = quoteId => async() =>{
+    const response = await express.get(`/quotes/${quoteId}`)
+    let data = response.data
+    return data
+}
+
+export const createQuote = quoteInfo => async() => {
     const response = await express.post('/quotes', {quoteInfo})
     let data = response.data
-    console.log(data)
+    return data
 }
 
 export const editQuote = (quoteId, quoteInfo) => async() => {

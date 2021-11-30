@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import HomeSection from '../components/HomeSection'
 import HomeQuote from '../components/HomeQuote'
-import {createQuote} from '../actions'
+import { createQuote } from '../actions'
+
 
 export class Home extends Component {
 
@@ -16,10 +17,11 @@ export class Home extends Component {
         console.log("test")
     }
 
-    goToGetQuote = () => {
-        // this.props.history.push('/get_quote')
-        // this.props.history.go()
-        this.props.createQuote(this.state)
+    goToGetQuote = async() => {
+        let result = await this.props.createQuote(this.state)
+        console.log(result)
+        this.props.history.push({pathname: `/items/quote/${result.id}`})
+        this.props.history.go()
     }
 
     inputChange = (e) => {

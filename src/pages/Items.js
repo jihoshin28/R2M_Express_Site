@@ -1,17 +1,32 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {items} from '../items'
+import { items } from '../items'
+import { getQuote, getBooking} from '../actions'
 
 export class Items extends Component {
 
     constructor(props){
         super(props)
         this.state = {
-            items: {}
+            data: {},
+            loading: true
         }
     }
-    componentDidMount() {
-        // this.props.testRoute(this.props.history)
+    async componentDidMount () {
+        
+        let id = this.props.match.params.id
+        let data 
+        if(this.props.match.params.type === 'quote'){
+            data = await this.props.getQuote(id)
+        } else if(this.props.match.params.type === 'booking'){
+            data = await this.props.getBooking(id)
+        }
+        
+        this.setState({
+            data,
+            loading: false
+        })
+
     }
 
     changeCount = (e, key, type) => {
@@ -53,10 +68,6 @@ export class Items extends Component {
         }
     }
 
-    requestQuote = () => {
-
-    }
-
     renderItems = () => {
         let itemKeys = Object.keys(items)
         return itemKeys.map((itemKey) => {
@@ -80,47 +91,74 @@ export class Items extends Component {
     }
 
     render() {
-        console.log(this.state.items)
+        console.log(this.state.data)
         return (
-            <div class = "container">
-                <div class = "getQuote-header">
-                    <h1>
-                        Get your free quote.
-                    </h1>
-                </div> 
-
-                <div class = "getQuote">
-                    <div >
-                        <section class="mb-4">
-                            <div class="row">
-                                <div class="col-md-12 mb-md-0 mb-5">
-                                    <form id="contact-form" name="contact-form" action="mail.php" method="POST">
-                                        <div class = "getQuote-title">
-                                            <h3>What items will you be moving?</h3>
-                                        </div>
-                                        {this.renderItems()}
-                                    
-                                        <div class="row">
-                                            <div class = "col-md-12">
-                                                <a class="btn" onClick = {() => this.requestQuote()} style = {{marginTop: '25px', padding: '15px', backgroundColor: "rgb(130, 212, 37)"}}><h3>Get Quote</h3></a>
-                                            </div>
-                                            <div class="status"></div>
-                                        </div>
-                                    </form>
-                                </div>                            
-                            </div>
-                        </section>
+            <div>
+                {
+                this.state.loading === true?
+                <div class = "container loaderDiv" >
+                    <div class = "loader">
+                        
                     </div>
+                    <h1>
+                        Loading...
+                    </h1>
                 </div>
+                :
+
+                <div class = "container">
+                    
+                    <div class = "getQuote-header">
+                        {
+                            this.props.match.params === "quote" 
+                            ?
+                            <h1>
+                                Select items for quote.
+                            </h1> 
+                            :
+                            <h1>
+                                Select items for booking.
+                            </h1>
+                        }
+                    </div> 
+
+                    <div class = "getQuote">
+                        <div >
+                            <section class="mb-4">
+                                <div class="row">
+                                    <div class="col-md-12 mb-md-0 mb-5">
+                                        <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+                                            <div class = "getQuote-title">
+                                                <h3>What items will you be moving?</h3>
+                                            </div>
+                                            {this.renderItems()}
+                                        
+                                            <div class="row">
+                                                <div class = "col-md-12">
+                                                    <a class="btn" onClick = {() => this.requestQuote()} style = {{marginTop: '25px', padding: '15px', backgroundColor: "rgb(130, 212, 37)"}}><h3>Get Quote</h3></a>
+                                                </div>
+                                                <div class="status"></div>
+                                            </div>
+                                        </form>
+                                    </div>                            
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    
+                
+                </div>
+                }   
             </div>
-        )
+            )
+        }
     }
-}
-
-const mapStateToProps = state => {
-    return {
-        users: state.users
+    
+    const mapStateToProps = state => {
+        return {
+            users: state.users
+        }
     }
-}
-
-export default connect(mapStateToProps)(Items)
+    
+    export default connect(mapStateToProps, {getQuote, getBooking})(Items)
+    
