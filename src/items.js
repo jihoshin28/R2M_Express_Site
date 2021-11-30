@@ -1,66 +1,66 @@
 //312 items
 let items = {
-    item1: {
+    1: {
         name: 'A Household Good - 1000 lbs',
     },
-    item2: {
+    2: {
         name: 'A Household Good - 1500 lbs',
     },
-    item3: {
+    3: {
         name: 'A Household Good - 2600 lbs',
     },
-    item4: {
+    4: {
         name: 'A Household Good - 3900 lbs',
     },
-    item5: {
+    5: {
         name: 'A Household Good - 5800 lbs',
     },
-    item6: {
+    6: {
         name: 'Bakers Rack',
     },
-    item7: {
+    7: {
         name: 'Bed Frame',
     },
-    item8: {
+    8: {
         name: 'Bench, Large',
     },
-    item9: {
+    9: {
         name: 'Buffet, Base',
     },
-    item10: {
+    10: {
         name: 'Cabinet, Corner',
     },
-    item11: {
+    11: {
         name: 'Cabinet, Medium',
     },
-    item12: {
+    12: {
         name: 'Chair, Arm',
     },
-    item13: {
+    13: {
         name: 'Chair, Rocker',
     },
-    item14: {
+    14: {
         name: 'Coat Rack',
     },
-    item15: {
+    15: {
         name: 'Computer Screen (PBO)',
     },
-    item16: {
+    16: {
         name: 'Desk Chair, Large',
     },
-    item17: {
+    17: {
         name: 'Dining Chair',
     },
-    item18: {
+    18: {
         name: 'Dining Table',
     },
-    item19: {
+    19: {
         name: 'Dishwasher',
     },
-    item20: {
+    20: {
         name: 'Exercise Bike',
     },
-    item21: {
+    21: {
         name: 'Fan, Floor',
     },
     

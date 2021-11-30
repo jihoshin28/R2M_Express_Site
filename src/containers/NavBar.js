@@ -69,7 +69,7 @@ export class Navbar extends Component {
                 <ul class="navbar-nav nav-right-btn">
                     <li class="nav-item nav-right">    
                         <Link class= "nav-button" to='/book'>
-                            Book Appointment
+                            Book Move
                         </Link>
                     </li>
                 </ul>

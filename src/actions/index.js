@@ -5,6 +5,7 @@ import express from '../services/Express'
 export const getBooking = bookingId => async() => {
     const response = await express.get(`/bookings/${bookingId}`)
     let data = response.data
+    console.log(data)
     return data
 }
 
@@ -35,9 +36,9 @@ export const clearItemPic = () => {
 }
 
 export const getItems = (store_id) => async dispatch => {
-    const response = await express.get(`/items?store_id=${store_id}`)
-    console.log(response.data, "items")
-    dispatch({type: 'GET_ITEMS', payload: response.data})
+    const response = await express.get(`/items`)
+    let data = response.data
+    return data
 }
 
 //REVIEW ACTIONS
@@ -80,6 +81,7 @@ export const getQuote = quoteId => async() =>{
 export const createQuote = quoteInfo => async() => {
     const response = await express.post('/quotes', {quoteInfo})
     let data = response.data
+    console.log(data)
     return data
 }
 
@@ -98,17 +100,13 @@ export const deleteQuote = quoteId => async() => {
 //QUOTE ITEM ACTIONS
 
 export const addQuoteItem = quoteItemInfo => async dispatch => {
-    console.log(quoteItemInfo)
-    const response = await express.post('/cart_items', {quoteItemInfo})
-    let data = response.data
-    console.log(data.data, 'cart_item added')
-    dispatch({ type: "ADD_CART_ITEM", 
-        payload: { 
-            id: data.data.id,
-            cart_item: data.data,
-            item_id: data.data.attributes.item_id
-        }
-    })
+    const response = await express.post('/quote_items', {quoteItemInfo})
+    console.log(response.data)
+}
+
+export const addBookingItem = bookingItemInfo => async () => {
+    const response = await express.post('/booking_items', {bookingItemInfo})
+    console.log(response.data)
 }
 
 export const removeCartItem = (cartItemId, itemId) => async dispatch => {

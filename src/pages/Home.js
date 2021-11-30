@@ -19,9 +19,12 @@ export class Home extends Component {
 
     goToGetQuote = async() => {
         let result = await this.props.createQuote(this.state)
-        console.log(result)
-        this.props.history.push({pathname: `/items/quote/${result.id}`})
-        this.props.history.go()
+        if(!!result.id){
+            this.props.history.push({pathname: `/items/quote/${result.id}`})
+            this.props.history.go()
+        } else {
+            console.log(result)
+        }
     }
 
     inputChange = (e) => {
