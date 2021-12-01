@@ -74,13 +74,13 @@
   color: white;
 }
 
-.footer-row h3 {
+.footer-row h4 {
   color: white;
 }
 
 .footer-icon{
-  width: 15%;
-  height: 15%;
+  width: 30%;
+  height: 30%;
 }
 
 .footer-section-left {
@@ -116,14 +116,6 @@
   color:rgb(109, 189, 17);
 }
 
-.quick-link h2 {
-  color: white;
-}
-
-.quick-link h2:hover {
-  color:rgb(109, 189, 17)
-}
-
 .mapSearchComponent{
   display: flex;
   flex-direction: row; 
@@ -153,6 +145,90 @@
 .nav-button:hover{
   color: white;
 }
+
+.footer_dropdown_menu_div {
+  display: flex;
+  align-items: center;
+
+}
+
+.footer_dropdown_menu {
+  position: absolute;
+  right: -62%;
+  width: 100%;
+  perspective: 1000px;
+  border-radius: 10px;
+  z-index: -1;
+}
+
+.footer_dropdown_menu li {
+  display: none;
+  color: white;
+  background-color: rgb(109, 189, 17);
+  padding: 10px 10px;
+  width: 170px;
+  height: 45px; 
+  font-size: 1em;
+}
+
+.footer_dropdown_menu-6 {
+  animation: growDown 300ms ease-in-out forwards;
+}
+
+.footer_dropdown_item:hover {
+  background-color: rgba(56, 150, 12);
+}
+
+.footer_dropdown-button {
+  color: white;
+}
+
+.footer_dropdown-button:hover {
+  color: white;
+}
+
+@keyframes growDown {
+  0% {
+      transform: scaleY(0)
+  }
+  80% {
+      transform: scaleY(1.1)
+  }
+  100% {
+      transform: scaleY(1)
+  }
+}
+
+.footer_dropdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: relative;
+  font-size: 18px;
+  perspective: 1000px;
+  z-index: 100;
+}
+
+.footer_dropdown_menu li:hover {
+  display: block
+}
+
+.footer_dropdown:hover .footer_dropdown_menu--animated {
+  display: block;
+  transform-origin: top center
+}
+
+.footer_dropdown_menu--animated {
+  display: none;
+}
+
+.footer_dropdown_menu--animated li {
+  display: block;
+  opacity: .95;
+}
+
+/*  */
 
 .dropdown_menu {
   position: absolute;
@@ -235,6 +311,20 @@
   background-color: rgb(37, 63, 212);
   -webkit-box-shadow: 0px 0 5px rgba(99, 99, 99, 0.842)
 }
+
+.footer-nav-list{
+  color:black; 
+  margin-left: 1em; 
+  font-size: 1.2em;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 3px;
+}
+
+.footer-nav-list :hover {
+  color: rgb(109, 189, 17) ;
+}
+
 
 .nav-list{
   color:black; 

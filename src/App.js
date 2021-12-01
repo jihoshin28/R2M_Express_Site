@@ -58,18 +58,97 @@ class App extends Component  {
             <div className = "row footer-row">
               <div className = "col-md-4 footer-section-left">
                 <h1>Quick Links</h1>
-                <Link className = "quick-link" to = '/'><h2>Home</h2></Link>
+                <ul class="navbar-nav menu">
+                        <li class="nav-item footer-nav-list">
+                            <Link to = "/home" class="nav-button">Home</Link>
+                        </li>
+                        <li class="nav-item footer-nav-list">
+                            <Link to = '/about' class="nav-button">About Us</Link>
+                        </li>
+                        <li class="nav-item footer-nav-list footer_dropdown footer_dropdown-6">
+                            <Link class="nav-button">
+                              <div className = "footer_dropdown_menu_div ">
+                                <div>
+                                  Services
+                                </div>
+                                <ul class = "footer_dropdown_menu footer_dropdown_menu--animated footer_dropdown_menu-6">
+                                   
+                                        <Link to = "/labor" class="footer_dropdown-button">
+                                            <li class= "footer_dropdown_item"> 
+                                                Labor Only
+                                            </li>    
+                                        </Link>
+                                        <Link to = "/local" class="footer_dropdown-button">
+                                            <li class="footer_dropdown_item">
+                                                Local Move
+                                            </li>
+                                        </Link>
+                                        <Link to = "/long" class="footer_dropdown-button">
+                                            <li class="footer_dropdown_item">
+                                                Long Distance
+                                            </li>
+                                        </Link>
+                                        <Link to = "/junk" class="footer_dropdown-button">
+                                            <li class="footer_dropdown_item">
+                                                Junk Removal
+                                            </li>   
+                                        </Link>
+                                </ul>
+                                </div>
+                            </Link>
+                        </li>
+                                
+                        <li class="nav-item footer-nav-list">
+                            <Link to = "/gallery" class="nav-button">Gallery</Link>
+                        </li>
+                        <li class="nav-item footer-nav-list">
+                            <Link to = '/reviews' class="nav-button">Reviews</Link>
+                        </li>
+                        <li class="nav-item footer-nav-list">
+                            <Link to = "/contact" class="nav-button">Contact</Link>
+                        </li>
+                        
+                    </ul>
+                {/* <Link className = "quick-link" to = '/'><h2>Home</h2></Link>
                 <Link className = "quick-link" to = '/about'><h2>About Us</h2></Link>
-                <Link className = "quick-link" to = '/'><h2>Gallery</h2></Link>
-                <Link className = "quick-link" to = '/'><h2>Reviews</h2></Link>
-                <Link className = "quick-link" to = '/'><h2>Contact Us</h2></Link>
+                <li class = "dropdown dropdown-6">
+                  <Link className = "quick-link">
+                      <h2>Services</h2>
+                      <ul class = "dropdown_menu dropdown_menu--animated dropdown_menu-6">         
+                        <Link to = "/labor" class="dropdown-button">
+                            <li class= "dropdown_item"> 
+                                Labor Only
+                            </li>    
+                        </Link>
+                        <Link to = "/local" class="dropdown-button">
+                            <li class="dropdown_item">
+                                Local Move
+                            </li>
+                        </Link>
+                        <Link to = "/long" class="dropdown-button">
+                            <li class="dropdown_item">
+                                Long Distance
+                            </li>
+                        </Link>
+                        <Link to = "/junk" class="dropdown-button">
+                            <li class="dropdown_item">
+                                Junk Removal
+                            </li>   
+                        </Link>
+                      </ul> 
+              
+                  </Link>
+                </li>
+                <Link className = "quick-link" to = '/gallery'><h2>Gallery</h2></Link>
+                <Link className = "quick-link" to = '/reviews'><h2>Reviews</h2></Link>
+                <Link className = "quick-link" to = '/contact'><h2>Contact Us</h2></Link> */}
               </div>
               <div className = "col-md-4 footer-section-center">
                 
                 <img class = "footer-icon" src=  {process.env.PUBLIC_URL + '/upack_logo.png'}></img> 
                 <h1>Upack Haulers</h1>
-                <h3>Copyright © 2021</h3>
-                <h3>All rights reserved</h3>
+                <h4>Copyright © 2021</h4>
+                <h4>All rights reserved</h4>
               </div>
              
               <div className = "col-md-4 footer-section-right">
