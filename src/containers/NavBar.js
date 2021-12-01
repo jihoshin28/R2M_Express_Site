@@ -19,15 +19,13 @@ export class Navbar extends Component {
                     </Link>
                
                     <ul class="navbar-nav menu">
-                        <li class="nav-item nav-list active">
-                            <Link to = "/" class="nav-button">
-                                Home
-                            </Link>
+                    
+                        <li class="nav-item nav-list">
+                            <Link to = '/about' class="nav-button">About Us</Link>
                         </li>
-                            
                         <li class="nav-item nav-list dropdown dropdown-6">
-                            <Link to = "/about" class="nav-button">
-                                About Us
+                            <Link class="nav-button">
+                                Services
                                 <ul class = "dropdown_menu dropdown_menu--animated dropdown_menu-6">
                                    
                                         <Link to = "/labor" class="dropdown-button">
@@ -60,16 +58,14 @@ export class Navbar extends Component {
                         <li class="nav-item nav-list">
                             <Link to = '/reviews' class="nav-button">Reviews</Link>
                         </li>
-                        <li class="nav-item nav-list">
-                            <Link to = '/contact' class="nav-button">Contact Us</Link>
-                        </li>
+                        
                     </ul>
                 </div>
                 
                 <ul class="navbar-nav nav-right-btn">
                     <li class="nav-item nav-right">    
-                        <Link class= "nav-button" to='/book'>
-                            Book Move
+                        <Link class= "nav-button" to='/contact'>
+                            Contact Us
                         </Link>
                     </li>
                 </ul>

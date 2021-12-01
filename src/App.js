@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {
-  Route
+  Route,
+  Link
 } from "react-router-dom"
 import {connect} from 'react-redux'
 import './App.css';
@@ -55,15 +56,37 @@ class App extends Component  {
           </div> 
           <div class = 'footer-div'>
             <div className = "row footer-row">
-              <div className = "col-6">
-                <div className = "footer-logo">
-                  <img class = "footer-icon" src=  {process.env.PUBLIC_URL + '/upack_logo.png'}></img> 
-                  <h3>Upack Haulers</h3>
-                </div>
+              <div className = "col-md-4 footer-section-left">
+                <h1>Quick Links</h1>
+                <Link className = "quick-link" to = '/'><h2>Home</h2></Link>
+                <Link className = "quick-link" to = '/about'><h2>About Us</h2></Link>
+                <Link className = "quick-link" to = '/'><h2>Gallery</h2></Link>
+                <Link className = "quick-link" to = '/'><h2>Reviews</h2></Link>
+                <Link className = "quick-link" to = '/'><h2>Contact Us</h2></Link>
               </div>
-              <div className = "col-6">
-                <h5>Copyright © 2021</h5>
-                <h5>All rights reserved</h5>
+              <div className = "col-md-4 footer-section-center">
+                
+                <img class = "footer-icon" src=  {process.env.PUBLIC_URL + '/upack_logo.png'}></img> 
+                <h1>Upack Haulers</h1>
+                <h3>Copyright © 2021</h3>
+                <h3>All rights reserved</h3>
+              </div>
+             
+              <div className = "col-md-4 footer-section-right">
+                <h1 style = {{marginBottom: '20px'}}>Contacts</h1>
+                  <ul class="list-unstyled mb-0">
+                    <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                        <p class= "contact-icon-text">Fremont, California, United States</p>
+                    </li>
+
+                    <li><i class="fas fa-phone mt-4 fa-2x"></i>
+                        <p class= "contact-icon-text">(510) 358-6351</p>
+                    </li>
+
+                    <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                        <p class= "contact-icon-text">upackhaulers@gmail.com</p>
+                    </li>
+                </ul>
               </div>
             </div> 
           </div> 

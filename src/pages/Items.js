@@ -38,7 +38,6 @@ export class Items extends Component {
         e.preventDefault()
         let element = document.getElementById(key)
         let newCount
-        console.log(e.target.value)
         if(element.value == "" || element.value == "0"){
             if(type === "+"){
                 element.value = 1 
@@ -69,40 +68,45 @@ export class Items extends Component {
         }))
     }
 
-    finalizeOrder = () => {
+    createOrderItems = () => {
         let itemIdArray = Object.keys(this.state.items)
         if(this.props.match.params.type=== 'quote'){
             console.log('quote hit')
             itemIdArray.forEach((item_id) => {
-                console.log(item_id)
-                this.props.addQuoteItem(
-                    {
-                        item_id: item_id,
-                        quantity: this.state.items[item_id],
-                        quote_id: this.state.orderData.id
-                    }
-                )
+                let quantity = this.state.items[item_id]
+                if(quantity > 0){
+                    this.props.addQuoteItem(
+                        {
+                            item_id: item_id,
+                            quantity: this.state.items[item_id],
+                            quote_id: this.state.orderData.id
+                        }
+                    )
+                }
             })
         } else if(this.props.match.params.type=== 'booking'){
             itemIdArray.forEach((item_id) => {
-                console.log(item_id)
-                this.props.addBookingItem(
-                    {
-                        item_id: item_id,
-                        quantity: this.state.items[item_id],
-                        booking_id: this.state.orderData.id
-                    }
-                )
+                let quantity = this.state.items[item_id]
+                if(quantity > 0){
+                    this.props.addBookingItem(
+                        {
+                            quantity,
+                            item_id: item_id,
+                            booking_id: this.state.orderData.id
+                        }
+                    )
+                }
             })
         }
     }
 
-    editCount = (key, count) => {
-        if(this.state.items === undefined){
-            this.setState({
-                items: [...this.state.items, {key: count}]
-            })
-        }
+    finalizeOrder = async() => {
+        
+        console.log(this.state.loading)
+        await this.createOrderItems()
+        this.setState({
+            loading: false
+        })
     }
 
     renderItems = () => {
@@ -128,7 +132,6 @@ export class Items extends Component {
     }
 
     render() {
-        console.log(this.state.items, this.state.orderData)
         return (
             <div>
                 {
