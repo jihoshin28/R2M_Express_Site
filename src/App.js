@@ -60,7 +60,7 @@ class App extends Component  {
                 <h1>Quick Links</h1>
                 <ul class="navbar-nav menu">
                         <li class="nav-item footer-nav-list">
-                            <Link to = "/home" class="nav-button">Home</Link>
+                            <Link to = "/" class="nav-button">Home</Link>
                         </li>
                         <li class="nav-item footer-nav-list">
                             <Link to = '/about' class="nav-button">About Us</Link>
