@@ -19,6 +19,7 @@ import Junk from './pages/Junk'
 import Labor from './pages/Labor'
 import Local from './pages/Local'
 import Long from './pages/Long'
+import Map from './pages/Map'
 import Reviews from './pages/Reviews'
 
 
@@ -47,6 +48,7 @@ class App extends Component  {
               <Route exact path={'/labor'} render={(props) => <Labor {...props} />} />
               <Route exact path={'/local'} render={(props) => <Local {...props} />} />
               <Route exact path={'/long'} render={(props) => <Long {...props} />} />
+              <Route exact path={'/map'} render={(props) => <Map {...props} />} />
               <Route exact path={'/reviews'} render={(props) => <Reviews {...props} />} />
 
         </div>

@@ -54,9 +54,7 @@ const LoadingContainer = (props) => (
 
 const mapStateToProps = (state) =>{
     return({
-        store_coords: state.stores.store_coords,
-        user_coords: state.stores.user_coords,
-        store_name: state.stores.selectedStore.attributes.name
+        
         // start_lat: state.stores.store_coords.lat + state.stores.user_coords.lat,
         // start_lng: state.stores.store_coords.lng + state.stores.user_coords.lng
         
@@ -64,6 +62,6 @@ const mapStateToProps = (state) =>{
 }
 
 export default connect(mapStateToProps, {storeCoords})(GoogleApiWrapper({
-    apiKey: "AIzaSyCfk0krolElSoSZRhpSYDOO4pZ9j6_XaUs",
+    apiKey: "AIzaSyD-d4NIENxdIYOCE7gIRwvzTIZGRLobMdg",
     LoadingContainer: LoadingContainer
 })(MapContainer))
