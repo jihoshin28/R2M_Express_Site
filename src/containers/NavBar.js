@@ -11,7 +11,7 @@ export class Navbar extends Component {
         
         return ( 
             
-            <nav class="navbar navbar-expand-lg navbar-expand-med navbar-expand-sm nav-bg">
+            <nav style = {{height: '85px'}}class="navbar navbar-expand-lg navbar-expand-med navbar-expand-sm nav-bg">
             
                 <div class="collapse navbar-collapse " id="navbarNav">
                     <Link class='nav-logo' to={'/'}>

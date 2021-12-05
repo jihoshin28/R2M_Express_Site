@@ -1,55 +1,75 @@
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import {storeCoords} from '../actions'
-import React from 'react'
+import React, {useEffect, useState, useRef, useCallback} from 'react'
 import {connect} from 'react-redux'
 
 
-class MapContainer extends React.Component {
-    componentDidMount(){
-        console.log(this.props.store_coords, "COORDINATES")
-        // Map.setCenter(this.props.store_coords)
-    }
+const MapContainer = (props) => {
+    
+    const [center, setCenter] = useState({ lat: 54.68916, lng: 25.2798 })
+    const refMap = useRef(null);
+    
+    useEffect(() => {
+        console.log(props)
+    },[])
+    
 
-    mapStyles = {
-        width: '100%',
+    const mapStyles = {
+        width: '1425px',
         position: 'absolute', 
-        height: '75%'
+        height: '990px'
     };
 
-    onHover = () => {
-
+    const dragMap = (mapProps, map) => {
+        console.log(refMap.current)
+        let lat = refMap.current.map.center.lat()
+        let lng = refMap.current.map.center.lng()
+        setCenter({lat,lng})
     }
+
+    const resize = (e) => {
+        console.log(e)
+    }
+
 
     // address
     // 5600%Pacific%Grove%Way%Union
-    render(){
-        return (
-            <div class = "mapDiv">
-            <Map
-                google={this.props.google}
-                zoom={13}
-                style={this.mapStyles}
-                initialCenter={
-                    this.props.store_coords
-                }
-                > 
-                {/* <Marker
-                    name={'Your position'}
-                    position={this.props.user_coords}
-                /> */}
+    
+    return (
+        <div class = "map-div">
+        <Map
+            ref = {refMap}
+            google={props.google}
+            zoom={13}
+            style={mapStyles}
+            initialCenter={
+                { lat: 54.68916, lng: 25.2798 }
+            }
+            onDragend = {dragMap}
+            onResize = {resize}
+           
+        > 
+        
+            {/* <Marker
+                name={'Your position'}
+                position={this.props.user_coords}
+            /> */}
 
-                {/* <Marker
-                    name={`${this.props.store_name}`}
-                    position={this.props.store_coords}
-                /> */}
-            </Map>
-            </div>
-        );
-    }
+            <Marker
+                name={`Current Location`}
+                position={center}
+            />
+        </Map>
+        <div style={{fontSize: "5em"}} class = "map-icon">
+            <i size = "5x" class="fas fa-map-pin"></i>
+        </div>
+        </div>
+    );
+    
 }
 
 const LoadingContainer = (props) => (
-    <div>Loading</div>
+    <div>Loading...</div>
 )
 
 const mapStateToProps = (state) =>{
