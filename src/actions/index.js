@@ -201,11 +201,10 @@ export const storeCoords = (coords) => {
     })
 }
 
-export const userCoords = (coords) => {
-    return ({
-        type: 'USER_COORDS',
-        payload: coords
-    })
+export const userLocation = async() => {
+    const response = await express.get('/user_location')
+    let data = response.data
+    console.log(data)
 }
 
 //CONTACT ACTIONS

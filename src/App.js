@@ -12,6 +12,7 @@ import About from './pages/About'
 import AddReview from './pages/AddReview'
 import Book from './pages/Book'
 import Contact from './pages/Contact'
+import EnterLocation from './pages/EnterLocation'
 import Home from './pages/Home'
 import Gallery from './pages/Gallery'
 import Items from './pages/Items'
@@ -42,6 +43,7 @@ class App extends Component  {
               <Route exact path={'/add_review'} render={(props) => <AddReview {...props} />} />
               <Route exact path={'/book'} render={(props) => <Book {...props} />} />
               <Route exact path={'/contact'} render={(props) => <Contact {...props} />} />
+              <Route exact path={'/enter_location'} render={(props) => <EnterLocation {...props} />} />
               <Route exact path={'/gallery'} render={(props) => <Gallery {...props} />} />
               <Route exact path={'/items/:type/:id'} render={(props) => <Items {...props} />} />
               <Route exact path={'/junk'} render={(props) => <Junk {...props} />} />
