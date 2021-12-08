@@ -39,7 +39,7 @@ class EnterLocation extends React.Component{
         this.setState({loading: true})
         await navigator.geolocation.getCurrentPosition(async (data)=> {
             let lng, lat
-            if(!data.coords.longitude && !data.coords.latitude){
+            if(!!data.coords.longitude && !!data.coords.latitude){
                 lng = data.coords.longitude
                 lat = data.coords.latitude
                 this.props.history.replace(`/map/15/${lat}/${lng}`)
