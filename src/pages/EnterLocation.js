@@ -21,7 +21,7 @@ class EnterLocation extends React.Component{
         })
         console.log(this.state)
     }
-
+    
     inputChange = (e) => {
         let name = e.target.name
         let value = e.target.value

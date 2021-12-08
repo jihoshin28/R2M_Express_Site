@@ -34,11 +34,18 @@ const MapContainer = (props) => {
         setPin({lat,lng})
     }
 
+    let timer
+
     const zoomChanged = () => {
-        console.log(refMap.current)
-        let lat = refMap.current.map.center.lat()
-        let lng = refMap.current.map.center.lng()
-        setPin({lat,lng})
+        window.clearTimeout(timer)
+        let timerId = () => setTimeout(()=> {
+            console.log(refMap.current)
+            let lat = refMap.current.map.center.lat()
+            let lng = refMap.current.map.center.lng()
+            setPin({lat,lng})
+
+        }, 1500)
+        timer = timerId()
     }
 
 
