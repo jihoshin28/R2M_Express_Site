@@ -39,14 +39,14 @@ class App extends Component  {
               <Route exact path={'/add_review'} render={(props) => <AddReview {...props} />} />
               <Route exact path={'/book'} render={(props) => <Book {...props} />} />
               <Route exact path={'/contact'} render={(props) => <Contact {...props} />} />
-              <Route exact path={'/enter_location'} render={(props) => <EnterLocation {...props} />} />
+              <Route exact path={'/enter_location/:id'} render={(props) => <EnterLocation {...props} />} />
               <Route exact path={'/gallery'} render={(props) => <Gallery {...props} />} />
               <Route exact path={'/items/:type/:id'} render={(props) => <Items {...props} />} />
               <Route exact path={'/junk'} render={(props) => <Junk {...props} />} />
               <Route exact path={'/labor'} render={(props) => <Labor {...props} />} />
               <Route exact path={'/local'} render={(props) => <Local {...props} />} />
               <Route exact path={'/long'} render={(props) => <Long {...props} />} />
-              <Route exact path={'/map/:zoom/:lat/:lng'} render={(props) => <Map {...props} />} />
+              <Route exact path={'/map/:id/:zoom/:lat/:lng'} render={(props) => <Map {...props} />} />
               <Route exact path={'/reviews'} render={(props) => <Reviews {...props} />} />
 
         </div>

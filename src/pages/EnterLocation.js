@@ -39,24 +39,25 @@ class EnterLocation extends React.Component{
         this.setState({loading: true})
         await navigator.geolocation.getCurrentPosition(async (data)=> {
             let lng, lat
+            let id = this.props.match.params.id
             if(!!data.coords.longitude && !!data.coords.latitude){
                 lng = data.coords.longitude
                 lat = data.coords.latitude
-                this.props.history.replace(`/map/15/${lat}/${lng}`)
+                this.props.history.replace(`/map/${id}/15/${lat}/${lng}`)
                 this.props.history.go()
             } else {
                 lng = -95.7129
                 lat = 37.0902
-                this.props.history.replace(`/map/5/${lat}/${lng}`)
+                this.props.history.replace(`/map/${id}/5/${lat}/${lng}/${id}`)
                 this.props.history.go()
-
             }
         })
     }
     
 
     confirmLocation = async() => {
-        let result = await editQuote(this.state.form)
+        let quoteId = this.props.match.params.id
+        let result = await editQuote(this.state.form, quoteId)
         console.log(result)
     }
 

@@ -17,12 +17,8 @@ export class Items extends Component {
     async componentDidMount () {
         
         let id = this.props.match.params.id
-        let orderData 
-        if(this.props.match.params.type === 'quote'){
-            orderData = await this.props.getQuote(id)
-        } else if(this.props.match.params.type === 'booking'){
-            orderData = await this.props.getBooking(id)
-        }
+
+        let orderData = await this.props.getQuote(id)
 
         let itemsData = await this.props.getItems()
         
@@ -132,6 +128,7 @@ export class Items extends Component {
     }
 
     render() {
+        console.log(this.state.orderData)
         return (
             <div>
                 {
