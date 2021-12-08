@@ -28,10 +28,6 @@ import { signOut, getItems, clearModal} from './actions'
 
 class App extends Component  {
   
-  componentDidMount(){
-
-  }
-  
   render (){
     return (
       <div className="App">

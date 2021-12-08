@@ -3,10 +3,6 @@ import { Link } from 'react-router-dom'
 
 export class Navbar extends Component {
 
-    navigate = (route) => {
-
-    }
-
     render() {
         
         return ( 
@@ -59,7 +55,7 @@ export class Navbar extends Component {
                             <Link to = '/reviews' class="nav-button">Reviews</Link>
                         </li>
                         <li class="nav-item nav-list">
-                            <Link to = '/map' class="nav-button">Map</Link>
+                            <Link to = '/enter_location' class="nav-button">Enter Location</Link>
                         </li>
                     </ul>
                 </div>

@@ -47,7 +47,7 @@ const MapContainer = (props) => {
         <Map
             ref = {refMap}
             google={props.google}
-            zoom={15}
+            zoom={1}
             style={mapStyles}
             initialCenter={
                 { lat: 37.5804228, lng: -122.0813169 }
