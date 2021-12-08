@@ -11,6 +11,7 @@ import Modal from './components/Modal'
 import About from './pages/About'
 import AddReview from './pages/AddReview'
 import Book from './pages/Book'
+import ConfirmQuote from './pages/ConfirmQuote'
 import Contact from './pages/Contact'
 import EnterLocation from './pages/EnterLocation'
 import Home from './pages/Home'
@@ -38,6 +39,7 @@ class App extends Component  {
               <Route exact path={'/about'} render={(props) => <About {...props} />} />
               <Route exact path={'/add_review'} render={(props) => <AddReview {...props} />} />
               <Route exact path={'/book'} render={(props) => <Book {...props} />} />
+              <Route exact path={'/confirm_quote/:id'} render={(props) => <ConfirmQuote {...props} />} />
               <Route exact path={'/contact'} render={(props) => <Contact {...props} />} />
               <Route exact path={'/enter_location/:id'} render={(props) => <EnterLocation {...props} />} />
               <Route exact path={'/gallery'} render={(props) => <Gallery {...props} />} />
