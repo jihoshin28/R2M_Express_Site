@@ -1,5 +1,5 @@
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
-import {userLocation} from '../actions'
+import {userLocation, editQuote, updateStartLocation} from '../actions'
 import axios from 'axios'
 import React, {useEffect, useState, useRef, useCallback} from 'react'
 import {connect} from 'react-redux'
@@ -10,8 +10,8 @@ class EnterLocation extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            form: {}
-
+            form: {}, 
+            loading: false
         }
     }
     
@@ -36,19 +36,45 @@ class EnterLocation extends React.Component{
     }
 
     goToMap = async() => {
-        await navigator.geolocation.getCurrentPosition((data)=> {
-            console.log(data)
-            
+        this.setState({loading: true})
+        await navigator.geolocation.getCurrentPosition(async (data)=> {
+            let lng, lat
+            if(!data.coords.longitude && !data.coords.latitude){
+                lng = data.coords.longitude
+                lat = data.coords.latitude
+                this.props.history.replace(`/map/15/${lat}/${lng}`)
+                this.props.history.go()
+            } else {
+                lng = -95.7129
+                lat = 37.0902
+                this.props.history.replace(`/map/5/${lat}/${lng}`)
+                this.props.history.go()
+
+            }
         })
     }
     
 
-    confirmLocation = () => {
-
+    confirmLocation = async() => {
+        let result = await editQuote(this.state.form)
+        console.log(result)
     }
 
     render(){
         return (
+            <div>
+                {
+                this.state.loading === true?
+                <div class = "container loaderDiv" >
+                    <div class = "loader">
+                        
+                    </div>
+                    <h1>
+                        Loading...
+                    </h1>
+                </div>
+                :
+            
             <div class = "container">
                 <div class = "addReview-header">
                     <h1>
@@ -281,6 +307,8 @@ class EnterLocation extends React.Component{
                     </div>
                 </div>
             </div>
+            }
+            </div>
         )
 
     }
@@ -301,4 +329,4 @@ const mapStateToProps = (state) =>{
     })
 }
 
-export default connect(mapStateToProps, {userLocation})(EnterLocation)
+export default connect(mapStateToProps, {userLocation, editQuote, updateStartLocation})(EnterLocation)

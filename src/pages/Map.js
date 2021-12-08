@@ -7,16 +7,17 @@ import {connect} from 'react-redux'
 
 const MapContainer = (props) => {
     
-    const [center, setCenter] = useState({})
+    const [center, setCenter] = useState({lat: parseFloat(props.match.params.lat), lng: parseFloat(props.match.params.lng)})
+    const [pin, setPin] = useState({})
+    const [zoom, setZoom] = useState(parseInt(props.match.params.zoom))
     const refMap = useRef(null);
     
-    useEffect(async() => {
-        await navigator.geolocation.getCurrentPosition((data)=> {
-            console.log(data)
-            setCenter({lat: data.coords.lat, lng: data.coords.lng})
-            
+    useEffect(() => {
+        console.log({
+            lat: props.match.params.lat, 
+            lng: props.match.params.lng, 
+            zoom:props.match.params.zoom
         })
-
     },[])
     
 
@@ -26,34 +27,34 @@ const MapContainer = (props) => {
         height: '990px'
     };
 
-    const dragMap = (mapProps, map) => {
+    const dragMap = () => {
         console.log(refMap.current)
         let lat = refMap.current.map.center.lat()
         let lng = refMap.current.map.center.lng()
-        setCenter({lat,lng})
+        setPin({lat,lng})
     }
 
-    const resize = (e) => {
-
-        
+    const zoomChanged = () => {
+        console.log(refMap.current)
+        let lat = refMap.current.map.center.lat()
+        let lng = refMap.current.map.center.lng()
+        setPin({lat,lng})
     }
 
 
     // address
     // 5600%Pacific%Grove%Way%Union
-    console.log(center)
+    console.log(pin)
     return (
         <div class = "map-div">
         <Map
             ref = {refMap}
             google={props.google}
-            zoom={1}
+            zoom={zoom}
             style={mapStyles}
-            initialCenter={
-                { lat: 37.5804228, lng: -122.0813169 }
-            }
+            initialCenter={center}
             onDragend = {dragMap}
-            onResize = {resize}
+            onZoomChanged = {zoomChanged}
            
         > 
         
@@ -62,10 +63,6 @@ const MapContainer = (props) => {
                 position={this.props.user_coords}
             /> */}
 
-            <Marker
-                name={`Current Location`}
-                position={center}
-            />
         </Map>
         <div style={{fontSize: "5em"}} class = "map-icon">
             <i size = "5x" class="fas fa-map-pin"></i>
@@ -79,16 +76,9 @@ const LoadingContainer = (props) => (
     <div>Loading...</div>
 )
 
-const mapStateToProps = (state) =>{
-    return({
-        
-        // start_lat: state.stores.store_coords.lat + state.stores.user_coords.lat,
-        // start_lng: state.stores.store_coords.lng + state.stores.user_coords.lng
-        
-    })
-}
 
-export default connect(mapStateToProps, {userLocation})(GoogleApiWrapper({
+
+export default connect(null, {userLocation})(GoogleApiWrapper({
     apiKey: "AIzaSyD-d4NIENxdIYOCE7gIRwvzTIZGRLobMdg",
     LoadingContainer: LoadingContainer
 })(MapContainer))

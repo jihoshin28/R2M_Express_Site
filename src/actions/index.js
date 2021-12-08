@@ -247,7 +247,16 @@ export const clearModal = () => {
     })
 }
 
-//ADDRESS ACTIONS
+//LOCATION ACTIONS 
+
+export const updateStartLocation = (data) => async dispatch => {
+    
+    dispatch({
+        type: "UPDATE_START_LOCATION",
+        payload: data
+    })
+}
+
 
 export const addShopperAddress = (form) => async dispatch => {
     console.log(form)

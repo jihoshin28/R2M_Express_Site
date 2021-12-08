@@ -18,7 +18,7 @@ const reducer = combineReducers({
     items: itemsReducer,
     auth: authReducer,
     modals: modalsReducer,
-    order: orderReducer,
+    order: orderReducer
 })
 
 

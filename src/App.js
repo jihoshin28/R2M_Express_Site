@@ -46,7 +46,7 @@ class App extends Component  {
               <Route exact path={'/labor'} render={(props) => <Labor {...props} />} />
               <Route exact path={'/local'} render={(props) => <Local {...props} />} />
               <Route exact path={'/long'} render={(props) => <Long {...props} />} />
-              <Route exact path={'/map'} render={(props) => <Map {...props} />} />
+              <Route exact path={'/map/:zoom/:lat/:lng'} render={(props) => <Map {...props} />} />
               <Route exact path={'/reviews'} render={(props) => <Reviews {...props} />} />
 
         </div>
