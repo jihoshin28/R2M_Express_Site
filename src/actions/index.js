@@ -86,9 +86,11 @@ export const createQuote = quoteInfo => async() => {
 }
 
 export const editQuote = (quoteId, quoteInfo) => async() => {
+    console.log(quoteId, quoteInfo)
     const response = await express.put(`/quotes/${quoteId}`, {quoteInfo})
     let data = response.data
     console.log(data)
+    return data
 }
 
 export const deleteQuote = quoteId => async() => {

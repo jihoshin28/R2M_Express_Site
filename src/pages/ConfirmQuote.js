@@ -3,7 +3,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 
 
-class EnterLocation extends React.Component{
+class ConfirmQuote extends React.Component{
     
     constructor(props){
         super(props)
@@ -56,10 +56,7 @@ class EnterLocation extends React.Component{
     confirmLocation = async() => {
         let quoteId = this.props.match.params.id
         let result = await this.props.editQuote(quoteId, this.state.form)
-        if(!!result.status){
-            this.props.history.push(`/confirm_quote/${quoteId}`)
-            this.props.history.go()
-        }
+        console.log(result)
     }
 
     render(){
@@ -80,7 +77,7 @@ class EnterLocation extends React.Component{
             <div class = "container">
                 <div class = "addReview-header">
                     <h1>
-                        Please enter your locations for quote
+                        Confirm Quote
                     </h1>
                 </div> 
     
@@ -331,4 +328,4 @@ const mapStateToProps = (state) =>{
     })
 }
 
-export default connect(mapStateToProps, {userLocation, editQuote, updateStartLocation})(EnterLocation)
+export default connect(mapStateToProps, {userLocation, editQuote, updateStartLocation})(ConfirmQuote)
