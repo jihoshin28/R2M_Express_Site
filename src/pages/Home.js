@@ -189,16 +189,13 @@ export class Home extends Component {
                                         <input onChange = {(e) => this.inputChange(e)} type="phone" class="form-control" name = "phone" id="quote-form-phoneNumber" placeholder="Your Phone Number"/>
                                     </div>
                                     <div class="form-group">
-                                        <label class = "quote-form-label" for="quote-form-moveOption"><h3>Select Move Size</h3></label>
-                                        <select onChange = {(e) => this.inputChange(e)} name = "move_size" class="form-control" id="quote-form-moveOption">
+                                        <label class = "quote-form-label" for="quote-form-moveOption"><h3>Select Vehicle Size</h3></label>
+                                        <select onChange = {(e) => this.inputChange(e)} name = "vehicle_size" class="form-control" id="quote-form-moveOption">
                                             <option>Select size</option>
-                                            <option>Studio</option>
-                                            <option>1 bedroom</option>
-                                            <option>2 bedrooms</option>
-                                            <option>3 bedrooms</option>
-                                            <option>4 bedrooms</option>
-                                            <option>5 bedrooms</option>
-                                            <option>6 bedrooms</option>
+                                            <option>Pickup</option>
+                                            <option>Truck</option>
+                                            <option>XL</option>
+                                           
                                         </select>
                                     </div>
                                     <div class="form-group">
