@@ -311,10 +311,6 @@ class EnterLocation extends React.Component{
     
 }
 
-const LoadingContainer = (props) => (
-    <div>Loading...</div>
-)
-
 const mapStateToProps = (state) =>{
     return({
         
