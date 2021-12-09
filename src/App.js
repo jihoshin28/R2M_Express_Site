@@ -32,7 +32,7 @@ class App extends Component  {
   render (){
     return (
       <div className="App">
-        <div>
+    
             <NavBar history = {this.props.history}/>
               <Modal history = {this.props.history} modal = {this.props.modal}/>
               <Route exact path={'/'} render={(props) => <Home {...props} />}></Route> 
@@ -51,7 +51,7 @@ class App extends Component  {
               <Route exact path={'/map/:id/:zoom/:lat/:lng'} render={(props) => <Map {...props} />} />
               <Route exact path={'/reviews'} render={(props) => <Reviews {...props} />} />
 
-        </div>
+       
         <div class = "body-wrap"></div>
         <footer className="footer">
           <div class = 'footer-curve'>
@@ -147,7 +147,7 @@ class App extends Component  {
               </div>
               <div className = "col-md-4 footer-section-center">
                 
-                <img class = "footer-icon" src=  {process.env.PUBLIC_URL + '/upack_logo.png'}></img> 
+                 
                 <h1>Upack Haulers</h1>
                 <h4>Copyright © 2021</h4>
                 <h4>All rights reserved</h4>

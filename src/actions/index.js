@@ -169,46 +169,6 @@ export const signOut = () => {
     }
 }
 
-//USER PROFILE ACTIONS
-
-export const createShopperProfile = (shopperInfo) => async dispatch => {
-    const response = await express.post('/shopper_infos/', shopperInfo)
-    let data = response.data
-    console.log(data)
-    dispatch({
-        type: 'PROFILE_INFO',
-        payload: data.data
-    })
-}
-
-export const editShopper = (form, id) => async dispatch => {
-    console.log(form)
-    const response = await express.patch(`/shoppers/${id}`, form)
-    let data = response.data
-    console.log(data.data)
-    dispatch({ type: "EDIT_SHOPPER", payload: data.data.attributes })
-}
-
-export const editShopperProfile = (form, id) => async dispatch => {
-    const response = await express.patch(`/shopper_infos/${id}`, form)
-    let data = response.data.data
-    console.log(data)
-    dispatch({ type: "EDIT_PROFILE", payload: data.attributes })
-}
-
-export const storeCoords = (coords) => {
-    return({
-        type: 'STORE_COORDS',
-        payload: coords
-    })
-}
-
-export const userLocation = async() => {
-    const response = await express.get('/user_location')
-    let data = response.data
-    console.log(data)
-}
-
 //CONTACT ACTIONS
 
 export const submitContact = contactInfo => async dispatch => {
@@ -259,16 +219,24 @@ export const updateStartLocation = (data) => async dispatch => {
     })
 }
 
-
-export const addShopperAddress = (form) => async dispatch => {
-    console.log(form)
-    const response = await express.post('/addresses', {'address': form})
-    const data = response.data
-    console.log(data.data.attributes)
-    dispatch({
-        type: "ADD_SHOPPER_ADDRESS",
-        payload: data.data.attributes
+export const storeCoords = (coords) => {
+    return({
+        type: 'STORE_COORDS',
+        payload: coords
     })
+}
+
+export const userLocation = async() => {
+    const response = await express.get('/user_location')
+    let data = response.data
+    console.log(data)
+}
+
+
+export const geoCode = () => async dispatch => {
+    const response = await express.get('/locations')
+    const data = response.data
+    console.log(data)
 }
 
 //EMAIL ACTIONS

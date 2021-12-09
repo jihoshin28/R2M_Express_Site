@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import HomeSection from '../components/HomeSection'
 import HomeQuote from '../components/HomeQuote'
-import { createQuote } from '../actions'
+import { createQuote, geoCode } from '../actions'
 
 
 export class Home extends Component {
@@ -12,9 +12,8 @@ export class Home extends Component {
         this.state = {}
     }
 
-    componentDidMount(){
-        console.log(this.props.signedIn)
-        console.log("test")
+    componentDidMount (){
+        this.props.geoCode()
     }
 
     goToGetQuote = async() => {
@@ -218,4 +217,4 @@ let mapStateToProps= state => {
     })
 }
 
-export default connect(mapStateToProps, {createQuote})(Home)
+export default connect(mapStateToProps, {createQuote, geoCode})(Home)

@@ -61,9 +61,8 @@
 }
 
 .footer-row{
-  align-items: center;
   background-color: rgb(37, 63, 212);
-  padding-bottom: 3%;
+  padding-bottom: 50px;
 }
 
 .footer-row h1 {
@@ -79,8 +78,8 @@
 }
 
 .footer-icon{
-  width: 30%;
-  height: 30%;
+  width: 150px;
+  height: 150px;
 }
 
 .footer-section-left {
@@ -207,7 +206,8 @@
 }
 
 .footer_dropdown_menu li:hover {
-  display: block
+  display: block;
+  color: white;
 }
 
 .footer_dropdown:hover .footer_dropdown_menu--animated {
@@ -483,6 +483,41 @@
   animation: spin 2s linear infinite;
 }
 
+.map-confirm-div {
+  z-index: 10;
+  position: absolute;
+  top: 42px;
+  left: 203px;
+  display:flex;
+  align-items: center;
+}
+
+.map-address {
+  background-color: rgb(109, 189, 17);
+  border-radius: 10px;
+  padding: 7px;
+}
+
+.map-address h3 {
+  color: white;
+}
+
+.map-confirm-button{  
+  margin-bottom: 19px;
+}
+
+.map-confirm-button-img {
+  color: white;
+  margin-left: 10px;
+  margin-bottom: 3px;
+  height: 15px;
+}
+
+.map-search-button{  
+  margin: 10px;
+  margin-bottom: 27px;
+}
+
 .map-icon {
   z-index: 10;
   position: absolute;
@@ -491,9 +526,20 @@
 }
 
 .map-div {
-  height:890px;
-  display:flex;
-  justify-content: center;
+  height: 890px;
+}
+
+.map-input {
+  width: 400px; 
+  color: white;
+  background-color:rgb(109, 189, 17);
+  border:none;
+}
+
+.map-input:focus {
+  border-color: inherit;
+  -webkit-box-shadow: none;
+	box-shadow: none;
 }
 
 .wrapper{

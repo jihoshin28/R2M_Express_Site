@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { reduxForm, Field, SubmissionError } from 'redux-form'
-import { addShopperNumber, addShopperAddress} from '../../actions'
+import { addShopperNumber } from '../../actions'
 
 
 
@@ -117,15 +117,7 @@ class SubmitModal extends React.Component {
                         phoneable_id: this.props.shopperId
                     }
                 )
-            } else {
-                this.props.addShopperAddress(
-                    {
-                        ...formValues,
-                        addressable_type: 'Shopper', 
-                        addressable_id: this.props.shopperId
-                    }
-                )
-            }
+            } 
         })
     }
 
@@ -191,4 +183,4 @@ let mapStateToProps = state => {
     })
 } 
 
-export default connect(mapStateToProps, {addShopperAddress, addShopperNumber})(formWrapped)
+export default connect(mapStateToProps, { addShopperNumber})(formWrapped)
