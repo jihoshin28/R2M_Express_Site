@@ -22,7 +22,6 @@ let HomeSection = (props) => {
                 sectionRender(entry.target)
                 observer.unobserve(entry.target)
             }
-            console.log(entry.isIntersecting, props)
         }, options)
         observer.observe(selectedSection)
     }, [])
