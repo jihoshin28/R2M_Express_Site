@@ -183,21 +183,21 @@ class EnterLocation extends React.Component{
                                         <div class = "row">
                                             <div class="col-md-3">
                                                 <div class="md-form mb-0">
-                                                    <input onChange = {(e) => this.inputChange(e)} type="text" id="delivery_street" name="delivery_street" class="form-control"/>
-                                                    <label for="delivery_street" class="">Street </label>
+                                                    <input onChange = {(e) => this.inputChange(e)} type="text" id="delivery _street" name="delivery _street" class="form-control"/>
+                                                    <label for="delivery _street" class="">Street </label>
                                                 </div>
                                             </div>
     
                                             <div class="col-md-3">
                                                 <div class="md-form mb-0">
-                                                    <input onChange = {(e) => this.inputChange(e)} type="text" id="delivery_city" name="delivery_city" class="form-control"/>
-                                                    <label for="delivery_city" class="">City</label>
+                                                    <input onChange = {(e) => this.inputChange(e)} type="text" id="delivery _city" name="delivery _city" class="form-control"/>
+                                                    <label for="delivery _city" class="">City</label>
                                                 </div>
                                             </div>
     
                                             <div class="col-md-3">
                                                 <div class="md-form mb-0">
-                                                    <select onChange = {(e) => this.inputChange(e)} class="form-control" id="delivery_state" name="delivery_state">
+                                                    <select onChange = {(e) => this.inputChange(e)} class="form-control" id="delivery _state" name="delivery _state">
                                                         <option value= " ">Select State</option>
                                                         <option value="AL">Alabama</option>
                                                         <option value="AK">Alaska</option>
@@ -250,15 +250,15 @@ class EnterLocation extends React.Component{
                                                         <option value="WI">Wisconsin</option>
                                                         <option value="WY">Wyoming</option>
                                                     </select>
-                                                    <label for="delivery_state" class="">State</label>
+                                                    <label for="delivery _state" class="">State</label>
                                                 </div>
                                             </div>
                                             
     
                                             <div class="col-md-3">
                                                 <div class="md-form mb-0">
-                                                    <input onChange = {(e) => this.inputChange(e)} type="text" id="delivery_zip" name="delivery_zip" class="form-control"/>
-                                                    <label for="delivery_zip" class="">City</label>
+                                                    <input onChange = {(e) => this.inputChange(e)} type="text" id="delivery _zip" name="delivery _zip" class="form-control"/>
+                                                    <label for="delivery _zip" class="">City</label>
                                                 </div>
                                             </div>
                                         </div>

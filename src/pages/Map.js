@@ -1,5 +1,5 @@
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
-import {userLocation} from '../actions'
+import {userLocation, editQuote} from '../actions'
 import axios from 'axios'
 import React, {useEffect, useState, useRef, useCallback} from 'react'
 import {connect} from 'react-redux'
@@ -13,6 +13,7 @@ const MapContainer = (props) => {
     const [pin, setPin] = useState({})
     const [zoom, setZoom] = useState(parseInt(props.match.params.zoom))
     const [address, setAddress] = useState("Loading...")
+    const [addressForm, setAddressForm] = useState({})
     const [start, setStart] = useState(true)
     
     useEffect(() => {
@@ -27,9 +28,6 @@ const MapContainer = (props) => {
     useEffect(() => {
         reverseGeocode(pin)
     }, [pin])
-
-    // "37.5805612"
-    // "-122.081306"
 
     const mapStyles = {
         width: '1425px',
@@ -46,21 +44,59 @@ const MapContainer = (props) => {
             setPin({lat: data.results[0].geometry.location.lat(), lng: data.results[0].geometry.location.lng()})
             setZoom(15)
         })
-        
     }
 
     const confirmAddress = () => {
+
+        let address_array = address.split(',')
+        let street = address_array[0]
+        let city = address_array[1][0] === ' ' ? address_array[1].substring(1) : address_array[1]
+        let address_array_2 = address_array[2].split(' ')
+        let state = address_array_2[1]
+        let zip = address_array_2[2]
+        
+        let address_form
+        if(start === true){
+            address_form = {
+                start_street: `${street}`,
+                start_city: `${city}`,
+                start_state: `${state}`,
+                start_zip: `${zip}`
+            }
+            setAddressForm(address_form)
+            setStart(false)
+        } else {
+            address_form = {
+                delivery_street: `${street}`,
+                delivery_city: `${city}`,
+                delivery_state: `${state}`,
+                delivery_zip: `${zip}`
+            }
+            let newAddressForm = Object.assign(addressForm, address_form)
+            setAddressForm(newAddressForm)
+            confirmLocation()
+        }
         if(start === true){
             setStart(false)
         } else if(start === false){
-            props.history.push('/')
+            confirmLocation()
+        }
+    }
+
+    const confirmLocation = async() => {
+        let quoteId = props.match.params.id
+        let result = await props.editQuote(quoteId, addressForm)
+        if(!!result.status){
+            props.history.push(`/confirm_quote/${quoteId}`)
+            props.history.go()
         }
     }
 
     const reverseGeocode = (pin) => {
         if(!!geocoder){
             geocoder.geocode({location: pin}).then((data) => {
-                setAddress(data.results[0].formatted_address)
+                let formatted_address = data.results[0].formatted_address
+                setAddress(formatted_address)
             })
         }
     }
@@ -144,9 +180,7 @@ const LoadingContainer = (props) => (
     <div>Loading...</div>
 )
 
-
-
-export default connect(null, {userLocation})(GoogleApiWrapper({
+export default connect(null, {userLocation, editQuote})(GoogleApiWrapper({
     apiKey: "AIzaSyD-d4NIENxdIYOCE7gIRwvzTIZGRLobMdg",
     LoadingContainer: LoadingContainer
 })(MapContainer))
