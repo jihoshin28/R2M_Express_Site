@@ -41,6 +41,24 @@
   height: 15rem;
 }
 
+.error-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.error-div h3 {
+  color: rgb(212, 14, 14)
+}
+
+.error-img {
+  color: white;
+  margin-left: 10px;
+  margin-bottom: 3px;
+  height: 25px;
+}
+
 .footer{
   height: 5em;
   position: absolute;

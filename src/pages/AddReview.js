@@ -9,28 +9,38 @@ export class AddReview extends Component {
         super(props)
         this.state = {}
     }
-
-    
-    componentDidMount() {
-        // this.props.testRoute(this.props.history)
-    }
     
     submitReview = () => {
-        this.props.submitReview(this.state)
+        let form = this.state.form
+        if(!form.name || !form.city || !form.state || !form.subject || !form.text || !form.rating ){
+            this.setState({
+                error: true
+            })
+        } else {
+            this.props.postReview(this.state.form)
+        }
     }
 
     ratingChanged = (newRating) => {
         this.setState({
-            'rating': newRating
+            form: {
+                ...this.state.form,
+                'rating': newRating
+            }
         })
         console.log(this.state)
     };
 
     inputChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
-        console.log(this.state)
+        let name = e.target.name
+        let value = e.target.value
+        this.setState((currentState) => ({
+            
+            form: {
+                ...currentState.form,
+                [name]: value
+            }
+        }))
     }
 
     render() {
@@ -158,6 +168,19 @@ export class AddReview extends Component {
                                                 </div>
                                             </div>
                                         </div>
+                                        {
+                                            !!this.state.error ?
+                                            <div class = "error-div">
+                                                <div style = {{marginRight: '5px'}}>
+                                                    <img class = 'error-img' src = {process.env.PUBLIC_URL + '/exclamation-mark.png'}></img>  
+                                                </div>
+                                                <div>
+                                                    <h3> Please fill in all necessary fields</h3>
+                                                </div>
+                                            </div>
+                                            :
+                                            null
+                                        }
                                         <div class="row">
                                             <div class = "col-md-12">
                                                 <a class="btn" onClick = {() => this.submitReview()} style = {{marginTop: '25px', padding: '15px', backgroundColor: "rgb(130, 212, 37)"}}><h3>Post Review</h3></a>

@@ -3,19 +3,38 @@ import { connect } from 'react-redux'
 import {submitContact} from '../actions'
 // import aboutPic from '../public/logo192.png'
 export class Contact extends Component {
+    
+    constructor(props){
+        super(props)
+        this.state = {
+            error: false
+        }
+    }
+
     componentDidMount() {
         console.log(this.props.history)
     }
 
     inputChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
-        console.log(this.state)
+        let name = e.target.name
+        let value = e.target.value
+        this.setState((currentState) => ({
+            
+            form: {
+                ...currentState.form,
+                [name]: value
+            }
+        }))
+        console.log(this.state.form)
     }
 
     submitContact = () => {
-        this.props.submitContact(this.state)
+        let form = this.state.form
+        if(!form.name || !form.email || !form.subject || !form.message){
+            this.setState({error: true})
+        } else {
+            this.props.submitContact(this.state.form)
+        }
     }
 
     render() {
@@ -91,6 +110,19 @@ export class Contact extends Component {
                                             </div>
                                         </div>
                                     </div>
+                                    {
+                                            !!this.state.error ?
+                                            <div class = "error-div">
+                                                <div style = {{marginRight: '5px'}}>
+                                                    <img class = 'error-img' src = {process.env.PUBLIC_URL + '/exclamation-mark.png'}></img>  
+                                                </div>
+                                                <div>
+                                                    <h3>Please fill all fields</h3>
+                                                </div>
+                                            </div>
+                                            :
+                                            null
+                                        }
                                     <div class="row">
                                         <div class = "col-md-12">
                                             <a onClick = {() => this.submitContact()}class="btn" style = {{marginTop: '25px', padding: '15px', backgroundColor: "rgb(130, 212, 37)"}}><h3>Send Message</h3></a>

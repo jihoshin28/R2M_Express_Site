@@ -9,7 +9,8 @@ class EnterLocation extends React.Component{
         super(props)
         this.state = {
             form: {}, 
-            loading: false
+            loading: false,
+            error: false
         }
     }
     
@@ -23,7 +24,6 @@ class EnterLocation extends React.Component{
                 [name]: value
             }
         }))
-        console.log(this.state.form)
     }
 
     goToMap = async() => {
@@ -47,11 +47,18 @@ class EnterLocation extends React.Component{
     
 
     confirmLocation = async() => {
-        let quoteId = this.props.match.params.id
-        let result = await this.props.editQuote(quoteId, this.state.form)
-        if(!!result.status){
-            this.props.history.push(`/confirm_quote/${quoteId}`)
-            this.props.history.go()
+        let form = this.state.form
+        if(!form.start_street || !form.start_city || !form.start_state || !form.start_zip || !form.delivery_street || !form.delivery_city || !form.delivery_state || !form.delivery_zip ){
+            this.setState({
+                error: true
+            })
+        } else {
+            let quoteId = this.props.match.params.id
+            let result = await this.props.editQuote(quoteId, this.state.form)
+            if(!!result.status){
+                this.props.history.push(`/confirm_quote/${quoteId}`)
+                this.props.history.go()
+            }
         }
     }
 
@@ -168,7 +175,7 @@ class EnterLocation extends React.Component{
                                             <div class="col-md-3">
                                                 <div class="md-form mb-0">
                                                     <input onChange = {(e) => this.inputChange(e)} type="text" id="start_zip" name="start_zip" class="form-control"/>
-                                                    <label for="start_zip" class="">City</label>
+                                                    <label for="start_zip" class="">Zip Code</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -258,12 +265,23 @@ class EnterLocation extends React.Component{
                                             <div class="col-md-3">
                                                 <div class="md-form mb-0">
                                                     <input onChange = {(e) => this.inputChange(e)} type="text" id="delivery_zip" name="delivery_zip" class="form-control"/>
-                                                    <label for="delivery_zip" class="">City</label>
+                                                    <label for="delivery_zip" class="">Zip Code</label>
                                                 </div>
                                             </div>
                                         </div>
-                        
-    
+                                        {
+                                            !!this.state.error ?
+                                            <div class = "error-div">
+                                                <div style = {{marginRight: '5px'}}>
+                                                    <img class = 'error-img' src = {process.env.PUBLIC_URL + '/exclamation-mark.png'}></img>  
+                                                </div>
+                                                <div>
+                                                    <h3> Please fill in all necessary fields</h3>
+                                                </div>
+                                            </div>
+                                            :
+                                            null
+                                        }
                                         <br></br>
                         
                                         <div class="row">
@@ -316,7 +334,7 @@ const mapStateToProps = (state) =>{
         
         // start_lat: state.stores.store_coords.lat + state.stores.user_coords.lat,
         // start_lng: state.stores.store_coords.lng + state.stores.user_coords.lng
-        
+
     })
 }
 

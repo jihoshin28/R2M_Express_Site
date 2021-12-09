@@ -10,7 +10,8 @@ class ConfirmQuote extends React.Component{
         this.state = {
             form: {}, 
             loading: true,
-            stair_display: false
+            stair_display: false,
+            error: false
         }
     }
 
@@ -35,7 +36,6 @@ class ConfirmQuote extends React.Component{
                 [name]: value
             }
         }))
-        console.log(this.state.form)
     }
 
     stairDisplay = (e) => {
@@ -71,17 +71,20 @@ class ConfirmQuote extends React.Component{
     }
 
     confirmQuote = async() =>{
-        this.setState({loading: true})
-        let quoteId = this.props.match.params.id
-        let result = await this.props.editQuote(quoteId, this.state.form)
-        if(!!result.status){
-            this.props.history.push('/')
-            this.props.history.go()
+        if(!this.state.form.move_size){
+            this.setState({error: true})
+        } else {
+            this.setState({loading: true})
+            let quoteId = this.props.match.params.id
+            let result = await this.props.editQuote(quoteId, this.state.form)
+            if(!!result.status){
+                this.props.history.push('/')
+                this.props.history.go()
+            }
         }
     }
     
     render(){
-        console.log(this.state.form)
         return (
             <div>
                 {
@@ -171,7 +174,7 @@ class ConfirmQuote extends React.Component{
                                             </div>
                                         </div>
 
-                                        <div class = "row" style = {{ marginBottom: '30px', marginTop: '30px'}}>
+                                        <div class = "row" style = {{ marginBottom: '30px', marginTop: '50px'}}>
                                             <div class = "col-md-6">
                                                 <label style = {{marginRight: '10px'}} for="stairs_display"><h2>Stairs? :</h2></label>
                                                 <input onChange = {this.stairDisplay} type="checkbox" id="stairs_display" name="stairs_display"/>
@@ -189,10 +192,22 @@ class ConfirmQuote extends React.Component{
                                             }
                                             
                                         </div>
-                        
+                                        {
+                                            !!this.state.error ?
+                                            <div class = "error-div">
+                                                <div style = {{marginRight: '5px'}}>
+                                                    <img class = 'error-img' src = {process.env.PUBLIC_URL + '/exclamation-mark.png'}></img>  
+                                                </div>
+                                                <div>
+                                                    <h3>Please select move size</h3>
+                                                </div>
+                                            </div>
+                                            :
+                                            null
+                                        }
                                         <div class="row">
                                             <div class = "col-md-12">
-                                                <a class="btn" onClick = {() => this.confirmQuote()} style = {{marginTop: '15px', padding: '15px', backgroundColor: "rgb(130, 212, 37)"}}><h3>Confirm Quote</h3></a>
+                                                <a class="btn" onClick = {() => this.confirmQuote()} style = {{marginTop: '50px', padding: '15px', backgroundColor: "rgb(130, 212, 37)"}}><h3>Confirm Quote</h3></a>
                                             </div>
                                             <div class="status"></div>
                                         </div>
