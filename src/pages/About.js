@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import ImageCarousel from '../containers/ImageCarousel'
 // import aboutPic from '../public/logo192.png'
 export class About extends Component {
     componentDidMount() {
@@ -32,7 +33,8 @@ export class About extends Component {
                         </div>
 
                         <div class = "about-pic">
-                            <img style = {{width: '100%'}} src = {"https://i0.wp.com/movingtips.wpengine.com/wp-content/uploads/2017/07/moving-labor.jpg"}></img>
+                            <ImageCarousel/>
+                            {/* <img style = {{width: '100%'}} src = {"https://i0.wp.com/movingtips.wpengine.com/wp-content/uploads/2017/07/moving-labor.jpg"}></img> */}
                         </div>
                     </div>
 
