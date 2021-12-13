@@ -12,14 +12,10 @@ export class Home extends Component {
         this.state = {}
     }
 
-    componentDidMount (){
-        this.props.geoCode()
-    }
-
     goToGetQuote = async() => {
         let result = await this.props.createQuote(this.state)
         if(!!result.id){
-            this.props.history.push({pathname: `/enter_location/${result.id}`})
+            this.props.history.push({pathname: `/items/${result.id}`})
             this.props.history.go()
         } else {
             console.log(result)
@@ -191,14 +187,16 @@ export class Home extends Component {
                                         <label class = "quote-form-label" for="quote-form-moveOption"><h3>Select Vehicle Size</h3></label>
                                         <select onChange = {(e) => this.inputChange(e)} name = "vehicle_size" class="form-control" id="quote-form-moveOption">
                                             <option>Select size</option>
-                                            <option>Pickup</option>
-                                            <option>Truck</option>
-                                            <option>XL</option>
-                                           
+                                            <option>Pickup Truck (8 ft.)</option>
+                                            <option>Sprinter Van (12 ft.)</option>
+                                            <option>Box Truck (14 ft. - 24 ft.)</option>
                                         </select>
                                     </div>
+                                    {/* add image for vehicle */}
+                                    {/* another variable for box truck size: 14, 16, 24 */}
+                                    {/* load size, floor size, load capacity */}
                                     <div class="form-group">
-                                        <label class = "quote-form-label" for="quote-form-comments"><h3>Comments</h3></label>
+                                        <label class = "quote-form-label" for="quote-form-comments"><h3>Move Description</h3></label>
                                         <textarea onChange = {(e) => this.inputChange(e)} name = "comments" class="form-control" id="quote-form-comments" rows="5"></textarea>
                                     </div>
                                 </form>

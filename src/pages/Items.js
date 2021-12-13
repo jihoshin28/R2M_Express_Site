@@ -66,34 +66,20 @@ export class Items extends Component {
 
     createOrderItems = () => {
         let itemIdArray = Object.keys(this.state.items)
-        if(this.props.match.params.type=== 'quote'){
-            console.log('quote hit')
-            itemIdArray.forEach((item_id) => {
-                let quantity = this.state.items[item_id]
-                if(quantity > 0){
-                    this.props.addQuoteItem(
-                        {
-                            item_id: item_id,
-                            quantity: this.state.items[item_id],
-                            quote_id: this.state.orderData.id
-                        }
-                    )
-                }
-            })
-        } else if(this.props.match.params.type=== 'booking'){
-            itemIdArray.forEach((item_id) => {
-                let quantity = this.state.items[item_id]
-                if(quantity > 0){
-                    this.props.addBookingItem(
-                        {
-                            quantity,
-                            item_id: item_id,
-                            booking_id: this.state.orderData.id
-                        }
-                    )
-                }
-            })
-        }
+      
+        itemIdArray.forEach((item_id) => {
+            let quantity = this.state.items[item_id]
+            if(quantity > 0){
+                this.props.addQuoteItem(
+                    {
+                        item_id: item_id,
+                        quantity: this.state.items[item_id],
+                        quote_id: this.state.orderData.id
+                    }
+                )
+            }
+        })
+        
     }
 
     finalizeOrder = async() => {
@@ -146,17 +132,11 @@ export class Items extends Component {
                 <div class = "container">
                     
                     <div class = "getQuote-header">
-                        {
-                            this.props.match.params.type === "quote" 
-                            ?
-                            <h1>
-                                Select items for quote.
-                            </h1> 
-                            :
-                            <h1>
-                                Select items for booking.
-                            </h1>
-                        }
+                       
+                        <h1>
+                            Select items for quote.
+                        </h1> 
+                            
                     </div> 
 
                     <div class = "getQuote">
@@ -173,18 +153,7 @@ export class Items extends Component {
                                             <div class="row">
                                                 <div class = "col-md-12">
                                                     <a class="btn" onClick = {() => this.finalizeOrder()} style = {{marginTop: '25px', padding: '15px', backgroundColor: "rgb(130, 212, 37)"}}>
-                                                    {
-                                                        this.props.match.params.type === "quote" 
-                                                        ?
-                                                        <h3>
-                                                            Get Quote
-                                                        </h3> 
-                                                        :
-                                                        <h3>
-                                                            Book Move
-                                                        </h3>
-                                                    }
-
+                                                        <h3>Get Quote</h3>
                                                     </a>
                                                 </div>
                                                 <div class="status"></div>
