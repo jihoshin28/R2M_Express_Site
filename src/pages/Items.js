@@ -156,7 +156,7 @@ export class Items extends Component {
         console.log(this.state.addedItemText)
     }
 
-    finalizeOrder = async() => {
+    confirmItems = async() => {
         this.setState({
             loading: true
         })
@@ -238,7 +238,7 @@ export class Items extends Component {
                                         
                                             <div class="row">
                                                 <div class = "col-md-12">
-                                                    <a class="btn" onClick = {() => this.finalizeOrder()} style = {{marginTop: '25px', padding: '15px', backgroundColor: "rgb(130, 212, 37)"}}>
+                                                    <a class="btn" onClick = {() => this.confirmItems()} style = {{marginTop: '25px', padding: '15px', backgroundColor: "rgb(130, 212, 37)"}}>
                                                         <h3>Confirm Items</h3>
                                                     </a>
                                                 </div>
