@@ -8,9 +8,12 @@ export class Items extends Component {
         super(props)
         this.state = {
             orderData: {},
-            itemsData: {},
+            itemsData: [],
             loading: true,
-            items: {}
+            items: {},
+            addedItems: {},
+            addedItemData: [],
+            addedItemText: ''
         }
     }
 
@@ -52,15 +55,20 @@ export class Items extends Component {
                 newCount = currentCount - 1
             } 
         }
-
-        let current = this.state.items
+        let keyType = typeof key
+        let current
+        if(keyType === "string"){
+            current = this.state.addedItems
+        } else {
+            current = this.state.items
+        }
         let target = {}
         target[key] = newCount
         let newObject = Object.assign(current, target)
         
         this.setState(prevState => ({
             ...prevState, 
-            items: newObject
+            [current]: newObject
         }))
     }
 
@@ -81,16 +89,7 @@ export class Items extends Component {
         })
         
     }
-
-    finalizeOrder = async() => {
-        
-        console.log(this.state.loading)
-        await this.createOrderItems()
-        this.setState({
-            loading: false
-        })
-    }
-
+    
     renderItems = () => {
         if(this.state.itemsData !== undefined){
             return this.state.itemsData.map((item) => {
@@ -104,7 +103,7 @@ export class Items extends Component {
     
                         <div class = "row">
                             <button class = "btn btn-danger" onClick = {(e) => this.changeCount(e, item.id, '-')}>-</button> 
-                            <input disabled = "disabled" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" id = {`${item.id}`} ></input>
+                            <input class = "getQuote-item-count" disabled = "disabled" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" id = {`${item.id}`} ></input>
                             <button class = "btn btn-primary" onClick = {(e) => this.changeCount(e, item.id, '+')}>+</button> 
                         </div>
                     </div>
@@ -113,8 +112,61 @@ export class Items extends Component {
         }
     }
 
+    renderAddedItems = () => {
+        if(this.state.addedItemData !== undefined){
+            return this.state.addedItemData.map((item, key) => {
+                console.log(item,key)
+                return(
+                    <div class="getQuote-item">
+                        <div>
+                            <h4>
+                                {item}
+                            </h4>
+                        </div>
+    
+                        <div class = "row">
+                            <button class = "btn btn-danger" onClick = {(e) => this.changeCount(e, `${key + 1}`, '-')}>-</button> 
+                            <input class = "getQuote-item-count" disabled = "disabled" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" id = {`${key + 1}`} ></input>
+                            <button class = "btn btn-primary" onClick = {(e) => this.changeCount(e, `${key + 1}`, '+')}>+</button> 
+                        </div>
+                    </div>
+                ) 
+            })
+        }
+    }
+
+    addItem = () => {
+        let addedItemData = this.state.addedItemData
+
+        this.setState({
+            addedItemData: [...addedItemData, 
+                this.state.addedItemText
+            ],
+            addedItemText: ""
+        })
+
+        console.log(this.state.addedItemData)
+    }
+
+    changeAddItem = (e) => {
+        this.setState({
+            addedItemText: e.target.value
+        })
+        console.log(this.state.addedItemText)
+    }
+
+    finalizeOrder = async() => {
+        
+        console.log(this.state.loading)
+        await this.createOrderItems()
+        this.setState({
+            loading: false
+        })
+    }
+
+
     render() {
-        console.log(this.state.orderData)
+        console.log(this.state.items, this.state.addedItems)
         return (
             <div>
                 {
@@ -146,14 +198,35 @@ export class Items extends Component {
                                     <div class="col-md-12 mb-md-0 mb-5">
                                         <form id="contact-form" name="contact-form" action="mail.php" method="POST">
                                             <div class = "getQuote-title">
-                                                <h3>What items will you be moving?</h3>
+                                                <h2>Items</h2>
                                             </div>
+                                            <div class = "border" style = {{marginBottom: '20px'}}></div>
+
                                             {this.renderItems()}
+
+                                            <div class = "getQuote-title" style = {{marginTop: '35px'}}>
+                                                <h2>Add Item</h2>
+                                            </div>
+                                            <div class = "border" style = {{marginBottom: '20px'}}></div>
+                                            
+                                            
+                                            <div class="getQuote-add-item-row">
+                                                <div class = "col-md-10">
+                                                    <input value = {this.state.addedItemText} onChange = {(e) => this.changeAddItem(e)} style = {{width: '100%'}}/> 
+                                                </div>
+                                                <div class = "col-md-2">
+                                                    <a class="btn" onClick = {() => this.addItem()} style = {{ padding: '10px', backgroundColor: "rgb(130, 212, 37)"}}>
+                                                        <h4>Add Item</h4>
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            {this.renderAddedItems()}
                                         
                                             <div class="row">
                                                 <div class = "col-md-12">
                                                     <a class="btn" onClick = {() => this.finalizeOrder()} style = {{marginTop: '25px', padding: '15px', backgroundColor: "rgb(130, 212, 37)"}}>
-                                                        <h3>Get Quote</h3>
+                                                        <h3>Confirm Items</h3>
                                                     </a>
                                                 </div>
                                                 <div class="status"></div>

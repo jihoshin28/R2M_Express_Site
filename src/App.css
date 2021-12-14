@@ -1058,8 +1058,7 @@
 .getQuote-title {
   display: flex;
   justify-content: flex-start;
-  padding: 10px;
-  margin-bottom: 30px;
+  padding-bottom: 10px;
 }
 
 .getQuote-item {
@@ -1074,10 +1073,29 @@
   -webkit-box-shadow: 0px 0px 1px rgba(99, 99, 99, 0.842);
 }
 
-.getQuote-item input {
+.getQuote-item-count {
   width: 50px;
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.getQuote-added {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  padding-right: 30px;
+  padding-left: 10px; 
+  background-color: white;
+  margin-bottom: 10px;
+  -webkit-box-shadow: 0px 0px 1px rgba(99, 99, 99, 0.842);
+}
+
+.getQuote-add-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 25px;
 }
 
 .loaderDiv {
