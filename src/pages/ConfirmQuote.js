@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {getQuote, editQuote} from '../actions'
+import {getQuote, finalizeQuote, confirmModal, loadingModal, clearModal } from '../actions'
 
 
 class ConfirmQuote extends React.Component{
@@ -22,7 +22,8 @@ class ConfirmQuote extends React.Component{
         console.log(orderData)
         this.setState({
             orderData,
-            loading: false
+            loading: false,
+            form: {move_size: '3 bedroom'}
         })
     }
     
@@ -70,18 +71,19 @@ class ConfirmQuote extends React.Component{
         }))
     }
 
-    confirmQuote = async() =>{
-        if(!this.state.form.move_size){
-            this.setState({error: true})
-        } else {
-            this.setState({loading: true})
-            let quoteId = this.props.match.params.id
-            let result = await this.props.editQuote(quoteId, this.state.form)
-            if(!!result.status){
-                this.props.history.push('/')
-                this.props.history.go()
-            }
+    confirmQuote = async () => {
+        console.log('confirm quote')
+        
+        this.props.loadingModal()
+        let quoteId = this.props.match.params.id
+        let result = await this.props.finalizeQuote(quoteId, this.state.form)
+        
+        if(!!result.status){
+            this.props.history.push('/confirm_page')
+            this.props.history.go()
+            
         }
+        
     }
     
     render(){
@@ -183,7 +185,7 @@ class ConfirmQuote extends React.Component{
                                             {!!this.state.stair_display ?
                                                 <div class="col-md-6">
                                                     <div class="md-form mb-0">
-                                                        <input onChange = {this.inputChange} type="number" id="floor" name="floor" class="form-control"/>
+                                                        <input onChange = {this.inputChange} min = {2}type="number" id="floor" name="floor" class="form-control"/>
                                                         <label for="floor" class="">Which floor do you live on?</label>
                                                     </div>
                                                 </div>
@@ -207,12 +209,10 @@ class ConfirmQuote extends React.Component{
                                         }
                                         <div class="row">
                                             <div class = "col-md-12">
-                                                <a class="btn" onClick = {() => this.confirmQuote()} style = {{marginTop: '50px', padding: '15px', backgroundColor: "rgb(130, 212, 37)"}}><h3>Confirm Quote</h3></a>
+                                                <a class="btn" onClick = {() => this.confirmQuote()} data-toggle="modal" data-target="#Modal" style = {{marginTop: '50px', padding: '15px', backgroundColor: "rgb(130, 212, 37)"}}><h3>Confirm Quote</h3></a>
                                             </div>
                                             <div class="status"></div>
                                         </div>
-    
-                                       
                                     </form>
                                 </div>                            
                             </div>
@@ -242,4 +242,4 @@ const mapStateToProps = (state) =>{
     })
 }
 
-export default connect(mapStateToProps, {getQuote, editQuote})(ConfirmQuote)
+export default connect(mapStateToProps, {getQuote, finalizeQuote, confirmModal, loadingModal, clearModal})(ConfirmQuote)

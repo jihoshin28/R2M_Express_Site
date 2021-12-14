@@ -25,7 +25,7 @@ import Map from './pages/Map'
 import Reviews from './pages/Reviews'
 
 
-import { signOut, getItems, clearModal} from './actions'
+import { signOut, getItems, confirmModal } from './actions'
 
 class App extends Component  {
   
@@ -185,4 +185,4 @@ let mapStateToProps = state => {
   })
 }
 
-export default connect(mapStateToProps, { signOut,  getItems, clearModal})(App)
+export default connect(mapStateToProps, { signOut,  getItems, confirmModal })(App)

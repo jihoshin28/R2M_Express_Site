@@ -14,29 +14,41 @@ export default (state = INITIAL_STATE, action) => {
         return { ...state, item_pic: null }
     }
 
-    if(action.type === 'CANCEL_ORDER_MODAL'){
+    if(action.type === 'LOADING_MODAL'){
         return { 
             ...state, confirm: {
-                "title": "Delete Order",
-                "message": "Are you sure you want to cancel this order?",
-                "id": action.payload
+                "title": "Loading..."
             }
         }
-    } else if(action.type === 'ADDRESS_MODAL'){
+    }
+
+    if(action.type === 'CONFIRM_MODAL'){
+        return { 
+            ...state, confirm: {
+                "title": "Quote submitted!",
+                "message": `Thank you your quote has been submitted! We have sent you an email at ${action.payload.email} for confirmation.`
+            }
+        }
+    }
+    if(action.type === 'ADDRESS_MODAL'){
         return { 
             ...state, submit: {
                 "title": "Add Address",
                 'type' : "address"
             }
         }
-    } else if(action.type === 'NUMBER_MODAL'){
+    }
+    if(action.type === 'NUMBER_MODAL'){
         return { 
             ...state, submit: {
                 "title": "Add Number",
                 'type': 'number'
             }
         }
-    } else if (action.type === "CLEAR_MODAL"){
+    
+    } 
+    
+    if (action.type === "CLEAR_MODAL"){
         return{
             submit: null,
             confirm: null,

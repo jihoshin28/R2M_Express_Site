@@ -93,6 +93,14 @@ export const editQuote = (quoteId, quoteInfo) => async() => {
     return data
 }
 
+export const finalizeQuote = (quoteId, quoteInfo) => async() => {
+    console.log(quoteId, quoteInfo)
+    const response = await express.put(`/send_quote/${quoteId}`, {quoteInfo})
+    let data = response.data
+    console.log(data)
+    return data
+}
+
 export const deleteQuote = quoteId => async() => {
     const response = await express.delete(`/quotes/${quoteId}`)
     let data = response.data
@@ -186,22 +194,18 @@ export const imageModal = (image) => async dispatch => {
     dispatch({ type: 'ITEM_PIC_MODAL', payload: image })
 }
 
-export const addressModal = () => {
+export const loadingModal = () => {
     return({
-        type: "ADDRESS_MODAL"
+        type: "LOADING_MODAL"    
     })
 }
 
-export const numberModal = () => {
+export const confirmModal = (email) => {
     return({
-        type: "NUMBER_MODAL"
-    })
-}
-
-export const cancelOrderModal = (id) => {
-    return({
-        type: "CANCEL_ORDER_MODAL",
-        payload: id
+        type: "CONFIRM_MODAL",
+        payload: {
+            email
+        }
     })
 }
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { clearModal } from '../../actions'
 
 class ConfirmModal extends React.Component {
 
@@ -7,31 +8,45 @@ class ConfirmModal extends React.Component {
         console.log(this.props.confirm)
     }
 
-    confirm = async (title, id) => {
-        if(title === "Delete Order"){
-            window.location.reload()
-        }
-    }
-
     render(){
         return(
             <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id = "ModalLabel">{this.props.message}</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                <p>{this.props.message}</p>
-                </div>
-                <div class="modal-footer">
-                    <button onClick = {() => this.confirm(this.props.title, this.props.id)} type="button" class="btn btn-primary">Confirm</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
+                
+                {
+                    this.props.title === "Loading..." ?
+                    <React.Fragment>
+                        <div class="modal-header">
+                            <h3 class="modal-title" id = "ModalLabel">{this.props.title}</h3>
+                        </div>
+                        <div class="modal-body">
+                            <div style = {{display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '100px'}}>
+                                <div class = "loader">
+                                </div>
+
+                            </div>
+                        </div>
+                    </React.Fragment>
+                    :
+                    <React.Fragment>
+                        <div class="modal-header">
+                        <h3 class="modal-title" id = "ModalLabel">
+                            {this.props.title}
+                        </h3>
+                        
+                        </div>
+                        <div class="modal-body" style = {{display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '80px'}}>
+                            <h4>{this.props.message}</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <button onClick = {() => this.props.clearModal()} data-toggle="modal" data-target="#Modal" type="button" class="btn btn-primary">Confirm</button>
+                        </div>
+                    </React.Fragment>
+                }
             </div>
         )
     }
 }
 
-export default connect(null, {})(ConfirmModal)
+
+
+export default connect(null, {clearModal})(ConfirmModal)

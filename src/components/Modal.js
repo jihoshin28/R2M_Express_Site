@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react' 
 import {connect} from 'react-redux'
-import { clearModal } from '../actions'
+import { confirmModal } from '../actions'
 import ItemModal from './modals/ImageModal'
 import ConfirmModal from './modals/ConfirmModal'
 import SubmitModal from './modals/SubmitModal'
@@ -20,7 +20,7 @@ const Modal = (props) => {
         }
 
         function clearContent(){
-            props.clearModal()
+            props.confirmModal()
         }
         
         const observer = new MutationObserver(function (mutationList, observer) {
@@ -53,7 +53,7 @@ const Modal = (props) => {
             )
         } else if(props.modal.confirm){
             return (
-                <ConfirmModal id = {props.modal.confirm.id} title = {props.modal.confirm.title} message = {props.modal.confirm.message}/>
+                <ConfirmModal history = {props.history} title = {props.modal.confirm.title} message = {props.modal.confirm.message}/>
             )
         } else if(props.modal.submit){
             return (
@@ -71,4 +71,4 @@ const Modal = (props) => {
         )
 }
 
-export default connect(null, { clearModal })(Modal)
+export default connect(null, { confirmModal })(Modal)
