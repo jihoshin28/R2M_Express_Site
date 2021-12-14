@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getQuote, getBooking, getItems, addQuoteItem, addBookingItem} from '../actions'
+import { getQuote, getBooking, getItems, addQuoteItem, addBookingItem, editQuote} from '../actions'
 
 export class Items extends Component {
 
@@ -20,7 +20,7 @@ export class Items extends Component {
     async componentDidMount () {
         
         let id = this.props.match.params.id
-
+        console.log(id)
         let orderData = await this.props.getQuote(id)
 
         let itemsData = await this.props.getItems()
@@ -125,9 +125,9 @@ export class Items extends Component {
                         </div>
     
                         <div class = "row">
-                            <button class = "btn btn-danger" onClick = {(e) => this.changeCount(e, `${key + 1}`, '-')}>-</button> 
-                            <input class = "getQuote-item-count" disabled = "disabled" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" id = {`${key + 1}`} ></input>
-                            <button class = "btn btn-primary" onClick = {(e) => this.changeCount(e, `${key + 1}`, '+')}>+</button> 
+                            <button class = "btn btn-danger" onClick = {(e) => this.changeCount(e, `a-${key + 1}`, '-')}>-</button> 
+                            <input class = "getQuote-item-count" disabled = "disabled" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" id = {`a-${key + 1}`} ></input>
+                            <button class = "btn btn-primary" onClick = {(e) => this.changeCount(e, `a-${key + 1}`, '+')}>+</button> 
                         </div>
                     </div>
                 ) 
@@ -136,16 +136,17 @@ export class Items extends Component {
     }
 
     addItem = () => {
-        let addedItemData = this.state.addedItemData
+        if(this.state.addedItemText !== ""){
+            let addedItemData = this.state.addedItemData
+            this.setState({
+                addedItemData: [...addedItemData, 
+                    this.state.addedItemText
+                ],
+                addedItemText: ""
+            })
+            
+        }
 
-        this.setState({
-            addedItemData: [...addedItemData, 
-                this.state.addedItemText
-            ],
-            addedItemText: ""
-        })
-
-        console.log(this.state.addedItemData)
     }
 
     changeAddItem = (e) => {
@@ -156,12 +157,24 @@ export class Items extends Component {
     }
 
     finalizeOrder = async() => {
-        
-        console.log(this.state.loading)
-        await this.createOrderItems()
         this.setState({
-            loading: false
+            loading: true
         })
+        let added_items_keys = Object.keys(this.state.addedItems)
+        let added_items = {}
+        for(let i = 0; i < added_items_keys.length; i++){
+            let added_key = added_items_keys[i]
+            let key = added_key.split('-')[1]
+            added_items[key] = this.state.addedItems[added_key]
+        }
+
+        let quoteId = this.props.match.params.id
+        let result = await this.props.editQuote(quoteId, {added_items: JSON.stringify(added_items)})
+        let result2 = await this.createOrderItems()
+        if(!!result.status){
+            this.props.history.push(`/enter_location/${quoteId}`)
+            this.props.history.go()
+        }
     }
 
 
@@ -252,5 +265,5 @@ export class Items extends Component {
         }
     }
     
-    export default connect(mapStateToProps, {getQuote, getBooking, getItems, addQuoteItem, addBookingItem})(Items)
+    export default connect(mapStateToProps, {getQuote, getBooking, getItems, addQuoteItem, addBookingItem, editQuote})(Items)
     
