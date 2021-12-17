@@ -1,7 +1,7 @@
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import {userLocation, editQuote} from '../actions'
 import axios from 'axios'
-import React, {useEffect, useState, useRef, useCallback} from 'react'
+import React, {useEffect, useState, useRef} from 'react'
 import {connect} from 'react-redux'
 
 
