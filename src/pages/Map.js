@@ -181,6 +181,6 @@ const LoadingContainer = (props) => (
 )
 
 export default connect(null, {userLocation, editQuote})(GoogleApiWrapper({
-    apiKey: "AIzaSyD-d4NIENxdIYOCE7gIRwvzTIZGRLobMdg",
+    apiKey: `${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`,
     LoadingContainer: LoadingContainer
 })(MapContainer))
