@@ -16,24 +16,18 @@ export class Labor extends Component {
                 </div>
                 <div class = "about-bg">
                     <div class = "about">
-                        <div class = "about-text">
-                            <h1>
-                                Everything Packed with care.
-                            </h1> 
-                            <p>
-                                When your Upack Haulers Relocation Specialist is planning a move for you, 
-                                we take everything into account. We have been relocating individuals and 
-                                families for over a decade. We understand the stress a move can put on you, 
-                                your significant other/roommate, your kids, and even the family pet. U-pack 
-                                haulers is a moving company out of Fremont in the Bay Area that serves Fremont 
-                                and every city around Fremont that offers each and every customer individualized 
-                                attention and offer our expertise and advice to make sure your move goes smoothly.
-                            </p>
-                        </div>
-
                         <div class = "about-pic">
                             <img style = {{width: '100%'}} src = {"https://i0.wp.com/movingtips.wpengine.com/wp-content/uploads/2017/07/moving-labor.jpg"}></img>
                         </div>
+                        <div class = "about-text-right">
+                            <h1>
+                                Labor Only
+                            </h1> 
+                            <p>
+                            Did you know that even if you already own a truck, you can still get the help from professionals on the day of your relocation? Yes, you have read it right. To us, it is not important whether you will get a full-service package or opt for our labor movers in Bay Area. Whatever option you choose, our goal will be the same – we will do everything we can in order to help you move all of your possessions in the simplest possible manner. The only thing you will have to do is to contact Got2Move and schedule your move on the date that suits you the most. Our professionals will take care of the rest.
+                            </p>
+                        </div>
+
                     </div>
 
                 </div>

@@ -39,7 +39,7 @@ class EnterLocation extends React.Component{
             } else {
                 lng = -95.7129
                 lat = 37.0902
-                this.props.history.replace(`/map/${id}/5/${lat}/${lng}/${id}`)
+                this.props.history.replace(`/map/${id}/5/${lat}/${lng}`)
                 this.props.history.go()
             }
         })

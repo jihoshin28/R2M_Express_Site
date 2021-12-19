@@ -148,9 +148,8 @@ class App extends Component  {
                 <Link className = "quick-link" to = '/contact'><h2>Contact Us</h2></Link> */}
               </div>
               <div className = "col-md-4 footer-section-center">
-                
-                 
                 <h1>Upack Haulers</h1>
+                <img style = {{width: '120px'}} src={process.env.PUBLIC_URL + '/upack_logo.png'}></img>
                 <h4>Copyright © 2021</h4>
                 <h4>All rights reserved</h4>
               </div>

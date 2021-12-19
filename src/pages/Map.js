@@ -1,10 +1,7 @@
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import {userLocation, editQuote} from '../actions'
-import axios from 'axios'
-import React, {useEffect, useState, useRef} from 'react'
+import React, {useEffect, useState, useRef, useCallback} from 'react'
 import {connect} from 'react-redux'
-
-
 
 const MapContainer = (props) => {
     
@@ -17,6 +14,7 @@ const MapContainer = (props) => {
     const [start, setStart] = useState(true)
     
     useEffect(() => {
+        console.log(typeof google_maps_api_key)
         console.log({
             lat: props.match.params.lat, 
             lng: props.match.params.lng, 
@@ -181,6 +179,6 @@ const LoadingContainer = (props) => (
 )
 
 export default connect(null, {userLocation, editQuote})(GoogleApiWrapper({
-    apiKey: `${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`,
+    apiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     LoadingContainer: LoadingContainer
 })(MapContainer))
