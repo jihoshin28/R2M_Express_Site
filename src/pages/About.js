@@ -32,8 +32,8 @@ export class About extends Component {
                             </p>
                         </div>
 
-                        <div class = "about-pic">
-                            <ImageCarousel/>
+                        <div class = "carousel-section">
+                            <ImageCarousel pics = {[5,6,7,8]} page = "about"/>
                             {/* <img style = {{width: '100%'}} src = {"https://i0.wp.com/movingtips.wpengine.com/wp-content/uploads/2017/07/moving-labor.jpg"}></img> */}
                         </div>
                     </div>

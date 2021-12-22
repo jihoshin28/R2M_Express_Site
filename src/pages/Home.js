@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import HomeSection from '../components/HomeSection'
 import HomeQuote from '../components/HomeQuote'
+import ImageCarousel from '../containers/ImageCarousel'
 import { createQuote, geoCode } from '../actions'
 
 
@@ -63,7 +64,7 @@ export class Home extends Component {
                     <HomeSection>
                         <div class = "home-about">
                             <div className = "col-8">
-                                <img className = "home-section-pic" src= "https://www.roadtovr.com/wp-content/uploads/2015/03/youtube-logo2.jpg"/> 
+                            <ImageCarousel pics = {[1,2,3,4]} page = {'home'}/>
                             </div>  
                             <div class = "home-about-text">
                                 <div>

@@ -7,125 +7,221 @@ import ItemPic from '../components/ImageLink'
 
 const photos = [
     {
-      src: 'https://www.bedoyamoving.com/files/cms/slider-moving-services.jpg',
+      src: process.env.PUBLIC_URL + `/r2m_pics/1.jpeg`,
       width: 4,
       height: 3,
       title: "Title 1"
     },
     {
-      src: 'https://www.bedoyamoving.com/files/cms/slider-moving-services.jpg',
+      src: process.env.PUBLIC_URL + `/r2m_pics/2.jpeg`,
       width: 4,
       height: 3,
       title: "Title 2"
     },
     {
-      src: 'https://frick-transfer.com/wp-content/uploads/2016/08/moving.jpg',
-      width: 1,
-      height: 1,
+      src: process.env.PUBLIC_URL + `/r2m_pics/3.jpeg`,
+      width: 3,
+      height: 4,
       title: "Title 3"
     },
     {
-        src: 'https://frick-transfer.com/wp-content/uploads/2016/08/moving.jpg',
-        width: 1,
-        height: 1,
+        src: process.env.PUBLIC_URL + `/r2m_pics/4.jpeg`,
+        width: 3,
+        height: 4,
         title: "Title 4"
     },
     {
-        src: 'https://frick-transfer.com/wp-content/uploads/2016/08/moving.jpg',
-        width: 1,
-        height: 1,
+        src: process.env.PUBLIC_URL + `/r2m_pics/5.jpeg`,
+        width: 5,
+        height: 6,
         title: "Title 5"
     },
     {
-        src: 'https://frick-transfer.com/wp-content/uploads/2016/08/moving.jpg',
+        src: process.env.PUBLIC_URL + `/r2m_pics/6.jpeg`,
         width: 1,
         height: 1,
         title: "Title 6"
     },
     {
-        src: 'https://frick-transfer.com/wp-content/uploads/2016/08/moving.jpg',
+        src: process.env.PUBLIC_URL + `/r2m_pics/7.jpeg`,
         width: 1,
         height: 1,
         title: "Title 7"
     },
     {
-        src: 'https://www.bedoyamoving.com/files/cms/slider-moving-services.jpg',
+        src: process.env.PUBLIC_URL + `/r2m_pics/8.jpeg`,
         width: 3,
-        height: 2,
+        height: 4,
         title: "Title 8"
     },
     {
-        src: 'https://www.bedoyamoving.com/files/cms/slider-moving-services.jpg',
-        width: 1,
-        height: 1,
+        src: process.env.PUBLIC_URL + `/r2m_pics/9.jpeg`,
+        width: 3,
+        height: 4,
         title: "Title 9"
     },
     {
-        src: 'https://www.bedoyamoving.com/files/cms/slider-moving-services.jpg',
-        width: 1,
-        height: 1,
+        src: process.env.PUBLIC_URL + `/r2m_pics/10.jpeg`,
+        width: 3,
+        height: 4,
         title: "Title 10"
     },
     {
-        src: 'https://www.bedoyamoving.com/files/cms/slider-moving-services.jpg',
+        src: process.env.PUBLIC_URL + `/r2m_pics/11.jpeg`,
         width: 1,
         height: 1,
         title: "Title 11"
     },
     {
-        src: 'https://www.bedoyamoving.com/files/cms/slider-moving-services.jpg',
+        src: process.env.PUBLIC_URL + `/r2m_pics/12.jpeg`,
         width: 4,
         height: 3,
         title: "Title 12"
     },
     {
-        src: 'https://frick-transfer.com/wp-content/uploads/2016/08/moving.jpg',
+        src: process.env.PUBLIC_URL + `/r2m_pics/13.jpeg`,
         width: 1,
         height: 1,
         title: "Title 13"
     },
     {
-        src: 'https://frick-transfer.com/wp-content/uploads/2016/08/moving.jpg',
+        src: process.env.PUBLIC_URL + `/r2m_pics/14.jpeg`,
         width: 1,
         height: 1,
         title: "Title 14"
     },
     {
-        src: 'https://www.bedoyamoving.com/files/cms/slider-moving-services.jpg',
-        width: 3,
-        height: 2,
+        src: process.env.PUBLIC_URL + `/r2m_pics/15.jpeg`,
+        width: 2,
+        height: 3,
         title: "Title 15"
     },
     {
-        src: 'https://frick-transfer.com/wp-content/uploads/2016/08/moving.jpg',
+        src: process.env.PUBLIC_URL + `/r2m_pics/16.jpeg`,
         width: 1,
         height: 1,
         title: "Title 16"
     },
     {
-        src: 'https://www.bedoyamoving.com/files/cms/slider-moving-services.jpg',
+        src: process.env.PUBLIC_URL + `/r2m_pics/17.jpeg`,
         width: 1,
         height: 1,
         title: "Title 17"
     },
     {
-        src: 'https://www.bedoyamoving.com/files/cms/slider-moving-services.jpg',
+        src: process.env.PUBLIC_URL + `/r2m_pics/18.jpeg`,
         width: 1,
         height: 1,
         title: "Title 18"
     },
     {
-        src: 'https://www.bedoyamoving.com/files/cms/slider-moving-services.jpg',
-        width: 4,
-        height: 3,
+        src: process.env.PUBLIC_URL + `/r2m_pics/19.jpeg`,
+        width: 3,
+        height: 4,
         title: "Title 19"
     },
     {
-        src: 'https://frick-transfer.com/wp-content/uploads/2016/08/moving.jpg',
+        src: process.env.PUBLIC_URL + `/r2m_pics/20.jpeg`,
+        width: 2,
+        height: 3,
+        title: "Title 20"
+    },
+    {
+        src: process.env.PUBLIC_URL + `/r2m_pics/21.jpeg`,
         width: 1,
         height: 1,
-        title: "Title 20"
-    }
+        title: "Title 21"
+    },
+    {
+        src: process.env.PUBLIC_URL + `/r2m_pics/22.jpeg`,
+        width: 1,
+        height: 1,
+        title: "Title 22"
+    },
+    {
+        src: process.env.PUBLIC_URL + `/r2m_pics/23.jpeg`,
+        width: 1,
+        height: 1,
+        title: "Title 23"
+    },
+    {
+        src: process.env.PUBLIC_URL + `/r2m_pics/24.jpeg`,
+        width: 1,
+        height: 1,
+        title: "Title 24"
+    },
+    {
+        src: process.env.PUBLIC_URL + `/r2m_pics/25.jpeg`,
+        width: 2,
+        height: 3,
+        title: "Title 25"
+    },
+    {
+        src: process.env.PUBLIC_URL + `/r2m_pics/26.jpeg`,
+        width: 4,
+        height: 3,
+        title: "Title 26"
+    },
+    {
+        src: process.env.PUBLIC_URL + `/r2m_pics/27.jpeg`,
+        width: 4,
+        height: 3,
+        title: "Title 27"
+    },
+    {
+        src: process.env.PUBLIC_URL + `/r2m_pics/28.jpeg`,
+        width: 1,
+        height: 1,
+        title: "Title 28"
+    },
+    {
+        src: process.env.PUBLIC_URL + `/r2m_pics/29.jpeg`,
+        width: 2,
+        height: 3,
+        title: "Title 29"
+    },
+    {
+        src: process.env.PUBLIC_URL + `/r2m_pics/30.jpeg`,
+        width: 2,
+        height: 3,
+        title: "Title 30"
+    },
+    {
+        src: process.env.PUBLIC_URL + `/r2m_pics/31.jpeg`,
+        width: 3,
+        height: 4,
+        title: "Title 31"
+    },
+    {
+        src: process.env.PUBLIC_URL + `/r2m_pics/32.jpeg`,
+        width: 3,
+        height: 2,
+        title: "Title 32"
+    },
+    {
+        src: process.env.PUBLIC_URL + `/r2m_pics/33.jpeg`,
+        width: 3,
+        height: 2,
+        title: "Title 33"
+    },
+    {
+        src: process.env.PUBLIC_URL + `/r2m_pics/34.jpeg`,
+        width: 1,
+        height: 1,
+        title: "Title 34"
+    },
+    {
+        src: process.env.PUBLIC_URL + `/r2m_pics/35.jpeg`,
+        width: 3,
+        height: 4,
+        title: "Title 35"
+    },
+    {
+        src: process.env.PUBLIC_URL + `/r2m_pics/36.jpeg`,
+        width: 2,
+        height: 3,
+        title: "Title 36"
+    },
   ];
 
 class Gallery extends Component {

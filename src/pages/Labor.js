@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import ImageCarousel from '../containers/ImageCarousel'
 // import aboutPic from '../public/logo192.png'
 export class Labor extends Component {
     componentDidMount() {
@@ -16,8 +17,8 @@ export class Labor extends Component {
                 </div>
                 <div class = "about-bg">
                     <div class = "about">
-                        <div class = "about-pic">
-                            <img style = {{width: '100%'}} src = {"https://i0.wp.com/movingtips.wpengine.com/wp-content/uploads/2017/07/moving-labor.jpg"}></img>
+                        <div class = "carousel-section">
+                            <ImageCarousel pics = {[9,10,11, 12]} page = "labor"/>
                         </div>
                         <div class = "about-text-right">
                             <h1>
