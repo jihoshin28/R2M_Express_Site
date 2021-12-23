@@ -19,16 +19,11 @@ export class Junk extends Component {
                     <div class = "about">
                         <div class = "about-text">
                             <h1>
-                                Everything Packed with care.
+                                Get rid of anything
                             </h1> 
                             <p>
-                                When your Upack Haulers Relocation Specialist is planning a move for you, 
-                                we take everything into account. We have been relocating individuals and 
-                                families for over a decade. We understand the stress a move can put on you, 
-                                your significant other/roommate, your kids, and even the family pet. U-pack 
-                                haulers is a moving company out of Fremont in the Bay Area that serves Fremont 
-                                and every city around Fremont that offers each and every customer individualized 
-                                attention and offer our expertise and advice to make sure your move goes smoothly.
+                            Do you have unwanted furniture, appliances, electronics, or other junk piling up in your home or business? Clear the clutter with R2M Express - your trusted junk removal expert offering environmentally sustainable and reliable junk removal services.
+The team arrives at your home, efficiently collects your unwanted items, and even works hard to donate your unwanted goods. Any items that cannot be donated are recycled or responsibly disposed of. Book a free on-site junk removal estimate 
                             </p>
                         </div>
 

@@ -22,10 +22,10 @@ export class Labor extends Component {
                         </div>
                         <div class = "about-text-right">
                             <h1>
-                                Labor Only
+                                Convenient Labor Services
                             </h1> 
                             <p>
-                            Did you know that even if you already own a truck, you can still get the help from professionals on the day of your relocation? Yes, you have read it right. To us, it is not important whether you will get a full-service package or opt for our labor movers in Bay Area. Whatever option you choose, our goal will be the same – we will do everything we can in order to help you move all of your possessions in the simplest possible manner. The only thing you will have to do is to contact Got2Move and schedule your move on the date that suits you the most. Our professionals will take care of the rest.
+                            Did you know that even if you already own a truck, you can still get the help from professionals on the day of your relocation? Yes, you have read it right. To us, it is not important whether you will get a full-service package or opt for our labor movers in Bay Area. Whatever option you choose, our goal will be the same – we will do everything we can in order to help you move all of your possessions in the simplest possible manner. The only thing you will have to do is to contact Ready2Move and schedule your move on the date that suits you the most. Our professionals will take care of the rest.
                             </p>
                         </div>
 

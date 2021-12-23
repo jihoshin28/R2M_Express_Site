@@ -5,7 +5,6 @@ import HomeQuote from '../components/HomeQuote'
 import ImageCarousel from '../containers/ImageCarousel'
 import { createQuote, geoCode } from '../actions'
 
-
 export class Home extends Component {
 
     constructor(props){
@@ -21,6 +20,11 @@ export class Home extends Component {
         } else {
             console.log(result)
         }
+    }
+
+    goToReviews = () => {
+        this.props.history.push({pathname: `/reviews`})
+        this.props.history.go()
     }
 
     inputChange = (e) => {
@@ -145,23 +149,25 @@ export class Home extends Component {
                         </div>
                         <div class = "home-quotes-section">
                             <HomeSection>
+                                <h2 style = {{fontSize: "3.5em", color: "white", paddingBottom: '70px'}}>See what customers are saying about us!</h2>
                                 <div class = "home-quotes">
                                     <HomeQuote 
-                                        text = "I’ve used these guys for three moves in the Bay Area. Great experience each time."
-                                        author = "R. M."
-                                        city = "San Francisco, CA"
+                                        text = "R2m Express are the BEST movers we ever had- professional, efficient, and just all around super nice & gracious guys! I would 100% use this team again and will recommend them to anyone who is moving. Thank you so much, we appreciate you guys!"
+                                        author = "Evelyn T."
+                                        city = "Los Angeles, CA"
                                     />
                                     <HomeQuote
-                                        text = "I have worked with Pedro’s twice now and will not hesitate to again. Ask for Jimmy and Enrique they rock."
-                                        author = "Gina M."
-                                        city = "Charlotte, NC"
+                                        text = "They did amazing job!! My job was slight different and bigger than they expected but they said “we’ll make it work” and they did. They worked efficiently and got everything moved to my new place with no issues. Very kind and polite! Will certainly use them again!!"
+                                        author = "Summer B."
+                                        city = "San Jose, CA"
                                     />
                                     <HomeQuote
-                                        text = "Pedro’s is the best! My fiance and I have used Pedro’s four times over the years – they are professional, organized, and generally very good. We will continue to use them."
-                                        author = "Sean B."
-                                        city = "San Francisco, CA"
+                                        text = "The movers arrived on time and were super quick and efficient. I had given them a list with pictures of all the things that needed moving and they provided me with a perfect quote. There was no hassle or surprise fees added at the last moment. I would highly recommend them for your next move."
+                                        author = "Pratima R."
+                                        city = "Fremont, CA"
                                     />
                                 </div>
+                                <button onClick = {() => this.goToReviews()} style = {{backgroundColor: 'rgb(130, 212, 37)', padding: '15px', marginTop: '70px', marginBottom:'-50px'}} className = "btn"><h3>See other reviews</h3></button>
                             </HomeSection>
                         </div>
                     <HomeSection>

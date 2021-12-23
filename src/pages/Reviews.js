@@ -1,13 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Review from '../components/Review'
-
-
+import { getReviews } from '../actions'
 
 export class Reviews extends Component {
 
     componentDidMount() {
-        console.log(this.props.history)
+        const unlisten = this.props.history.listen(() => {
+            window.scrollTo(0, 0);
+        });
+        return () => {
+            unlisten();
+        }
+
     }
 
     goToAddReview = () => {

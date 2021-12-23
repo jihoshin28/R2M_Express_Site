@@ -20,7 +20,7 @@ export class Long extends Component {
                         <div class = "info-text">
                             <div class = "info-text-left">
                                 <h1>
-                                    Long Distance Moving
+                                    Move anywhere you want
                                 </h1>
                                 <p>
                                 We provide a professional long distance moving service, from initial contact through the end of your residential or commercial move in the state of California and across the country.

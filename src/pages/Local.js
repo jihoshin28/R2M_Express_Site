@@ -20,7 +20,7 @@ export class Local extends Component {
                         <div class = "info-text">
                             <div class = "info-text-left">
                                 <h1>
-                                    Local moving
+                                    Quick and reliable local moving 
                                 </h1>
                                 <p>
                                 If you are moving your entire home, apartment, business or just a few items, you can put your trust in Ready2Move. Our company offers full-service, efficient, stress-free and cost-effective relocation.
