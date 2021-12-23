@@ -7,7 +7,6 @@ const headers = {
 }
 
 export default axios.create({
-    // baseURL: 'http://localhost:3000',
     baseURL: 'https://intense-oasis-88289.herokuapp.com',
     headers: headers 
 })
