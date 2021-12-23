@@ -54,9 +54,9 @@ export class Navbar extends Component {
                         <li class="nav-item nav-list">
                             <Link to = '/reviews' class="nav-button">Reviews</Link>
                         </li>
-                        <li class="nav-item nav-list">
+                        {/* <li class="nav-item nav-list">
                             <Link to = '/map/1/5/37.0902/-95.7129/' class="nav-button">Map</Link>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
                 
