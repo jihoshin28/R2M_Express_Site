@@ -44,7 +44,7 @@ export const getItems = (store_id) => async dispatch => {
 //REVIEW ACTIONS
 
 // need pagination for reviews
-export const getReviews = async dispatch => {
+export const getReviews = () => async dispatch => {
     const response = await express.get('/reviews')
     let data = response.data
     return data
