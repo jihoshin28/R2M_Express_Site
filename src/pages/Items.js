@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getQuote, getBooking, getItems, addQuoteItem, addBookingItem, editQuote} from '../actions'
+import { getQuote, getItems, addQuoteItem, editQuote} from '../actions'
 
 export class Items extends Component {
 
@@ -71,24 +71,6 @@ export class Items extends Component {
             [current]: newObject
         }))
     }
-
-    createOrderItems = () => {
-        let itemIdArray = Object.keys(this.state.items)
-      
-        itemIdArray.forEach((item_id) => {
-            let quantity = this.state.items[item_id]
-            if(quantity > 0){
-                this.props.addQuoteItem(
-                    {
-                        item_id: item_id,
-                        quantity: this.state.items[item_id],
-                        quote_id: this.state.orderData.id
-                    }
-                )
-            }
-        })
-        
-    }
     
     renderItems = () => {
         if(this.state.itemsData !== undefined){
@@ -146,6 +128,7 @@ export class Items extends Component {
             })
             
         }
+        console.log(this.state.addedItemData)
 
     }
 
@@ -156,25 +139,57 @@ export class Items extends Component {
         console.log(this.state.addedItemText)
     }
 
+    createOrderItems =() => {
+        let itemIdArray = Object.keys(this.state.items)
+      
+        let quoteItemPromises = itemIdArray.map((item_id) => {
+            let quantity = this.state.items[item_id]
+            if(quantity > 0){
+                return this.props.addQuoteItem(
+                    {
+                        item_id: item_id,
+                        quantity: this.state.items[item_id],
+                        quote_id: this.state.orderData.id
+                    }
+                )
+            }
+        })
+        return quoteItemPromises
+    }
+
     confirmItems = async() => {
         this.setState({
             loading: true
         })
+        console.log(this.state.addedItems, this.state.addedItemData)
         let added_items_keys = Object.keys(this.state.addedItems)
         let added_items = {}
         for(let i = 0; i < added_items_keys.length; i++){
             let added_key = added_items_keys[i]
             let key = added_key.split('-')[1]
-            added_items[key] = this.state.addedItems[added_key]
+            let item_count = this.state.addedItems[added_key]
+            let item_name = this.state.addedItemData[parseInt(key) - 1]
+            if(item_count > 0){
+                added_items[item_name] = item_count
+            }
         }
-
+        console.log(added_items)
         let quoteId = this.props.match.params.id
-        let result = await this.props.editQuote(quoteId, {added_items: JSON.stringify(added_items)})
-        let result2 = await this.createOrderItems()
-        if(!!result.status){
-            this.props.history.push(`/enter_location/${quoteId}`)
-            this.props.history.go()
+        let editResult = await this.props.editQuote(quoteId, {added_items: JSON.stringify(added_items)})
+        let orderItemPromises = this.createOrderItems()
+        console.log(orderItemPromises)
+        if(!!editResult.status){
+            await Promise.all([...orderItemPromises])
+            .then(res => {
+                console.log(res)
+                this.props.history.push(`/enter_location/${quoteId}`)
+                this.props.history.go()
+            })
+            .catch(err => console.log('error', err)) // This is executed   
         }
+        // this.props.history.push(`/enter_location/${quoteId}`)
+        // this.props.history.go()
+        
     }
 
 
@@ -265,5 +280,5 @@ export class Items extends Component {
         }
     }
     
-    export default connect(mapStateToProps, {getQuote, getBooking, getItems, addQuoteItem, addBookingItem, editQuote})(Items)
+    export default connect(mapStateToProps, {getQuote, getItems, addQuoteItem, editQuote})(Items)
     

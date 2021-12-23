@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {getQuote, finalizeQuote, confirmModal, loadingModal, clearModal } from '../actions'
+import {getQuote, finalizeQuote } from '../actions'
 
 
 class ConfirmQuote extends React.Component{
@@ -74,7 +74,9 @@ class ConfirmQuote extends React.Component{
     confirmQuote = async () => {
         console.log('confirm quote')
         
-        this.props.loadingModal()
+        this.setState({
+            loading: true
+        })
         let quoteId = this.props.match.params.id
         let result = await this.props.finalizeQuote(quoteId, this.state.form)
         
@@ -242,4 +244,4 @@ const mapStateToProps = (state) =>{
     })
 }
 
-export default connect(mapStateToProps, {getQuote, finalizeQuote, confirmModal, loadingModal, clearModal})(ConfirmQuote)
+export default connect(mapStateToProps, {getQuote, finalizeQuote})(ConfirmQuote)

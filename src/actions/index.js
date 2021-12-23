@@ -111,7 +111,7 @@ export const deleteQuote = quoteId => async() => {
 
 export const addQuoteItem = quoteItemInfo => async dispatch => {
     const response = await express.post('/quote_items', {quoteItemInfo})
-    console.log(response.data)
+    return response
 }
 
 export const addBookingItem = bookingItemInfo => async () => {
