@@ -28,12 +28,16 @@ export class Contact extends Component {
         console.log(this.state.form)
     }
 
-    submitContact = () => {
+    submitContact = async() => {
         let form = this.state.form
         if(!form.name || !form.email || !form.subject || !form.message){
             this.setState({error: true})
         } else {
-            this.props.submitContact(this.state.form)
+            const result = await this.props.submitContact(this.state.form)
+            if(result.status === 'OK'){
+                this.props.history.replace({pathname: '/'})
+                this.props.history.go()
+            }
         }
     }
 

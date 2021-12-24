@@ -9,6 +9,7 @@ import NavBar from './containers/NavBar'
 import Modal from './components/Modal'
 
 import About from './pages/About'
+import Admin from './pages/Admin'
 import AddReview from './pages/AddReview'
 import Book from './pages/Book'
 import ConfirmPage from './pages/ConfirmPage'
@@ -33,27 +34,27 @@ class App extends Component  {
   render (){
     return (
       <div className="App">
-    
-            <NavBar history = {this.props.history}/>
-              <Modal history = {this.props.history} modal = {this.props.modal}/>
-              <Route exact path={'/'} render={(props) => <Home {...props} />}></Route> 
-              <Route exact path={'/about'} render={(props) => <About {...props} />} />
-              <Route exact path={'/add_review'} render={(props) => <AddReview {...props} />} />
-              <Route exact path={'/book'} render={(props) => <Book {...props} />} />
-              <Route exact path={'/confirm_page'} render={(props) => <ConfirmPage {...props} />} />
-              <Route exact path={'/confirm_quote/:id'} render={(props) => <ConfirmQuote {...props} />} />
-              <Route exact path={'/contact'} render={(props) => <Contact {...props} />} />
-              <Route exact path={'/enter_location/:id'} render={(props) => <EnterLocation {...props} />} />
-              <Route exact path={'/gallery'} render={(props) => <Gallery {...props} />} />
-              <Route exact path={'/items/:id'} render={(props) => <Items {...props} />} />
-              <Route exact path={'/junk'} render={(props) => <Junk {...props} />} />
-              <Route exact path={'/labor'} render={(props) => <Labor {...props} />} />
-              <Route exact path={'/local'} render={(props) => <Local {...props} />} />
-              <Route exact path={'/long'} render={(props) => <Long {...props} />} />
-              <Route exact path={'/map/:id/:zoom/:lat/:lng'} render={(props) => <Map {...props} />} />
-              <Route exact path={'/reviews'} render={(props) => <Reviews {...props} />} />
 
-       
+        <NavBar history = {this.props.history}/>
+        <Modal history = {this.props.history} modal = {this.props.modal}/>
+        <Route exact path={'/'} render={(props) => <Home {...props} />}></Route> 
+        <Route exact path={'/about'} render={(props) => <About {...props} />} />
+        <Route exact path={'/admin'} render={(props) => <Admin {...props} />} />
+        <Route exact path={'/add_review'} render={(props) => <AddReview {...props} />} />
+        <Route exact path={'/book'} render={(props) => <Book {...props} />} />
+        <Route exact path={'/confirm_page'} render={(props) => <ConfirmPage {...props} />} />
+        <Route exact path={'/confirm_quote/:id'} render={(props) => <ConfirmQuote {...props} />} />
+        <Route exact path={'/contact'} render={(props) => <Contact {...props} />} />
+        <Route exact path={'/enter_location/:id'} render={(props) => <EnterLocation {...props} />} />
+        <Route exact path={'/gallery'} render={(props) => <Gallery {...props} />} />
+        <Route exact path={'/items/:id'} render={(props) => <Items {...props} />} />
+        <Route exact path={'/junk'} render={(props) => <Junk {...props} />} />
+        <Route exact path={'/labor'} render={(props) => <Labor {...props} />} />
+        <Route exact path={'/local'} render={(props) => <Local {...props} />} />
+        <Route exact path={'/long'} render={(props) => <Long {...props} />} />
+        <Route exact path={'/map/:id/:zoom/:lat/:lng'} render={(props) => <Map {...props} />} />
+        <Route exact path={'/reviews'} render={(props) => <Reviews {...props} />} />
+
         <div class = "body-wrap"></div>
         <footer className="footer">
           <div class = 'footer-curve'>

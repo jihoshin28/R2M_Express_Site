@@ -185,7 +185,7 @@ export const submitContact = contactInfo => async dispatch => {
     console.log(contactInfo)
     const response = await express.post('/contacts', {contactInfo}) 
     let data = response.data
-    console.log(data)
+    return data
 }
 
 //MODAL ACTIONS
