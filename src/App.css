@@ -52,6 +52,17 @@
   color: rgb(212, 14, 14)
 }
 
+.map-error-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-error-div h3 {
+  color: rgb(212, 14, 14)
+}
+
+
 .error-img {
   color: white;
   margin-left: 10px;

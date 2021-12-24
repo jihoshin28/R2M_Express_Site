@@ -169,8 +169,12 @@ export class Items extends Component {
             let key = added_key.split('-')[1]
             let item_count = this.state.addedItems[added_key]
             let item_name = this.state.addedItemData[parseInt(key) - 1]
+            let item_object = {
+                name: item_name,
+                quantity: item_count
+            }
             if(item_count > 0){
-                added_items[item_name] = item_count
+                added_items[added_key] = item_object
             }
         }
         console.log(added_items)
@@ -185,10 +189,8 @@ export class Items extends Component {
                 this.props.history.push(`/enter_location/${quoteId}`)
                 this.props.history.go()
             })
-            .catch(err => console.log('error', err)) // This is executed   
+            .catch(err => console.log('error', err)) 
         }
-        // this.props.history.push(`/enter_location/${quoteId}`)
-        // this.props.history.go()
         
     }
 

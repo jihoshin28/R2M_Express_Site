@@ -7,14 +7,16 @@ const MapContainer = (props) => {
     
     const refMap = useRef(null);
     const geocoder = new props.google.maps.Geocoder()
+    const distance = new props.google.maps.DistanceMatrixService();
     const [pin, setPin] = useState({})
     const [zoom, setZoom] = useState(parseInt(props.match.params.zoom))
     const [address, setAddress] = useState("Loading...")
+    const [firstAddress, setFirstAddress] = useState("")
     const [addressForm, setAddressForm] = useState({})
+    const [error, setError] = useState(false)
     const [start, setStart] = useState(true)
     
     useEffect(() => {
-        console.log(typeof google_maps_api_key)
         console.log({
             lat: props.match.params.lat, 
             lng: props.match.params.lng, 
@@ -61,6 +63,7 @@ const MapContainer = (props) => {
                 start_state: `${state}`,
                 start_zip: `${zip}`
             }
+            setFirstAddress(address)
             setAddressForm(address_form)
             setStart(false)
         } else {
@@ -74,20 +77,30 @@ const MapContainer = (props) => {
             setAddressForm(newAddressForm)
             confirmLocation()
         }
-        if(start === true){
-            setStart(false)
-        } else if(start === false){
-            confirmLocation()
-        }
     }
 
     const confirmLocation = async() => {
-        let quoteId = props.match.params.id
-        let result = await props.editQuote(quoteId, addressForm)
-        if(!!result.status){
-            props.history.push(`/confirm_quote/${quoteId}`)
-            props.history.go()
-        }
+        distance.getDistanceMatrix(
+            {
+                origins: [firstAddress],
+                destinations: [address],
+                travelMode: 'DRIVING',
+                unitSystem: props.google.maps.UnitSystem.IMPERIAL,
+            }, 
+            async (response, status) => {
+                let quoteId = props.match.params.id
+                let form = Object.assign(addressForm, {distance: response.rows[0].elements[0].distance.text})
+                console.log(response, status)
+                console.log(form)
+                let result = await props.editQuote(quoteId, addressForm)
+                if(status === 'OK' && !!result.status){
+                    props.history.push(`/confirm_quote/${quoteId}`)
+                    props.history.go()
+                } else {
+                    setError(true)
+                }
+            }
+        );
     }
 
     const reverseGeocode = (pin) => {
@@ -99,23 +112,31 @@ const MapContainer = (props) => {
         }
     }
 
+    let timer
     const dragMap = () => {
-        let lat = refMap.current.map.center.lat()
-        let lng = refMap.current.map.center.lng()
-        setPin({lat,lng})
+        window.clearTimeout(timer)
+        setAddress("Loading...")
+        let timerId = () => setTimeout(() => {
+            let lat = refMap.current.map.center.lat()
+            let lng = refMap.current.map.center.lng()
+            setPin({lat,lng})
+
+        }, 1000)
+        timer = timerId()
     }
 
-    let timer
+    let timer2
     const zoomChanged = () => {
-        window.clearTimeout(timer)
+        window.clearTimeout(timer2)
+        setAddress("Loading...")
         let timerId = () => setTimeout(()=> {
             console.log(refMap.current)
             let lat = refMap.current.map.center.lat()
             let lng = refMap.current.map.center.lng()
             setPin({lat,lng})
 
-        }, 1500)
-        timer = timerId()
+        }, 1000)
+        timer2 = timerId()
     }
 
 
@@ -136,7 +157,9 @@ const MapContainer = (props) => {
             center = {pin}
         > 
         
-            {/* <Marker
+            {/* 
+                For checking accuracy of pin
+                <Marker
                 name={'Your position'}
                 position={this.props.user_coords}
             /> */}
@@ -162,12 +185,25 @@ const MapContainer = (props) => {
                             <img class = 'map-confirm-button-img' src = {process.env.PUBLIC_URL + '/right-arrow.png'}></img>  
                         </button>
                         :
-                        <button onClick = {() => confirmAddress()} class = "btn btn-primary">
+                        <button onClick = {() => confirmAddress()} class = "btn btn-warning">
                             Select Delivery Address
                             <img class = 'map-confirm-button-img' src = {process.env.PUBLIC_URL + '/right-arrow.png'}></img>  
                         </button>
                     }
                 </div>
+                {
+                    !!error ?
+                    <div class = "map-error-div">
+                        <div style = {{marginRight: '5px'}}>
+                            <img class = 'error-img' src = {process.env.PUBLIC_URL + '/exclamation-mark.png'}></img>  
+                        </div>
+                        <div>
+                            <h3> Please fill in all necessary fields</h3>
+                        </div>
+                    </div>
+                    :
+                    null
+                }
             </div>
         </div>
     );

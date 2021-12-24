@@ -117,12 +117,12 @@ class ConfirmQuote extends React.Component{
                                 <div class="col-md-12 mb-md-0 mb-5">
                                     <form id="contact-form" name="contact-form" action="mail.php" method="POST">
                             
-                                        <div class = "row" style = {{marginBottom: '30px'}}>
+                                        <div class = "row" style = {{marginBottom: '30px', alignItems: 'center'}}>
                                             <div class = "col-md-4">
                                                 <h1>Vehicle Size:</h1>
                                             </div>
                                             <div class="col-md-8">
-                                                <h1>{this.state.orderData.vehicle_size}</h1>
+                                                <h2>{this.state.orderData.vehicle_size}</h2>
                                             </div>
                                         </div>
 
@@ -141,8 +141,17 @@ class ConfirmQuote extends React.Component{
                                                 <h1>End Address:</h1>
                                             </div>
                                             <div class="col-md-8">
-                                            <h6>{this.state.orderData.delivery_street}</h6>
+                                                <h6>{this.state.orderData.delivery_street}</h6>
                                                 <h6>{this.state.orderData.delivery_city}, {this.state.orderData.delivery_state} {this.state.orderData.delivery_zip}</h6>
+                                            </div>
+                                        </div>
+
+                                        <div class = "row" style = {{marginBottom: '30px', alignItems: 'center'}}>
+                                            <div class = "col-md-4">
+                                                <h1>Distance:</h1>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <h2>{this.state.orderData.distance}</h2>
                                             </div>
                                         </div>
 
@@ -211,7 +220,7 @@ class ConfirmQuote extends React.Component{
                                         }
                                         <div class="row">
                                             <div class = "col-md-12">
-                                                <a class="btn" onClick = {() => this.confirmQuote()} data-toggle="modal" data-target="#Modal" style = {{marginTop: '50px', padding: '15px', backgroundColor: "rgb(130, 212, 37)"}}><h3>Confirm Quote</h3></a>
+                                                <a class="btn" onClick = {() => this.confirmQuote()} style = {{marginTop: '50px', padding: '15px', backgroundColor: "rgb(130, 212, 37)"}}><h3>Confirm Quote</h3></a>
                                             </div>
                                             <div class="status"></div>
                                         </div>

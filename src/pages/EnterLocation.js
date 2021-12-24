@@ -1,6 +1,8 @@
 import {userLocation, editQuote, updateStartLocation} from '../actions'
 import React from 'react'
 import {connect} from 'react-redux'
+import { GoogleApiWrapper } from 'google-maps-react'
+
 
 
 class EnterLocation extends React.Component{
@@ -10,8 +12,15 @@ class EnterLocation extends React.Component{
         this.state = {
             form: {}, 
             loading: false,
-            error: false
+            error: false,
+            distanceService: null
         }
+    }
+    componentDidMount(){
+        let distance_service = new this.props.google.maps.DistanceMatrixService()
+        this.setState({
+            distanceService: distance_service
+        })
     }
     
     inputChange = (e) => {
@@ -53,12 +62,28 @@ class EnterLocation extends React.Component{
                 error: true
             })
         } else {
-            let quoteId = this.props.match.params.id
-            let result = await this.props.editQuote(quoteId, this.state.form)
-            if(!!result.status){
-                this.props.history.push(`/confirm_quote/${quoteId}`)
-                this.props.history.go()
-            }
+            let start_address = `${form.start_street} ${form.start_city}, ${form.start_state} ${form.start_zip}`
+            let delivery_address = `${form.delivery_street} ${form.delivery_city}, ${form.delivery_state} ${form.delivery_zip}`
+            this.state.distanceService.getDistanceMatrix(
+                {
+                    origins: [start_address],
+                    destinations: [delivery_address],
+                    travelMode: 'DRIVING',
+                    unitSystem: this.props.google.maps.UnitSystem.IMPERIAL,
+                }, 
+                async (response, status) => {
+                    let quoteId = this.props.match.params.id
+                    let form = Object.assign(this.state.form, {distance: response.rows[0].elements[0].distance.text})
+                    console.log(response, status)
+                    console.log(form)
+                    let result = await this.props.editQuote(quoteId, form)
+                    if(status === 'OK' && !!result.status){
+                        this.props.history.push(`/confirm_quote/${quoteId}`)
+                        this.props.history.go()
+                    }
+                }
+            );
+            
         }
     }
 
@@ -338,4 +363,6 @@ const mapStateToProps = (state) =>{
     })
 }
 
-export default connect(mapStateToProps, {userLocation, editQuote, updateStartLocation})(EnterLocation)
+export default connect(mapStateToProps, {userLocation, editQuote, updateStartLocation})(GoogleApiWrapper({
+    apiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY
+})(EnterLocation))
