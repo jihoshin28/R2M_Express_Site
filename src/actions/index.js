@@ -67,10 +67,16 @@ export const editReview = (reviewId, reviewInfo)=> async dispatch => {
 export const deleteReview = (reviewId) => async dispatch => {
     const response = await express.delete(`/reviews/${reviewId}`)
     let data = response.data
-    console.log(data)
+    return data
 }
 
 //QUOTE ACTIONS
+
+export const getQuotes = () => async() =>{
+    const response = await express.get(`/quotes`)
+    let data = response.data
+    return data
+}
 
 export const getQuote = quoteId => async() =>{
     const response = await express.get(`/quotes/${quoteId}`)
@@ -104,7 +110,7 @@ export const finalizeQuote = (quoteId, quoteInfo) => async() => {
 export const deleteQuote = quoteId => async() => {
     const response = await express.delete(`/quotes/${quoteId}`)
     let data = response.data
-    console.log(data)
+    return data
 }
 
 //QUOTE ITEM ACTIONS
@@ -141,40 +147,23 @@ export const cartItemCount = (newCount, cartItemId) => {
 
 //AUTH ACTIONS
 
-export const getCurrentUser = (shopperId) => async dispatch => {
-    const response = await express.get(`/shoppers/${shopperId}`)
+export const verifyToken = (token) => async() => {
+    const response = await express.post('/verify_token', {token})
     let data = response.data
-
+    return data
 }
 
-export const signIn = (userInfo) => async dispatch => {
-    const response = await express.post('/login', {shopper: userInfo})
+export const login = (loginInfo) => async dispatch => {
+    const response = await express.post('/login', {loginInfo})
     let data = response.data
-    localStorage.setItem('shopper_token', data.jwt)
-    dispatch({
-        type: 'SIGN_IN',
-        payload: {
-            'current_shopper': data.shopper.data.attributes,
-            'numbers': data.shopper.data.attributes.phones.map((number) => {
-                return number.number
-            }),
-            'addresses': data.shopper.data.attributes.addresses.map(address => {
-                return{
-                    "street": address.street,
-                    "city": address.city,
-                    "state": address.state,
-                    "zip_code": address.zip_code
-                }
-            })
-        }
-    })
+    if(!!data.success){
+        localStorage.setItem('admin-token', data.token)
+    } 
+    return data
 }
 
-export const signOut = () => {
-    localStorage.removeItem('shopper_token')
-    return {
-        type: 'SIGN_OUT'
-    }
+export const signOut = () => async dispatch => {
+    localStorage.removeItem('admin-token')
 }
 
 

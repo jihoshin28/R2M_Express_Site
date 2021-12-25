@@ -7,10 +7,10 @@ import {connect} from 'react-redux'
 import './App.css';
 import NavBar from './containers/NavBar'
 import Modal from './components/Modal'
-
 import About from './pages/About'
-import Admin from './pages/Admin'
 import AddReview from './pages/AddReview'
+import Admin from './pages/Admin'
+import AdminLogin from './pages/AdminLogin'
 import Book from './pages/Book'
 import ConfirmPage from './pages/ConfirmPage'
 import ConfirmQuote from './pages/ConfirmQuote'
@@ -27,19 +27,16 @@ import Map from './pages/Map'
 import Reviews from './pages/Reviews'
 
 
-import { signOut, getItems, confirmModal } from './actions'
-
 class App extends Component  {
-  
   render (){
     return (
       <div className="App">
-
-        <NavBar history = {this.props.history}/>
+        <NavBar history = {this.props.history} />
         <Modal history = {this.props.history} modal = {this.props.modal}/>
         <Route exact path={'/'} render={(props) => <Home {...props} />}></Route> 
         <Route exact path={'/about'} render={(props) => <About {...props} />} />
         <Route exact path={'/admin'} render={(props) => <Admin {...props} />} />
+        <Route exact path={'/admin_login'} render={(props) => <AdminLogin {...props} />} />
         <Route exact path={'/add_review'} render={(props) => <AddReview {...props} />} />
         <Route exact path={'/book'} render={(props) => <Book {...props} />} />
         <Route exact path={'/confirm_page'} render={(props) => <ConfirmPage {...props} />} />
@@ -182,9 +179,8 @@ class App extends Component  {
 
 let mapStateToProps = state => {
   return({
-    shopperId: state.auth.currentShopper.id,
     modal: state.modals
   })
 }
 
-export default connect(mapStateToProps, { signOut,  getItems, confirmModal })(App)
+export default connect(mapStateToProps)(App)

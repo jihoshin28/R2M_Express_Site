@@ -1,9 +1,12 @@
 import axios from 'axios'
 
+let adminToken = localStorage.getItem('admin-token')
+
 const headers = {
     'Content-Type': 'application/json',
     Accepts: 'application/json',
-    AccessControlAllowOrigin: '*'
+    AccessControlAllowOrigin: '*',
+    'Admin-Auth': adminToken
 }
 
 export default axios.create({

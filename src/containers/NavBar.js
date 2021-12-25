@@ -1,19 +1,17 @@
-import React, { Component } from 'react'
+import React, { useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
 
-export class Navbar extends Component {
+const Navbar = (props) => {
 
-    render() {
+    return ( 
         
-        return ( 
-            
-            <nav style = {{height: '85px'}}class="navbar navbar-expand-lg navbar-expand-med navbar-expand-sm nav-bg">
-            
-                <div class="collapse navbar-collapse " id="navbarNav">
-                    <Link class='nav-logo' to={'/'}>
-                        <img class="nav-icon" src={process.env.PUBLIC_URL + '/upack_logo.png'}></img>
-                    </Link>
-               
+        <nav style = {{height: '85px'}}class="navbar navbar-expand-lg navbar-expand-med navbar-expand-sm nav-bg">
+        
+            <div class="collapse navbar-collapse " id="navbarNav">
+                <Link class='nav-logo' to={'/'}>
+                    <img class="nav-icon" src={process.env.PUBLIC_URL + '/upack_logo.png'}></img>
+                </Link>
+                
                     <ul class="navbar-nav menu">
                     
                         <li class="nav-item nav-list">
@@ -23,7 +21,7 @@ export class Navbar extends Component {
                             <Link class="nav-button">
                                 Services
                                 <ul class = "dropdown_menu dropdown_menu--animated dropdown_menu-6">
-                                   
+                                    
                                         <Link to = "/labor" class="dropdown-button">
                                             <li class= "dropdown_item"> 
                                                 Labor Only
@@ -58,19 +56,20 @@ export class Navbar extends Component {
                             <Link to = '/map/1/5/37.0902/-95.7129/' class="nav-button">Map</Link>
                         </li> */}
                     </ul>
-                </div>
                 
-                <ul class="navbar-nav nav-right-btn">
-                    <li class="nav-item nav-right">    
-                        <Link class= "nav-button" to='/contact'>
-                            Contact Us
-                        </Link>
-                    </li>
-                </ul>
+            </div>
+            
+            <ul class="navbar-nav nav-right-btn">
+                <li class="nav-item nav-right">    
+                    <Link class= "nav-button" to='/contact'>
+                        Contact Us
+                    </Link>
+                </li>
+            </ul>
 
-            </nav>
-        )
-    }
+        </nav>
+    )
+    
 }
 
 export default Navbar
